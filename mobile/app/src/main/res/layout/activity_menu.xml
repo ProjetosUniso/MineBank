@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dirtbg"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/saldo"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign" />
+
+    <TextView
+        android:id="@+id/moeda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/moeda"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintEnd_toStartOf="@+id/saldo"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign" />
+
+    <ImageView
+        android:id="@+id/sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/blanksign"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background" />
+
+    <ImageView
+        android:id="@+id/emerald"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/emerald"
+        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/saldo"
+        app:layout_constraintTop_toBottomOf="@+id/sign" />
+
+    <Button
+        android:id="@+id/extratoButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/extratobutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/poupancaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/pagamentosButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/poupancabutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/gastosButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/pagamentosbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/pagamentosButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cartoesButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/transferenciabutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/gastosButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/transferenciaButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/cartoesbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cartoesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/poupancaButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/gastosbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/transferenciaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/sideMenuButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/minibutton"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/sidemenubutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bvusuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/bvusuario"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/sign"
+        app:layout_constraintStart_toStartOf="@+id/sign"
+        app:layout_constraintTop_toTopOf="@+id/sign" />
+
+    <TextView
+        android:id="@+id/agencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/agencia"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/sign"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/sign"
+        app:layout_constraintTop_toBottomOf="@+id/bvusuario" />
+
+    <TextView
+        android:id="@+id/conta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/conta"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/sign"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/sign"
+        app:layout_constraintTop_toBottomOf="@+id/agencia" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

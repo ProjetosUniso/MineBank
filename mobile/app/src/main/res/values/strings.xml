@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Minebank</string>
+    <string name="cpf">CPF</string>
+    <string name="senha">SENHA</string>
+    <string name="bemvindo">Bem Vindo!\n Faça login com seus dados</string>
+    <string name="minebank_logo">MineBank Logo</string>
+    <string name="loginbg">LoginBg</string>
+    <string name="entrarbutton">Entrar</string>
+    <string name="minebanklogo">MinebankLogo</string>
+    <string name="saldo">Saldo</string>
+    <string name="moeda">R$</string>
+    <string name="extratobutton">Extrato</string>
+    <string name="gastosbutton">Acompanhar Gastos</string>
+    <string name="cartoesbutton">Cartoes</string>
+    <string name="transferenciabutton">Transferencia</string>
+    <string name="pagamentosbutton">Pagamentos</string>
+    <string name="poupancabutton">Poupanca</string>
+    <string name="sidemenubutton">. . .</string>
+    <string name="bvusuario">Bem Vindo, Usuário</string>
+    <string name="agencia">Agencia: 1234-5</string>
+    <string name="conta">Conta: 123456-7</string>
+    <string name="title_activity_side_menu">SideMenu</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+</resources>
