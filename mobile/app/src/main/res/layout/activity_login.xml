@@ -12,17 +12,19 @@
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/loginbg"
         android:scaleType="centerCrop"
+        android:src="@drawable/loginbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="363dp"
-        android:layout_height="333dp"
+        android:layout_width="371dp"
+        android:layout_height="278dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:src="@drawable/logo"
@@ -34,22 +36,22 @@
         android:id="@+id/textViewBEMVINDO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/minecraft"
         android:gravity="center"
         android:text="@string/bemvindo"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textCPF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
         android:id="@+id/editTextSENHA"
         android:layout_width="247dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:background="#000000"
         android:ems="10"
@@ -57,16 +59,16 @@
         android:inputType="number"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/entrarButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSENHA" />
 
     <EditText
         android:id="@+id/editTextCPF"
         android:layout_width="247dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:autofillHints=""
         android:background="#000000"
         android:ems="10"
@@ -74,51 +76,51 @@
         android:inputType="number"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textSENHA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCPF" />
 
     <TextView
         android:id="@+id/textCPF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/cpf"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCPF"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/background" />
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBEMVINDO" />
 
     <TextView
         android:id="@+id/textSENHA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/senha"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSENHA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCPF" />
 
     <Button
         android:id="@+id/entrarButton"
         android:layout_width="235dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="64dp"
         android:background="@drawable/button"
         android:fontFamily="@font/minecraft"
         android:text="@string/entrarbutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSENHA" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
