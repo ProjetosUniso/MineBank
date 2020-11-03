@@ -24,15 +24,17 @@
         android:id="@+id/saldo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/saldo"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign" />
+        app:layout_constraintTop_toBottomOf="@+id/sign"
+        app:layout_constraintVertical_bias="0.003" />
 
     <TextView
         android:id="@+id/moeda"
@@ -52,7 +54,7 @@
         android:id="@+id/sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/blanksign"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -70,90 +72,62 @@
         app:layout_constraintStart_toEndOf="@+id/saldo"
         app:layout_constraintTop_toBottomOf="@+id/sign" />
 
-    <Button
-        android:id="@+id/extratoButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/extratobutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/poupancaButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <Button
-        android:id="@+id/pagamentosButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/poupancabutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/gastosButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="19dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/pagamentosbutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/pagamentosButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cartoesButton"
         android:layout_width="235dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button"
         android:fontFamily="@font/minecraft"
         android:text="@string/transferenciabutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gastosButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extratoButton" />
 
     <Button
-        android:id="@+id/transferenciaButton"
+        android:id="@+id/gastosButton"
         android:layout_width="235dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button"
         android:fontFamily="@font/minecraft"
-        android:text="@string/cartoesbutton"
+        android:text="@string/pagamentosbutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/cartoesButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cartoesButton" />
 
     <Button
-        android:id="@+id/poupancaButton"
+        android:id="@+id/extratoButton"
         android:layout_width="235dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button"
         android:fontFamily="@font/minecraft"
-        android:text="@string/gastosbutton"
+        android:text="@string/extratobutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/transferenciaButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saldo" />
+
+    <Button
+        android:id="@+id/pagamentosButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/poupancabutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gastosButton" />
 
     <Button
         android:id="@+id/sideMenuButton"
@@ -162,12 +136,15 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/minibutton"
         android:fontFamily="@font/minecraft"
         android:text="@string/sidemenubutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/sign"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
