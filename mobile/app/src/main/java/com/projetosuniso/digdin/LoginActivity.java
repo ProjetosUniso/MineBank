@@ -17,12 +17,19 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button button = findViewById(R.id.entrarButton);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        Button entrarButton = findViewById(R.id.entrarButton);
+        entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMenu();
+            }
+        });
+
+        Button cadastrarButton = findViewById(R.id.cadastrarButton);
+        cadastrarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCadastroEmail();
             }
         });
     }
@@ -30,10 +37,15 @@ public class LoginActivity extends Activity {
     public void openMenu() {
 
         //Chama o metodo Login para fazer a validação do cpf indicado pelo cliente
-        if (loginCtrl.Login("123123125423")){
+        //if (loginCtrl.Login("123123125423")){
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
-        }
+        //}
 
+    }
+
+    public void openCadastroEmail() {
+        Intent intent = new Intent(this, CadastroEmailActivity.class);
+        startActivity((intent));
     }
 }

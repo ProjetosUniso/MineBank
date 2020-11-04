@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:contentDescription="@string/minebanklogo"
-    tools:context=".LoginActivity">
-
+    tools:context=".CadastroSenhaActivity">
 
     <ImageView
         android:id="@+id/background"
@@ -23,8 +21,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="271dp"
-        android:layout_height="wrap_content"
+        android:layout_width="206dp"
+        android:layout_height="192dp"
         android:adjustViewBounds="true"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,60 +30,44 @@
         app:layout_constraintTop_toTopOf="@+id/background" />
 
     <TextView
-        android:id="@+id/textViewBEMVINDO"
+        android:id="@+id/textViewCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/minecraft"
         android:gravity="center"
-        android:text="@string/bemvindo"
+        android:text="@string/cadastrartext"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <TextView
-        android:id="@+id/textCPF"
+        android:id="@+id/textSENHA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/minecraft"
-        android:text="@string/cpf"
+        android:text="@string/senha"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBEMVINDO" />
-
-    <EditText
-        android:id="@+id/editTextCPF"
-        android:layout_width="247dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="4dp"
-        android:autofillHints=""
-        android:background="#000000"
-        android:ems="10"
-        android:fontFamily="@font/minecraft"
-        android:inputType="number"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCPF" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCadastro" />
 
     <TextView
-        android:id="@+id/textSENHA"
+        android:id="@+id/textApenasNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/minecraft"
-        android:text="@string/senha"
+        android:text="@string/apenasnum"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCPF" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/textSENHA" />
 
     <EditText
         android:id="@+id/editTextSENHA"
@@ -101,35 +83,65 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSENHA" />
+        app:layout_constraintTop_toBottomOf="@+id/textApenasNum" />
 
-    <Button
-        android:id="@+id/entrarButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button"
+    <TextView
+        android:id="@+id/textCONFIRMSENHA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/minecraft"
-        android:text="@string/entrarbutton"
+        android:text="@string/senhaconfirm"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSENHA" />
 
+    <EditText
+        android:id="@+id/editTextCONFIRMSENHA"
+        android:layout_width="247dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:background="#000000"
+        android:ems="10"
+        android:fontFamily="@font/minecraft"
+        android:inputType="numberPassword"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCONFIRMSENHA" />
+
     <Button
-        android:id="@+id/cadastrarButton"
-        android:layout_width="142dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/continuarButton"
+        android:layout_width="127dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:background="@drawable/button"
         android:fontFamily="@font/minecraft"
-        android:text="@string/cadastrarbutton"
+        android:text="@string/continuarbutton"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/voltarButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entrarButton" />
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toEndOf="@+id/voltarButton" />
 
+    <Button
+        android:id="@+id/voltarButton"
+        android:layout_width="127dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/voltarbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCONFIRMSENHA" />
 </androidx.constraintlayout.widget.ConstraintLayout>

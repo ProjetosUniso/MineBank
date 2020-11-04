@@ -2,10 +2,19 @@
     <string name="app_name">Minebank</string>
     <string name="cpf">CPF</string>
     <string name="senha">SENHA</string>
+    <string name="email">EMAIL</string>
+    <string name="nome">NOME COMPLETO</string>
+    <string name="rg">RG</string>
+    <string name="nascimento">DATA DE NASCIMENTO</string>
+    <string name="emailconfirm">CONFIRME SEU EMAIL</string>
     <string name="bemvindo">Bem Vindo!\n Faça login com seus dados</string>
     <string name="minebank_logo">MineBank Logo</string>
     <string name="loginbg">LoginBg</string>
     <string name="entrarbutton">Entrar</string>
+    <string name="cadastrarbutton">Cadastrar-se</string>
+    <string name="cadastrartext">Insira seus dados para se cadastrar:</string>
+    <string name="continuarbutton">Continuar</string>
+    <string name="voltarbutton">Voltar</string>
     <string name="minebanklogo">MinebankLogo</string>
     <string name="saldo">Saldo</string>
     <string name="moeda">R$</string>
@@ -19,15 +28,11 @@
     <string name="bvusuario">Bem Vindo, Usuário</string>
     <string name="agencia">Agencia: 1234-5</string>
     <string name="conta">Conta: 123456-7</string>
-    <string name="title_activity_side_menu">SideMenu</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="estado">ESTADO</string>
+    <string name="cidade">CIDADE</string>
+    <string name="numeroendereco">NÚMERO DA RESIDÊNCIA</string>
+    <string name="endereco">ENDEREÇO</string>
+    <string name="senhaconfirm">CONFIRMAR SENHA</string>
+    <string name="apenasnum">(APENAS NÚMEROS)</string>
+    <string name="cadastroconcluido">CADASTRO CONCLUÍDO COM SUCESSO, RETORNE PARA A TELA INICIAL E FAÇA LOGIN COM SEUS DADOS.</string>
 </resources>
