@@ -10,7 +10,7 @@
     <string name="bemvindo">Bem Vindo!\n Faça login com seus dados</string>
     <string name="minebank_logo">MineBank Logo</string>
     <string name="loginbg">LoginBg</string>
-    <string name="entrarbutton">Entrar</string>
+    <string name="entrarbutton">ENTRAR</string>
     <string name="cadastrarbutton">Cadastrar-se</string>
     <string name="cadastrartext">Insira seus dados para se cadastrar:</string>
     <string name="continuarbutton">Continuar</string>
@@ -24,7 +24,6 @@
     <string name="transferenciabutton">Transferencia</string>
     <string name="pagamentosbutton">Pagamentos</string>
     <string name="poupancabutton">Poupanca</string>
-    <string name="sidemenubutton">. . .</string>
     <string name="bvusuario">Bem Vindo, Usuário</string>
     <string name="agencia">Agencia: 1234-5</string>
     <string name="conta">Conta: 123456-7</string>
@@ -36,4 +35,8 @@
     <string name="apenasnum">(4 DIGITOS, APENAS NUMEROS)</string>
     <string name="cadastroconcluido">CADASTRO CONCLUIDO COM SUCESSO, RETORNE PARA A TELA INICIAL E FAÇA LOGIN COM SEUS DADOS.</string>
     <string name="cep">CEP</string>
+    <string name="depositobutton">DEPOSITO</string>
+    <string name="saquebutton">SAQUE</string>
+    <string name="transferenciacontasbutton">TRANSFERENCIA ENTRE CONTAS</string>
+    <string name="transferenciapoupancabutton">TRANSFERENCIA PARA POUPANÇA</string>
 </resources>

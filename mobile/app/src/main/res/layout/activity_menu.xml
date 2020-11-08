@@ -18,37 +18,25 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/saldo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/minibutton"
         android:fontFamily="@font/minecraft"
-        android:text="@string/saldo"
         android:textColor="#FFFFFF"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/sign"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign"
-        app:layout_constraintVertical_bias="0.003" />
-
-    <TextView
-        android:id="@+id/moeda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/moeda"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
-        app:layout_constraintEnd_toStartOf="@+id/saldo"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/sign"
@@ -60,93 +48,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background" />
-
-    <ImageView
-        android:id="@+id/emerald"
-        android:layout_width="38dp"
-        android:layout_height="37dp"
-        android:src="@drawable/emerald"
-        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toEndOf="@+id/saldo"
-        app:layout_constraintTop_toBottomOf="@+id/sign" />
-
-
-    <Button
-        android:id="@+id/cartoesButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/transferenciabutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/extratoButton" />
-
-    <Button
-        android:id="@+id/gastosButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/pagamentosbutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cartoesButton" />
-
-    <Button
-        android:id="@+id/extratoButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/extratobutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saldo" />
-
-    <Button
-        android:id="@+id/pagamentosButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/poupancabutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gastosButton" />
-
-    <Button
-        android:id="@+id/sideMenuButton"
-        android:layout_width="55dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/minibutton"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/sidemenubutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/sign"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bvusuario"
@@ -188,6 +89,104 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/sign"
         app:layout_constraintTop_toBottomOf="@+id/agencia" />
+
+    <TextView
+        android:id="@+id/saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/saldo"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign"
+        app:layout_constraintVertical_bias="0.003" />
+
+    <TextView
+        android:id="@+id/moeda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/moeda"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintEnd_toStartOf="@+id/saldo"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign" />
+
+    <ImageView
+        android:id="@+id/emerald"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/emerald"
+        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toEndOf="@+id/saldo"
+        app:layout_constraintTop_toBottomOf="@+id/sign" />
+
+
+    <Button
+        android:id="@+id/extratoButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/extratobutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saldo" />
+
+    <Button
+        android:id="@+id/transferenciaButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/transferenciabutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extratoButton" />
+
+    <Button
+        android:id="@+id/pagamentosButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/pagamentosbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transferenciaButton" />
+
+    <Button
+        android:id="@+id/poupancaButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/poupancabutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pagamentosButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
