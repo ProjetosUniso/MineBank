@@ -7,6 +7,8 @@ Desenvolvido por: Kayan, Leonardo, Lucas e Mithel.
 
 -Tela de Login: Inclui campos para inserir CPF e SENHA e botão para acessar sua conta.
 
+-Telas de Cadastro: Sequência de telas para receber as informações do cliente e assim cadastrar seus dados no banco.
+
 -Tela de Menu: Inclui botões que levam para as diferentes funções do aplicativo e um indicador do saldo da conta.
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
