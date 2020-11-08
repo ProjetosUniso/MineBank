@@ -44,20 +44,20 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <TextView
-        android:id="@+id/textENDERECO"
+        android:id="@+id/textViewCEP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/minecraft"
-        android:text="@string/endereco"
+        android:text="@string/cep"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCEP"
+        app:layout_constraintStart_toStartOf="@+id/editTextCEP"
         app:layout_constraintTop_toBottomOf="@+id/textViewCadastro" />
 
     <EditText
-        android:id="@+id/editTextENDERECO"
+        android:id="@+id/editTextCEP"
         android:layout_width="247dp"
         android:layout_height="36dp"
         android:layout_marginTop="4dp"
@@ -65,9 +65,46 @@
         android:background="#000000"
         android:ems="10"
         android:fontFamily="@font/minecraft"
+        android:inputType="number"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCEP" />
+
+    <TextView
+        android:id="@+id/textENDERECO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/endereco"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextENDERECO"
+        app:layout_constraintStart_toStartOf="@+id/editTextENDERECO"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCEP" />
+
+    <EditText
+        android:id="@+id/editTextENDERECO"
+        android:layout_width="247dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:background="#656565"
+        android:ems="10"
+        android:fontFamily="@font/minecraft"
         android:inputType="text"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:focusable="false"
+        android:longClickable="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textENDERECO" />
@@ -81,8 +118,8 @@
         android:text="@string/numeroendereco"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNUMERO"
+        app:layout_constraintStart_toStartOf="@+id/editTextNUMERO"
         app:layout_constraintTop_toBottomOf="@+id/editTextENDERECO" />
 
     <EditText
@@ -97,6 +134,9 @@
         android:inputType="number"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNUMERO" />
@@ -110,54 +150,65 @@
         android:text="@string/cidade"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCIDADE"
+        app:layout_constraintStart_toStartOf="@+id/editTextCIDADE"
         app:layout_constraintTop_toBottomOf="@+id/editTextNUMERO" />
 
     <EditText
         android:id="@+id/editTextCIDADE"
-        android:layout_width="247dp"
+        android:layout_width="180dp"
         android:layout_height="36dp"
         android:layout_marginTop="4dp"
         android:autofillHints=""
-        android:background="#000000"
+        android:background="#656565"
         android:ems="10"
         android:fontFamily="@font/minecraft"
         android:inputType="text"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:focusable="false"
+        android:longClickable="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/editTextNUMERO"
         app:layout_constraintTop_toBottomOf="@+id/textCIDADE" />
 
     <TextView
         android:id="@+id/textESTADO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/estado"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCIDADE" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextESTADO"
+        app:layout_constraintStart_toStartOf="@+id/editTextESTADO"
+        app:layout_constraintTop_toTopOf="@+id/textCIDADE" />
 
     <EditText
         android:id="@+id/editTextESTADO"
-        android:layout_width="247dp"
+        android:layout_width="47dp"
         android:layout_height="36dp"
-        android:layout_marginTop="4dp"
         android:autofillHints=""
-        android:background="#000000"
+        android:background="#656565"
         android:ems="10"
         android:fontFamily="@font/minecraft"
         android:inputType="text"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textESTADO" />
+        android:gravity="center"
+        android:maxLength="2"
+        android:focusable="false"
+        android:longClickable="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="@id/editTextNUMERO"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextCIDADE"
+        app:layout_constraintTop_toTopOf="@id/editTextCIDADE" />
 
     <Button
         android:id="@+id/continuarButton"

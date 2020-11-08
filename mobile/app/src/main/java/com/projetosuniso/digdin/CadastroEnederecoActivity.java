@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class CadastroEnederecoActivity extends Activity {
 
@@ -30,6 +33,9 @@ public class CadastroEnederecoActivity extends Activity {
                 openCadastroSenha();
             }
         });
+
+        EditText editTextCEP = findViewById(R.id.editTextCEP);
+        editTextCEP.addTextChangedListener(MaskEditUtil.mask(editTextCEP, MaskEditUtil.FORMAT_CEP));
     }
 
     public void openCadastroInfoPessoal() {

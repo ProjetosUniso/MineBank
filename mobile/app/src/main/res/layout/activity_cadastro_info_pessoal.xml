@@ -68,6 +68,9 @@
         android:inputType="text"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNOME" />
@@ -97,6 +100,9 @@
         android:inputType="number"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCPF" />
@@ -126,6 +132,9 @@
         android:inputType="number"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textRG" />
@@ -155,6 +164,9 @@
         android:inputType="date"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNASCIMENTO" />

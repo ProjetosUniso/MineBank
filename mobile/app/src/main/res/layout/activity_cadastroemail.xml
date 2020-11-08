@@ -68,6 +68,9 @@
         android:inputType="textEmailAddress"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEMAIL" />
@@ -97,6 +100,9 @@
         android:inputType="textEmailAddress"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCONFIRMEMAIL" />

@@ -28,11 +28,12 @@
     <string name="bvusuario">Bem Vindo, Usuário</string>
     <string name="agencia">Agencia: 1234-5</string>
     <string name="conta">Conta: 123456-7</string>
-    <string name="estado">ESTADO</string>
+    <string name="estado">UF</string>
     <string name="cidade">CIDADE</string>
-    <string name="numeroendereco">NÚMERO DA RESIDÊNCIA</string>
+    <string name="numeroendereco">NUMERO</string>
     <string name="endereco">ENDEREÇO</string>
     <string name="senhaconfirm">CONFIRMAR SENHA</string>
-    <string name="apenasnum">(APENAS NÚMEROS)</string>
-    <string name="cadastroconcluido">CADASTRO CONCLUÍDO COM SUCESSO, RETORNE PARA A TELA INICIAL E FAÇA LOGIN COM SEUS DADOS.</string>
+    <string name="apenasnum">(4 DIGITOS, APENAS NUMEROS)</string>
+    <string name="cadastroconcluido">CADASTRO CONCLUIDO COM SUCESSO, RETORNE PARA A TELA INICIAL E FAÇA LOGIN COM SEUS DADOS.</string>
+    <string name="cep">CEP</string>
 </resources>

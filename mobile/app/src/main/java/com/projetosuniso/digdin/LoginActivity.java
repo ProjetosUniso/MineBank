@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+
 import com.projetosuniso.digdin.controller.LoginCtrl;
+import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class LoginActivity extends Activity {
 
     private final LoginCtrl loginCtrl = new LoginCtrl();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class LoginActivity extends Activity {
                 openCadastroEmail();
             }
         });
+
+        EditText editTextCPF = findViewById(R.id.editTextCPF);
+        editTextCPF.addTextChangedListener(MaskEditUtil.mask(editTextCPF, MaskEditUtil.FORMAT_CPF));
     }
 
     public void openMenu() {
