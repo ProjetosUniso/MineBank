@@ -11,6 +11,8 @@ Desenvolvido por: Kayan, Leonardo, Lucas e Mithel.
 
 -Tela de Menu: Inclui botões que levam para as diferentes funções do aplicativo e um indicador do saldo da conta.
 
+-Tela de Transferências : Inclui botões para selecionar o tipo de transferência que será realizada.
+
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 **Protótipos**
