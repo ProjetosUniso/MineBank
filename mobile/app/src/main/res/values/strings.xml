@@ -3,7 +3,7 @@
     <string name="cpf">CPF</string>
     <string name="senha">SENHA</string>
     <string name="email">EMAIL</string>
-    <string name="nome">NOME COMPLETO</string>
+    <string name="nome">NOME</string>
     <string name="rg">RG</string>
     <string name="nascimento">DATA DE NASCIMENTO</string>
     <string name="emailconfirm">CONFIRME SEU EMAIL</string>
@@ -39,4 +39,11 @@
     <string name="saquebutton">SAQUE</string>
     <string name="transferenciacontasbutton">TRANSFERENCIA ENTRE CONTAS</string>
     <string name="transferenciapoupancabutton">TRANSFERENCIA PARA POUPANÇA</string>
+    <string name="CPFinvalido">CPF INVALIDO!</string>
+    <string name="preenchercampos">PREENCHA TODOS OS CAMPOS CORRETAMENTE PARA PROSSEGUIR!</string>
+    <string name="emailinvalido">EMAIL INVALIDO.\n INSIRA UM EMAIL VALIDO!</string>
+    <string name="emailsdiferentes">ERRO NA HORA DE CONFIRMAR!\nEMAILS DIFERENTES!</string>
+    <string name="sobrenome">SOBRENOME</string>
+    <string name="DATAinvalida">DATA INVALIDA!</string>
+    <string name="senhasdiferentes">ERRO NA HORA DE CONFIRMAR!\nSENHAS DIFERENTES!</string>
 </resources>

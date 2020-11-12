@@ -60,7 +60,7 @@ public abstract class MaskEditUtil {
         };
     }
 
-    public static String unmask(final String s) {
+    public static String unmask(String s) {
         return s.replaceAll("[.]", "").replaceAll("[-]", "").replaceAll("[/]", "").replaceAll("[(]", "").replaceAll("[ ]","").replaceAll("[:]", "").replaceAll("[)]", "");
     }
 }

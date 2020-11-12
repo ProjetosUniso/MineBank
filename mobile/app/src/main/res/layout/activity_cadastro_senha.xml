@@ -152,4 +152,19 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCONFIRMSENHA" />
+
+    <TextView
+        android:id="@+id/textSenhasDiferentes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/senhasdiferentes"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/voltarButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

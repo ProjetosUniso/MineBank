@@ -47,39 +47,73 @@
         android:id="@+id/textNOME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/nome"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNOME"
+        app:layout_constraintStart_toStartOf="@+id/editTextNOME"
         app:layout_constraintTop_toBottomOf="@+id/textViewCadastro" />
 
     <EditText
         android:id="@+id/editTextNOME"
-        android:layout_width="247dp"
+        android:layout_width="120dp"
         android:layout_height="36dp"
         android:layout_marginTop="4dp"
         android:autofillHints=""
         android:background="#000000"
         android:ems="10"
         android:fontFamily="@font/minecraft"
-        android:inputType="text"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
         android:gravity="center"
+        android:inputType="textCapSentences"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextCPF"
         app:layout_constraintTop_toBottomOf="@+id/textNOME" />
+
+    <TextView
+        android:id="@+id/textSOBRENOME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/sobrenome"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textNOME"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSOBRENOME"
+        app:layout_constraintStart_toStartOf="@+id/editTextSOBRENOME"
+        app:layout_constraintTop_toTopOf="@+id/textNOME" />
+
+    <EditText
+        android:id="@+id/editTextSOBRENOME"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:autofillHints=""
+        android:background="#000000"
+        android:ems="10"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:inputType="textCapSentences"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNOME"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCPF"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextNOME"
+        app:layout_constraintTop_toTopOf="@+id/editTextNOME" />
 
     <TextView
         android:id="@+id/textCPF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/cpf"
         android:textColor="#FFFFFF"
@@ -97,12 +131,12 @@
         android:background="#000000"
         android:ems="10"
         android:fontFamily="@font/minecraft"
-        android:inputType="number"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
         android:gravity="center"
+        android:inputType="number"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCPF" />
@@ -111,7 +145,7 @@
         android:id="@+id/textRG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/rg"
         android:textColor="#FFFFFF"
@@ -129,12 +163,12 @@
         android:background="#000000"
         android:ems="10"
         android:fontFamily="@font/minecraft"
-        android:inputType="number"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
         android:gravity="center"
+        android:inputType="number"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textRG" />
@@ -143,7 +177,7 @@
         android:id="@+id/textNASCIMENTO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/minecraft"
         android:text="@string/nascimento"
         android:textColor="#FFFFFF"
@@ -161,12 +195,12 @@
         android:background="#000000"
         android:ems="10"
         android:fontFamily="@font/minecraft"
-        android:inputType="date"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
         android:gravity="center"
+        android:inputType="date"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNASCIMENTO" />
@@ -201,5 +235,144 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNASCIMENTO" />
+
+    <TextView
+        android:id="@+id/textCPFInvalido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/CPFinvalido"
+        android:textColor="#f41717"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/voltarButton" />
+
+    <TextView
+        android:id="@+id/textDATAInvalida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/DATAinvalida"
+        android:textColor="#f41717"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/textCPFInvalido" />
+
+    <TextView
+        android:id="@+id/textPreencherCampos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/preenchercampos"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/voltarButton" />
+
+    <ImageView
+        android:id="@+id/imageCheckNOME"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/check"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNOME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextSOBRENOME"
+        app:layout_constraintTop_toTopOf="@+id/editTextNOME" />
+
+    <ImageView
+        android:id="@+id/imageCheckCPF"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/check"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextCPF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextCPF"
+        app:layout_constraintTop_toTopOf="@+id/editTextCPF" />
+
+    <ImageView
+        android:id="@+id/imageCheckRG"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/check"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextRG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextRG"
+        app:layout_constraintTop_toTopOf="@+id/editTextRG" />
+
+    <ImageView
+        android:id="@+id/imageCheckDATA"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/check"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNASCIMENTO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextNASCIMENTO"
+        app:layout_constraintTop_toTopOf="@+id/editTextNASCIMENTO" />
+
+    <ImageView
+        android:id="@+id/imageWrongNOME"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/xmark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNOME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextSOBRENOME"
+        app:layout_constraintTop_toTopOf="@+id/editTextNOME" />
+
+    <ImageView
+        android:id="@+id/imageWrongCPF"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/xmark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextCPF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextCPF"
+        app:layout_constraintTop_toTopOf="@+id/editTextCPF" />
+
+    <ImageView
+        android:id="@+id/imageWrongRG"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/xmark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextRG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextRG"
+        app:layout_constraintTop_toTopOf="@+id/editTextRG" />
+
+    <ImageView
+        android:id="@+id/imageWrongDATA"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/xmark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNASCIMENTO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextNASCIMENTO"
+        app:layout_constraintTop_toTopOf="@+id/editTextNASCIMENTO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

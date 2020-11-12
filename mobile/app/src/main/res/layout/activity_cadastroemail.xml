@@ -138,4 +138,82 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCONFIRMEMAIL" />
 
+    <TextView
+        android:id="@+id/textEmailInvalido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/emailinvalido"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/voltarButton" />
+
+    <TextView
+        android:id="@+id/textEmailsDiferentes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/emailsdiferentes"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/voltarButton" />
+
+    <ImageView
+        android:id="@+id/imageCheckEMAIL"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/check"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextEMAIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextEMAIL"
+        app:layout_constraintTop_toTopOf="@+id/editTextEMAIL" />
+
+    <ImageView
+        android:id="@+id/imageCheckCONFIRMEMAIL"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/check"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextCONFIRMEMAIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextCONFIRMEMAIL"
+        app:layout_constraintTop_toTopOf="@+id/editTextCONFIRMEMAIL" />
+
+    <ImageView
+        android:id="@+id/imageWrongEMAIL"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/xmark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextEMAIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextEMAIL"
+        app:layout_constraintTop_toTopOf="@+id/editTextEMAIL" />
+
+    <ImageView
+        android:id="@+id/imageWrongCONFIRMEMAIL"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/xmark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextCONFIRMEMAIL"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/editTextCONFIRMEMAIL"
+        app:layout_constraintTop_toTopOf="@+id/editTextCONFIRMEMAIL" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

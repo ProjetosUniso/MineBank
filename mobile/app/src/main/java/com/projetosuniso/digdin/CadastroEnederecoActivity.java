@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +19,13 @@ public class CadastroEnederecoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_enedereco);
 
+        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+
         Button voltarButton = findViewById(R.id.voltarButton);
         voltarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clickButton.start();
                 openCadastroInfoPessoal();
             }
         });
@@ -30,6 +34,7 @@ public class CadastroEnederecoActivity extends Activity {
         continuarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clickButton.start();
                 openCadastroSenha();
             }
         });
@@ -39,7 +44,7 @@ public class CadastroEnederecoActivity extends Activity {
     }
 
     public void openCadastroInfoPessoal() {
-        Intent intent = new Intent(this, CadastroEmailActivity.class);
+        Intent intent = new Intent(this, CadastroInfoPessoalActivity.class);
         startActivity((intent));
     }
 

@@ -2,6 +2,7 @@ package com.projetosuniso.digdin;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,10 +21,13 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+
         Button entrarButton = findViewById(R.id.entrarButton);
         entrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clickButton.start();
                 openMenu();
             }
         });
@@ -32,6 +36,7 @@ public class LoginActivity extends Activity {
         cadastrarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clickButton.start();
                 openCadastroEmail();
             }
         });
