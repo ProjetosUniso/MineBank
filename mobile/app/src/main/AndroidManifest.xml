@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".TransferenciaActivity"/>
+        <activity android:name=".ExtratoActivity"></activity>
+        <activity android:name=".TransferenciaActivity" />
         <activity android:name=".CadastroConcluidoActivity" />
         <activity android:name=".CadastroSenhaActivity" />
         <activity android:name=".CadastroEnederecoActivity" />
