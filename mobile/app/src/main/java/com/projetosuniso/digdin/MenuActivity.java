@@ -38,6 +38,15 @@ public class MenuActivity extends Activity {
             }
         });
 
+        Button extratoButton = findViewById(R.id.extratoButton);
+        extratoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButton.start();
+                openExtrato();
+            }
+        });
+
         Button transferenciaButton = findViewById(R.id.transferenciaButton);
         transferenciaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +73,11 @@ public class MenuActivity extends Activity {
 
     public void openLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void openExtrato() {
+        Intent intent = new Intent(this, ExtratoActivity.class);
         startActivity(intent);
     }
 

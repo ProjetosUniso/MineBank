@@ -46,4 +46,7 @@
     <string name="sobrenome">SOBRENOME</string>
     <string name="DATAinvalida">DATA INVALIDA!</string>
     <string name="senhasdiferentes">ERRO NA HORA DE CONFIRMAR!\nSENHAS DIFERENTES!</string>
+    <string name="valor">Valor (R$)</string>
+    <string name="descricao">Descrição</string>
+    <string name="data">Data</string>
 </resources>
