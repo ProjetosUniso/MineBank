@@ -40,11 +40,19 @@ public class ContaService {
             return Boolean.parseBoolean(null);
         }
     }
+    //NOT CHECKED
     public String adicionar(Conta c){
         try {
             return conta.adicionar(c);
         } catch (Exception e) {
             return null;
+        }
+    }
+    public String atualizar(Conta c, int id){
+        try {
+            return conta.atualiza(c, id);
+        } catch (Exception e){
+            return e.getMessage();
         }
     }
 

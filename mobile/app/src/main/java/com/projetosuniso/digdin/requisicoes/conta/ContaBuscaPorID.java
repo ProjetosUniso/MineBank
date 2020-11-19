@@ -38,7 +38,6 @@ public class ContaBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
 
             connection.connect();
 
-
             int responseCode = connection.getResponseCode();
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -55,8 +54,8 @@ public class ContaBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
 
             }
 
+            connection.disconnect();
             return new JSONObject(result);
-
 
         } catch (ProtocolException e) {
             e.printStackTrace();

@@ -26,11 +26,11 @@ public class EnderecoResource {
         return end;
     }
 
-    public String EnderecoAtualizar(int id, Endereco endereco) throws ExecutionException, InterruptedException, JSONException {
+    public String enderecoAtualizar(int id, Endereco endereco) throws ExecutionException, InterruptedException, JSONException {
         EnderecoAtualizar atualizar;
 
         JSONObject end = convertEnderecoToJsonObj(endereco);
-        atualizar = new EnderecoAtualizar(id, end);
+        atualizar = new EnderecoAtualizar(id, end.toString());
 
         String obj = atualizar.execute().get();
 
@@ -44,8 +44,8 @@ public class EnderecoResource {
         endereco.setId(object.getLong("id"));
         endereco.setRua(object.getString("rua"));
         endereco.setCidade(object.getString("cidade"));
-        endereco.setUF(object.getString("uf"));
         endereco.setNumero(object.getInt("numero"));
+        endereco.setUF(object.getString("uf"));
 
         return endereco;
     }

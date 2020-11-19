@@ -1,9 +1,11 @@
 package com.projetosuniso.digdin.resource;
 
+import com.google.gson.Gson;
 import com.projetosuniso.digdin.model.Cliente;
 import com.projetosuniso.digdin.model.Endereco;
-import com.projetosuniso.digdin.requisicoes.cliente.ClienteVerificarCPF;
+import com.projetosuniso.digdin.requisicoes.cliente.ClienteAtualiza;
 import com.projetosuniso.digdin.requisicoes.cliente.ClienteBuscaPorID;
+import com.projetosuniso.digdin.requisicoes.cliente.ClienteVerificarCPF;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +34,17 @@ public class ClienteResource {
         return verificarCPF.execute().get();
     }
 
+    public String atualiza (Cliente cliente, int id) throws JSONException, ExecutionException, InterruptedException {
+        ClienteAtualiza atualiza;
+        String resul ;
 
+        JSONObject object = convertClienteToJsonObj(cliente);
+        atualiza = new ClienteAtualiza(object.toString(), id);
+
+        resul = atualiza.execute().get();
+
+        return resul;
+    }
 
     public Cliente convertJsonToCliente (JSONObject object) throws JSONException {
         Cliente cliente = new Cliente();
@@ -40,11 +52,11 @@ public class ClienteResource {
         Endereco endereco;
 
         cliente.setId(object.getInt("id"));
-        cliente.setCpf(object.getString("cpf"));
-        cliente.setDataNascimento(object.getString("dataNascimento"));
-        cliente.setEmail(object.getString("email"));
         cliente.setNome(object.getString("nome"));
+        cliente.setCpf(object.getString("cpf"));
         cliente.setRg(object.getString("rg"));
+        cliente.setEmail(object.getString("email"));
+        cliente.setDataNascimento(object.getString("dataNascimento"));
 
         end = object.getJSONObject("endereco");
 
@@ -53,5 +65,17 @@ public class ClienteResource {
         cliente.setEndereco(endereco);
 
         return cliente;
+    }
+
+    private JSONObject convertClienteToJsonObj(Cliente cliente) throws JSONException {
+        JSONObject object;
+        Gson g = new Gson();
+        String jsonStr;
+
+        jsonStr = g.toJson(cliente);
+
+        object = new JSONObject(jsonStr);
+
+        return object;
     }
 }

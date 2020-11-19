@@ -80,6 +80,18 @@ public class ContaResource {
         return resul;
     }
 
+    public String atualiza (Conta conta, int id) throws JSONException, ExecutionException, InterruptedException {
+        ContaAtualiza atualiza;
+        String resul ;
+
+        JSONObject object = convertContaToJsonObj(conta);
+        atualiza = new ContaAtualiza(object.toString(), id);
+
+        resul = atualiza.execute().get();
+
+        return resul;
+    }
+
 
     private Conta convertJsonObjectToConta(JSONObject obj) throws JSONException {
         Conta conta = new Conta();
@@ -87,9 +99,10 @@ public class ContaResource {
         Cliente cliente;
 
         conta.setId(obj.getInt("id"));
+        conta.setNumero(obj.getInt("numero"));
         conta.setAgencia(obj.getInt("agencia"));
-        conta.setSaldo(obj.getDouble("saldo"));
         conta.setSenha(obj.getInt("senha"));
+        conta.setSaldo(obj.getDouble("saldo"));
 
         cli = obj.getJSONObject("cliente");
 

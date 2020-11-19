@@ -18,12 +18,18 @@ public class ClienteService {
             return null;
         }
     }
-
     public boolean verificarCPF (String cpf){
         try {
             return cliente.verificarCPF(cpf);
         } catch (Exception e) {
             return Boolean.parseBoolean(null);
+        }
+    }
+    public String atualizar (Cliente clienteAtt, int id){
+        try {
+            return cliente.atualiza(clienteAtt, id);
+        } catch (Exception e) {
+            return e.getMessage();
         }
     }
 }

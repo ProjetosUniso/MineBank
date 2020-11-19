@@ -22,7 +22,7 @@ public class EnderecoService {
 
     public String atualizar(int id, Endereco endereco){
         try {
-            return enderecoResource.EnderecoAtualizar(id, endereco);
+            return enderecoResource.enderecoAtualizar(id, endereco);
         } catch (Exception e){
             return null;
         }

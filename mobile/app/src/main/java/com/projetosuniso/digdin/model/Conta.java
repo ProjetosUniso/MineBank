@@ -3,6 +3,7 @@ package com.projetosuniso.digdin.model;
 public class Conta {
     private int agencia;
     private Cliente cliente;
+    private int numero;
     private int id;
     private double saldo;
     private int senha;
@@ -10,12 +11,13 @@ public class Conta {
     public Conta() {
     }
 
-    public Conta(int agencia, Cliente cliente, int id, float saldo, int senha) {
-        this.agencia = agencia;
-        this.cliente = cliente;
+    public Conta(int agencia, int numero, Cliente cliente, int id, float saldo, int senha) {
         this.id = id;
+        this.numero = numero;
+        this.agencia = agencia;
         this.saldo = saldo;
         this.senha = senha;
+        this.cliente = cliente;
     }
 
     public int getAgencia() {
@@ -56,5 +58,13 @@ public class Conta {
 
     public void setSenha(int senha) {
         this.senha = senha;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 }

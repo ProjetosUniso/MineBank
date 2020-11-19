@@ -5,16 +5,17 @@ public class Endereco {
     private String rua;
     private String cidade;
     private int numero;
-    private String UF;
+    private String uf;
 
     public Endereco() {
     }
 
-    public Endereco(String rua, String cidade, int numero, String UF) {
-        setRua(rua);
-        setCidade(cidade);
-        setNumero(numero);
-        setUF(UF);
+    public Endereco(Long id, String rua, String cidade, int numero, String uf) {
+        this.id = id;
+        this.rua = rua;
+        this.cidade = cidade;
+        this.numero = numero;
+        this.uf = uf;
     }
 
     public Long getId() {
@@ -49,12 +50,12 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public String getUF() {
-        return UF;
+    public String getUf() {
+        return uf;
     }
 
-    public void setUF(String UF) {
-        this.UF = UF;
+    public void setUF(String uf) {
+        this.uf = uf;
     }
 
 }
