@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EntreContasCPFActivity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dirtbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/minibutton"
+        android:fontFamily="@font/minecraft"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="500dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        app:layout_constraintVertical_bias="0.034" />
+
+    <TextView
+        android:id="@+id/transferenciaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/transferenciatext"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <ImageView
+        android:id="@+id/stonepanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/stonebg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transferenciaText" />
+
+    <TextView
+        android:id="@+id/paraquemText"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/paraquemtext"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel"
+        app:layout_constraintTop_toTopOf="@+id/stonepanel"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <TextView
+        android:id="@+id/pesquisaCPFText"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/pesquisacpftext"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/paraquemText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/paraquemText"
+        app:layout_constraintTop_toBottomOf="@+id/paraquemText" />
+
+    <EditText
+        android:id="@+id/editTextCPFTRANSFERENCIA"
+        android:layout_width="217dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:background="#000000"
+        android:ems="10"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/pesquisaCPFText"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/pesquisaCPFText"
+        app:layout_constraintTop_toBottomOf="@+id/pesquisaCPFText" />
+
+    <TextView
+        android:id="@+id/textCPFNaoEncontrado"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/CPFnaoencontrado"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCPFTRANSFERENCIA"
+        app:layout_constraintStart_toStartOf="@+id/editTextCPFTRANSFERENCIA"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCPFTRANSFERENCIA" />
+
+    <LinearLayout
+        android:id="@+id/clientInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCPFTRANSFERENCIA">
+
+        <TextView
+            android:id="@+id/clienteEncontradoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="@string/clienteencontradotext"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/nomeClienteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="@string/nomecredortext"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/contaClienteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="@string/contacredortext"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/transferirParaButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/minecraft"
+            android:padding="5dp"
+            android:text="@string/transferirparabutton"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+            app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/stonepanel" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

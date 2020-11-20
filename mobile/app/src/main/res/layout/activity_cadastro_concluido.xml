@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <Button
-        android:id="@+id/voltarButton"
+        android:id="@+id/depositarButton"
         android:layout_width="146dp"
         android:layout_height="49dp"
         android:layout_marginTop="104dp"

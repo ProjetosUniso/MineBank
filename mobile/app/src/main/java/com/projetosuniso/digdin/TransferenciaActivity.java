@@ -26,10 +26,52 @@ public class TransferenciaActivity extends Activity {
                 openMenu();
             }
         });
+
+        Button depositoButton = findViewById(R.id.depositoButton);
+        depositoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickButton.start();
+                openDeposito();
+            }
+        });
+
+        Button saqueButton = findViewById(R.id.saqueButton);
+        saqueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickButton.start();
+                openSaque();
+            }
+        });
+
+        Button transferenciaContasButton = findViewById(R.id.transferenciaContasButton);
+        transferenciaContasButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickButton.start();
+                openTransferenciaContas();
+            }
+        });
     }
 
     public void openMenu() {
         Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void openDeposito() {
+        Intent intent = new Intent(this, DepositoActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSaque() {
+        Intent intent = new Intent(this, SaqueActivity.class);
+        startActivity(intent);
+    }
+
+    public void openTransferenciaContas() {
+        Intent intent = new Intent(this, EntreContasCPFActivity.class);
         startActivity(intent);
     }
 }

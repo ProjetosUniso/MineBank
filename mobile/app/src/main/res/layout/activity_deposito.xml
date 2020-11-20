@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DepositoActivity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dirtbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/minibutton"
+        android:fontFamily="@font/minecraft"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background" />
+
+    <TextView
+        android:id="@+id/depositoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="244dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/depositotext"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logo" />
+
+    <ImageView
+        android:id="@+id/stonepanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/stonebg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/depositoText" />
+
+
+    <TextView
+        android:id="@+id/saldoatual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/saldoatual"
+        android:textColor="#191919"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel"
+        app:layout_constraintTop_toTopOf="@+id/stonepanel"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <TextView
+        android:id="@+id/moeda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/moeda"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/saldo"
+        app:layout_constraintEnd_toStartOf="@+id/saldo"
+        app:layout_constraintTop_toTopOf="@+id/saldo" />
+
+    <TextView
+        android:id="@+id/saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/saldo"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/saldoatual"
+        app:layout_constraintStart_toStartOf="@+id/saldoatual"
+        app:layout_constraintTop_toBottomOf="@+id/saldoatual" />
+
+    <TextView
+        android:id="@+id/valordepositado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/valordepositado"
+        android:textColor="#FF191919"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel"
+        app:layout_constraintTop_toTopOf="@+id/stonepanel" />
+
+    <ImageView
+        android:id="@+id/emerald1"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/emerald"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextVALORDEPOSITO"
+        app:layout_constraintEnd_toStartOf="@+id/editTextVALORDEPOSITO"
+        app:layout_constraintTop_toTopOf="@+id/editTextVALORDEPOSITO" />
+
+    <EditText
+        android:id="@+id/editTextVALORDEPOSITO"
+        android:layout_width="217dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="#000000"
+        android:ems="10"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/depositarButton"
+        app:layout_constraintEnd_toEndOf="@+id/valordepositado"
+        app:layout_constraintStart_toStartOf="@+id/valordepositado"
+        app:layout_constraintTop_toBottomOf="@+id/valordepositado" />
+
+    <ImageView
+        android:id="@+id/emerald2"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/emerald"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextVALORDEPOSITO"
+        app:layout_constraintStart_toEndOf="@+id/editTextVALORDEPOSITO"
+        app:layout_constraintTop_toTopOf="@+id/editTextVALORDEPOSITO" />
+
+    <Button
+        android:id="@+id/depositarButton"
+        android:layout_width="166dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/depositarbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

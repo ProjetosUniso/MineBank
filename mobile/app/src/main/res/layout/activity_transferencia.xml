@@ -52,35 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <Button
-        android:id="@+id/transferenciaPoupancaButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/transferenciapoupancabutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transferenciaContasButton" />
-
-    <Button
-        android:id="@+id/transferenciaContasButton"
-        android:layout_width="235dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/transferenciacontasbutton"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saqueButton" />
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <Button
         android:id="@+id/saqueButton"
@@ -95,5 +67,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/depositoButton" />
+
+    <Button
+        android:id="@+id/transferenciaContasButton"
+        android:layout_width="235dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/transferenciacontasbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saqueButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

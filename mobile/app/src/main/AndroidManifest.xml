@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ExtratoActivity"></activity>
+        <activity android:name=".ComprovanteTransferenciaActivity"></activity>
+        <activity android:name=".EntreContasValorActivity" />
+        <activity android:name=".EntreContasCPFActivity" />
+        <activity android:name=".SaqueActivity" />
+        <activity android:name=".DepositoActivity" />
+        <activity android:name=".ExtratoActivity" />
         <activity android:name=".TransferenciaActivity" />
         <activity android:name=".CadastroConcluidoActivity" />
         <activity android:name=".CadastroSenhaActivity" />

@@ -91,6 +91,20 @@
         app:layout_constraintTop_toBottomOf="@+id/agencia" />
 
     <TextView
+        android:id="@+id/moeda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/moeda"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+        app:layout_constraintEnd_toStartOf="@+id/saldo"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign" />
+
+    <TextView
         android:id="@+id/saldo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,20 +119,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign"
         app:layout_constraintVertical_bias="0.003" />
-
-    <TextView
-        android:id="@+id/moeda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/moeda"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
-        app:layout_constraintEnd_toStartOf="@+id/saldo"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign" />
 
     <ImageView
         android:id="@+id/emerald"
