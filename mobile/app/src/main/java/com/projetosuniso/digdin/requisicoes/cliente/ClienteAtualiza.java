@@ -13,7 +13,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 //OK
-public class ClienteAtualiza extends AsyncTask<Void, Void, String> {
+public class ClienteAtualiza extends AsyncTask<Void, Void, Boolean> {
 
     private final String cliente;
     private final int id;
@@ -25,7 +25,7 @@ public class ClienteAtualiza extends AsyncTask<Void, Void, String> {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
-    protected String doInBackground(Void... voids) {
+    protected Boolean doInBackground(Void... voids) {
 
         String result;
 
@@ -45,10 +45,19 @@ public class ClienteAtualiza extends AsyncTask<Void, Void, String> {
             OutputStream os = connection.getOutputStream();
             os.write(cliente.getBytes());
 
-            result = readResponse(connection);
-            connection.disconnect();
+            int statusCode = connection.getResponseCode();
 
-            return result;
+            if (statusCode == HttpURLConnection.HTTP_BAD_REQUEST){
+
+                return false;
+            }else {
+                readResponse(connection);
+                connection.disconnect();
+
+                return true;
+
+            }
+
 
         } catch (ProtocolException e) {
             e.printStackTrace();

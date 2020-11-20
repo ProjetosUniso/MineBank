@@ -1,4 +1,4 @@
-package com.projetosuniso.digdin.requisicoes.conta;
+package com.projetosuniso.digdin.requisicoes.HistoricoMovimentacao;
 
 import android.os.AsyncTask;
 import org.json.JSONObject;
@@ -9,22 +9,22 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//NOT CHECKED
-public class ContaAdiciona extends AsyncTask<Void, Void, String> {
+//OK
+public class HistMovimentacaoAdiciona extends AsyncTask<Void, Void, String> {
 
-    private final JSONObject conta;
+    private final JSONObject historico;
 
-    public ContaAdiciona(JSONObject conta) {
-        this.conta = conta;
+    public HistMovimentacaoAdiciona(JSONObject historico) {
+        this.historico = historico;
     }
 
     @Override
     protected String doInBackground(Void... voids) {
 
-        String result = null;
+        String result;
 
         try {
-            URL url = new URL("http://minebank-api-service.herokuapp.com/contas");
+            URL url = new URL("http://minebank-api-service.herokuapp.com/movimentacao");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -38,17 +38,20 @@ public class ContaAdiciona extends AsyncTask<Void, Void, String> {
             connection.connect();
 
             OutputStream os = connection.getOutputStream();
-            os.write(conta.toString().getBytes());
+            os.write(historico.toString().getBytes());
             os.flush();
 
             int responseCode = connection.getResponseCode();
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 result = "exito";
-            } else {
+
+            }else {
                 result = "falha";
             }
+
             return result;
+
 
         } catch (ProtocolException e) {
             e.printStackTrace();

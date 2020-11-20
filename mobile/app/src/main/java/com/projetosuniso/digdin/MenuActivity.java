@@ -1,7 +1,5 @@
 package com.projetosuniso.digdin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -9,10 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.projetosuniso.digdin.model.Conta;
 
 public class MenuActivity extends Activity {
 
-    int auxSaldo = 0;
+    private int auxSaldo = 0;
+    private final Conta EXTRA_CONTA = new Conta();
+    private Conta conta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,8 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.activity_menu);
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+
+        conta = (Conta) getIntent().getSerializableExtra("conta");
 
         TextView saldoText = findViewById(R.id.saldo);
         saldoText.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +64,7 @@ public class MenuActivity extends Activity {
         TextView saldoText = findViewById(R.id.saldo);
         if(auxSaldo == 0) {
 
-            saldoText.setText("786,40");
+            saldoText.setText(String.valueOf( conta.getSaldo() ));
             auxSaldo = 1;
         }
         else {

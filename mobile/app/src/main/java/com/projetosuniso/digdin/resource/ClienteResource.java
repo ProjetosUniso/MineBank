@@ -34,9 +34,9 @@ public class ClienteResource {
         return verificarCPF.execute().get();
     }
 
-    public String atualiza (Cliente cliente, int id) throws JSONException, ExecutionException, InterruptedException {
+    public boolean atualiza (Cliente cliente, int id) throws JSONException, ExecutionException, InterruptedException {
         ClienteAtualiza atualiza;
-        String resul ;
+        boolean resul ;
 
         JSONObject object = convertClienteToJsonObj(cliente);
         atualiza = new ClienteAtualiza(object.toString(), id);
@@ -45,6 +45,7 @@ public class ClienteResource {
 
         return resul;
     }
+
 
     public Cliente convertJsonToCliente (JSONObject object) throws JSONException {
         Cliente cliente = new Cliente();

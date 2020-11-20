@@ -18,6 +18,7 @@ public class TipoMovimentacaoResource {
         listar = new ListarTipoMovimentacao();
     }
 
+
     public List<TipoMovimentacao> listarTipoMovimentacao() throws JSONException, ExecutionException, InterruptedException {
 
         ArrayList<TipoMovimentacao> listaTipo = new ArrayList<TipoMovimentacao>();
@@ -38,7 +39,7 @@ public class TipoMovimentacaoResource {
         return listaTipo;
     }
 
-    private TipoMovimentacao convertJsonObjectToTipoMovimentacao(JSONObject obj) throws JSONException {
+    public TipoMovimentacao convertJsonObjectToTipoMovimentacao(JSONObject obj) throws JSONException {
 
         TipoMovimentacao tipoMovimentacao = new TipoMovimentacao();
 

@@ -25,11 +25,11 @@ public class ClienteService {
             return Boolean.parseBoolean(null);
         }
     }
-    public String atualizar (Cliente clienteAtt, int id){
+    public boolean atualizar (Cliente clienteAtt, int id){
         try {
             return cliente.atualiza(clienteAtt, id);
-        } catch (Exception e) {
-            return e.getMessage();
+        } catch (Exception e)  {
+            return false;
         }
     }
 }

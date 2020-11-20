@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-//NOT CHECKED
+//OK
 public class EnderecoAtualizar extends AsyncTask<Void, Void, String> {
 
     private final String endereco;

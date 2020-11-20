@@ -1,6 +1,8 @@
 package com.projetosuniso.digdin.model;
 
-public class Conta {
+import java.io.Serializable;
+
+public class Conta implements Serializable {
     private int agencia;
     private Cliente cliente;
     private int numero;

@@ -103,7 +103,7 @@
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:gravity="center"
-        android:maxLength="4"
+        android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"

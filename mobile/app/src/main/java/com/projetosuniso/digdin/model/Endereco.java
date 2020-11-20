@@ -1,6 +1,8 @@
 package com.projetosuniso.digdin.model;
 
-public class Endereco {
+import java.io.Serializable;
+
+public class Endereco implements Serializable {
     private Long id;
     private String rua;
     private String cidade;
