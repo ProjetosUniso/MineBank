@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-
-import com.projetosuniso.digdin.controller.LoginCtrl;
+import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.service.ContaService;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class LoginActivity extends Activity {
 
-    private final LoginCtrl loginCtrl = new LoginCtrl();
+    private final ContaService contaService = new ContaService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +45,25 @@ public class LoginActivity extends Activity {
     }
 
     public void openMenu() {
+        //Chama o metodo Login para fazer a validação do cpf e senha indicado pelo cliente
+        EditText editTextCPF = findViewById(R.id.editTextCPF);
+        EditText editTextSenha = findViewById(R.id.editTextSENHA);
 
-        //Chama o metodo Login para fazer a validação do cpf indicado pelo cliente
-        //if (loginCtrl.Login("123123125423")){
+        String cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
+        String senha = String.valueOf(editTextSenha.getText());
+
+        boolean loginExiste = contaService.login(senha,cpf);
+
+        if (loginExiste){
+            Conta conta = contaService.getCPF(cpf);
+
             Intent intent = new Intent(this, MenuActivity.class);
+
+            intent.putExtra("conta", conta);
+
             startActivity(intent);
-        //}
+        }
+
 
     }
 
