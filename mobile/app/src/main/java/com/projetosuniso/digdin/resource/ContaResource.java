@@ -93,7 +93,7 @@ public class ContaResource {
     }
 
 
-    private Conta convertJsonObjectToConta(JSONObject obj) throws JSONException {
+    public Conta convertJsonObjectToConta(JSONObject obj) throws JSONException {
         Conta conta = new Conta();
         JSONObject cli;
         Cliente cliente;

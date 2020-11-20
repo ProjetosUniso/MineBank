@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//FAIL
+//OK
 public class ClienteAtualiza extends AsyncTask<Void, Void, Boolean> {
 
     private final String cliente;

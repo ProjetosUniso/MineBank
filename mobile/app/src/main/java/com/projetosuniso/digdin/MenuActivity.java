@@ -64,7 +64,7 @@ public class MenuActivity extends Activity {
         TextView saldoText = findViewById(R.id.saldo);
         if(auxSaldo == 0) {
 
-            saldoText.setText("475,55");
+            saldoText.setText(String.valueOf( conta.getSaldo() ));
             auxSaldo = 1;
         }
         else {
