@@ -227,7 +227,7 @@
         app:layout_constraintStart_toEndOf="@+id/voltarButton" />
 
     <Button
-        android:id="@+id/depositarButton"
+        android:id="@+id/voltarButton"
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:layout_marginStart="52dp"

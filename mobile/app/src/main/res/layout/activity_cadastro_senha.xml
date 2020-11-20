@@ -82,7 +82,7 @@
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:gravity="center"
-        android:maxLength="4"
+        android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +115,7 @@
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:gravity="center"
-        android:maxLength="4"
+        android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
         app:layout_constraintStart_toEndOf="@+id/voltarButton" />
 
     <Button
-        android:id="@+id/depositarButton"
+        android:id="@+id/voltarButton"
         android:layout_width="127dp"
         android:layout_height="37dp"
         android:layout_marginStart="52dp"

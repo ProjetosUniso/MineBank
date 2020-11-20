@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ComprovanteTransferenciaActivity"></activity>
+        <activity android:name=".ComprovanteTransferenciaActivity" />
         <activity android:name=".EntreContasValorActivity" />
         <activity android:name=".EntreContasCPFActivity" />
         <activity android:name=".SaqueActivity" />
@@ -24,8 +24,8 @@
         <activity android:name=".CadastroInfoPessoalActivity" />
         <activity android:name=".CadastroEmailActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".BaseActivity">
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
