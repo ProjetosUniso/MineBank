@@ -56,7 +56,7 @@ public class LoginGetCPF extends AsyncTask<Void, Void, Cliente> {
                 cliente = new Cliente();
 
                 //Fazendo a conversão dos dados em formato Json, para uma String
-                String id = obj.getString("id");
+                int id = obj.getInt("id");
                 String nome = obj.getString("nome");
                 String cpf = obj.getString("cpf");
 

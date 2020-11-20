@@ -24,8 +24,8 @@
         <activity android:name=".CadastroInfoPessoalActivity" />
         <activity android:name=".CadastroEmailActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
