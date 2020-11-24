@@ -8,17 +8,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.model.Endereco;
 import com.projetosuniso.digdin.service.ContaService;
+import com.projetosuniso.digdin.service.EnderecoService;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class LoginActivity extends Activity {
 
     private final ContaService contaService = new ContaService();
 
+    private EnderecoService enderecoService = new EnderecoService();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Endereco endereco = enderecoService.getCEP("18116010");
+
+        //Endereco teste = endereco;
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 

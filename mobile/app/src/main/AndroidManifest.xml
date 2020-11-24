@@ -20,7 +20,7 @@
         <activity android:name=".TransferenciaActivity" />
         <activity android:name=".CadastroConcluidoActivity" />
         <activity android:name=".CadastroSenhaActivity" />
-        <activity android:name=".CadastroEnederecoActivity" />
+        <activity android:name=".CadastroEnderecoActivity" />
         <activity android:name=".CadastroInfoPessoalActivity" />
         <activity android:name=".CadastroEmailActivity" />
         <activity android:name=".MenuActivity" />
