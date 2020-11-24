@@ -24,9 +24,12 @@
     <string name="transferenciabutton">Transferencia</string>
     <string name="pagamentosbutton">Pagamentos</string>
     <string name="poupancabutton">Poupanca</string>
-    <string name="bvusuario">Bem Vindo, Usuário</string>
-    <string name="agencia">Agencia: 1234-5</string>
-    <string name="conta">Conta: 123456-7</string>
+    <string name="bvusuario">Bem Vindo, </string>
+    <string name="codusuario">Usuario</string>
+    <string name="agencia">Agencia:</string>
+    <string name="codagencia">1234-5</string>
+    <string name="conta">Conta:</string>
+    <string name="codconta">123456-7</string>
     <string name="estado">UF</string>
     <string name="cidade">CIDADE</string>
     <string name="numeroendereco">NUMERO</string>

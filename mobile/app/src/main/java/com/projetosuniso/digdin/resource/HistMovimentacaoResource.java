@@ -17,8 +17,10 @@ import java.util.concurrent.ExecutionException;
 
 public class HistMovimentacaoResource {
 
-    private ContaResource contaResource = new ContaResource();
-    private TipoMovimentacaoResource tipoMovimentacaoResource = new TipoMovimentacaoResource();
+
+    private Conta conta;
+    private final ContaResource contaResource = new ContaResource();
+    private final TipoMovimentacaoResource tipoMovimentacaoResource = new TipoMovimentacaoResource();
 
     public HistMovimentacaoResource() {
     }
@@ -60,7 +62,12 @@ public class HistMovimentacaoResource {
         JSONObject object = convertHistoricoToJsonObj(movimentacao);
         adiciona = new HistMovimentacaoAdiciona(object);
 
-        resul = adiciona.execute().get();
+        if ( ( conta.getSaldo() >= movimentacao.getValor() ) && (( movimentacao.getDescricao().equals("saque") ) || ( movimentacao.getDescricao().equals("transferencia") )) ){
+            resul = adiciona.execute().get();
+        }else {
+            resul = "O valor excede o saldo";
+        }
+
 
         return resul;
     }
@@ -69,7 +76,6 @@ public class HistMovimentacaoResource {
     private HistMovimentacao convertJsonObjectToHistMovimentacao(JSONObject obj) throws JSONException {
         HistMovimentacao historico = new HistMovimentacao();
         JSONObject cnt, mvt;
-        Conta conta;
         TipoMovimentacao movimentacao;
 
         historico.setId(obj.getInt("id"));
