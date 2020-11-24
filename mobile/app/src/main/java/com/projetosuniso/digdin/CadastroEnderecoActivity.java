@@ -28,7 +28,7 @@ public class CadastroEnderecoActivity extends Activity {
         cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 
         // passar edittext cep
-        Endereco endereco = enderecoService.getCEP("18116010");
+        Endereco endereco = enderecoService.getCEP("0");
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
