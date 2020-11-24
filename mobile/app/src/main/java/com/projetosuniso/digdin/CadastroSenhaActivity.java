@@ -1,7 +1,5 @@
 package com.projetosuniso.digdin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -55,7 +53,7 @@ public class CadastroSenhaActivity extends  Activity {
     }
 
     public void openCadastroEndereco() {
-        Intent intent = new Intent(this, CadastroEnederecoActivity.class);
+        Intent intent = new Intent(this, CadastroEnderecoActivity.class);
         startActivity((intent));
     }
 

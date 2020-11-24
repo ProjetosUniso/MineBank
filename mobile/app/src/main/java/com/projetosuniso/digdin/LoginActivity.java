@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.service.ContaService;
+import com.projetosuniso.digdin.service.EnderecoService;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class LoginActivity extends Activity {
@@ -15,6 +17,8 @@ public class LoginActivity extends Activity {
     public static String cpf;
 
     private final ContaService contaService = new ContaService();
+
+    private EnderecoService enderecoService = new EnderecoService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +62,12 @@ public class LoginActivity extends Activity {
 
         boolean loginExiste = contaService.login(senha,cpf);
 
-       // if (loginExiste){
+        if (loginExiste){
+
 
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
-    //    }
+        }
 
 
     }

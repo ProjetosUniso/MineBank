@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.projetosuniso.digdin.model.Cliente;
+import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.utils.EmailValidatorUtil;
 
 public class CadastroEmailActivity extends Activity {
@@ -132,8 +134,17 @@ public class CadastroEmailActivity extends Activity {
         editTextEMAIL.clearFocus();
         editTextCONFIRMEMAIL.clearFocus();
 
-        if(EMAILvalid == true && CONFIRMEMAILvalid == true) {
+        if(EMAILvalid && CONFIRMEMAILvalid) {
+
+            String email = editTextEMAIL.getText().toString();
+
+            Cliente cliente = new Cliente();
+
+            cliente.setEmail(email);
+
             Intent intent = new Intent(this, CadastroInfoPessoalActivity.class);
+            intent.putExtra("cliente", cliente);
+
             startActivity((intent));
         }
     }

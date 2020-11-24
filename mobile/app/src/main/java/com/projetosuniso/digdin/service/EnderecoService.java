@@ -27,4 +27,12 @@ public class EnderecoService {
             return null;
         }
     }
+
+    public Endereco getCEP(String cep){
+        try {
+            return enderecoResource.enderecoCEP(cep);
+        } catch (Exception e){
+            return null;
+        }
+    }
 }

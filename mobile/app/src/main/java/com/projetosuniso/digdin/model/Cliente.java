@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class Cliente implements Serializable {
     private int id;
     private String nome;
+    private String sobrenome;
     private String cpf;
     private String rg;
     private String email;
@@ -16,9 +17,10 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int id, String nome, String cpf, String rg, String email, String dataNascimento, Endereco endereco) {
+    public Cliente(int id, String nome, String sobrenome, String cpf, String rg, String email, String dataNascimento, Endereco endereco) {
         this.id = id;
         this.nome = nome;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.rg = rg;
         this.email = email;
@@ -81,4 +83,13 @@ public class Cliente implements Serializable {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
 }

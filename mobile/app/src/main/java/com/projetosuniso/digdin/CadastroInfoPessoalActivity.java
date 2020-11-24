@@ -1,14 +1,8 @@
 package com.projetosuniso.digdin;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,13 +14,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.projetosuniso.digdin.model.Cliente;
 import com.projetosuniso.digdin.utils.CpfValidatorUtil;
 import com.projetosuniso.digdin.utils.DataValidatorUtil;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
-import org.w3c.dom.Text;
-
 public class CadastroInfoPessoalActivity extends Activity {
+
+    private final Cliente EXTRA_CLIENTE = new Cliente();
+    private Cliente cliente;
 
     boolean CPFvalid = true;
     boolean CPFpreenchido = false;
@@ -39,6 +35,8 @@ public class CadastroInfoPessoalActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_info_pessoal);
+
+        cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
@@ -304,11 +302,31 @@ public class CadastroInfoPessoalActivity extends Activity {
 
     public void openCadastroEndereco() {
 
+        if(CPFvalid) {
+            if (NOMEvalid && SOBRENOMEvalid && CPFpreenchido && RGvalid && DATAvalid ) {
 
 
-        if(CPFvalid == true) {
-            if (NOMEvalid == true && SOBRENOMEvalid == true && CPFpreenchido == true && RGvalid == true && DATAvalid == true) {
-                Intent intent = new Intent(this, CadastroEnederecoActivity.class);
+                EditText editTextNome = findViewById(R.id.editTextNOME);
+                EditText editTextSobrenome = findViewById(R.id.editTextSOBRENOME);
+                EditText editTextCPF = findViewById(R.id.editTextCPF);
+                EditText editTextRG = findViewById(R.id.editTextRG);
+                EditText editTextDATA = findViewById(R.id.editTextNASCIMENTO);
+
+                String nome = editTextNome.getText().toString();
+                String sobrenome = editTextSobrenome.getText().toString();
+                String cpf = editTextCPF.getText().toString();
+                String rg = editTextRG.getText().toString();
+                String data = editTextDATA.getText().toString();
+
+                cliente.setNome(nome);
+                cliente.setSobrenome(sobrenome);
+                cliente.setCpf(cpf);
+                cliente.setRg(rg);
+                cliente.setDataNascimento(data);
+
+                Intent intent = new Intent(this, CadastroEnderecoActivity.class);
+                intent.putExtra("cliente", cliente);
+
                 startActivity((intent));
             } else {
                 TextView textPreencher = findViewById(R.id.textPreencherCampos);

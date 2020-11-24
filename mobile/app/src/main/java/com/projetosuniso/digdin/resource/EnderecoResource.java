@@ -3,6 +3,7 @@ package com.projetosuniso.digdin.resource;
 import com.google.gson.Gson;
 import com.projetosuniso.digdin.model.Endereco;
 import com.projetosuniso.digdin.requisicoes.endereco.EnderecoAtualizar;
+import com.projetosuniso.digdin.requisicoes.endereco.EnderecoCEP;
 import com.projetosuniso.digdin.requisicoes.endereco.EnderecoPorID;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +36,27 @@ public class EnderecoResource {
         String obj = atualizar.execute().get();
 
         return obj;
+    }
+
+    public Endereco enderecoCEP(String cep) throws ExecutionException, InterruptedException, JSONException {
+        EnderecoCEP enderecoPorCEP = new EnderecoCEP(cep);
+        Endereco endereco;
+
+        JSONObject object =  enderecoPorCEP.execute().get();
+
+        endereco = ConvertCEPToEndereco(object);
+
+        return endereco;
+    }
+
+    public Endereco ConvertCEPToEndereco (JSONObject object) throws JSONException {
+        Endereco endereco = new Endereco();
+
+        endereco.setRua(object.getString("logradouro"));
+        endereco.setCidade(object.getString("localidade"));
+        endereco.setUF(object.getString("uf"));
+
+        return endereco;
     }
 
 

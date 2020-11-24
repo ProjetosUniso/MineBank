@@ -1,7 +1,5 @@
 package com.projetosuniso.digdin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -10,14 +8,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.projetosuniso.digdin.model.Cliente;
+import com.projetosuniso.digdin.model.Endereco;
+import com.projetosuniso.digdin.service.EnderecoService;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
-public class CadastroEnederecoActivity extends Activity {
+public class CadastroEnderecoActivity extends Activity {
+
+    private final Cliente EXTRA_CLIENTE = new Cliente();
+    private Cliente cliente;
+
+    private EnderecoService enderecoService = new EnderecoService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_enedereco);
+        setContentView(R.layout.activity_cadastro_endereco);
+
+        cliente = (Cliente) getIntent().getSerializableExtra("cliente");
+
+        // passar edittext cep
+        Endereco endereco = enderecoService.getCEP("18116010");
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
