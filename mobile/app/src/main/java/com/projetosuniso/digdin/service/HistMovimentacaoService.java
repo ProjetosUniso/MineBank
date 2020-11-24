@@ -12,7 +12,7 @@ public class HistMovimentacaoService {
         historico = new HistMovimentacaoResource();
     }
 
-    public HistMovimentacao getID(int id) {
+    public List<HistMovimentacao> getID(int id) {
         try {
             return historico.historicoPorID(id);
         } catch (Exception e) {

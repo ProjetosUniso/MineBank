@@ -25,17 +25,24 @@ public class HistMovimentacaoResource {
     public HistMovimentacaoResource() {
     }
 
-    //ERRO - return a JSONArray
-    public HistMovimentacao historicoPorID(int id) throws JSONException, ExecutionException, InterruptedException {
+    public List<HistMovimentacao> historicoPorID(int id) throws JSONException, ExecutionException, InterruptedException {
         HistMovimentacaoBuscaPorID buscaPorID = new HistMovimentacaoBuscaPorID(id);
-        HistMovimentacao historico;
+        List<HistMovimentacao> historico = new ArrayList<>();
 
-        JSONObject object = buscaPorID.execute().get();
+        JSONArray objects = buscaPorID.execute().get();
 
-        historico = convertJsonObjectToHistMovimentacao(object);
+        for (int i = 0; i < objects.length(); i++) {
+
+            JSONObject obj = objects.getJSONObject(i);
+
+            HistMovimentacao historicoTmp = convertJsonObjectToHistMovimentacao(obj);
+
+            historico.add(historicoTmp);
+        }
 
         return historico;
     }
+
     //ERRO - idContaTransferencia is null
     public List<HistMovimentacao> historicoListar() throws JSONException, ExecutionException, InterruptedException {
         HistMovimentacaoListar listar = new HistMovimentacaoListar();
@@ -58,16 +65,33 @@ public class HistMovimentacaoResource {
     public String adicionar (HistMovimentacao movimentacao) throws JSONException, ExecutionException, InterruptedException {
         HistMovimentacaoAdiciona adiciona;
         String resul;
+        conta = movimentacao.getConta();
 
         JSONObject object = convertHistoricoToJsonObj(movimentacao);
         adiciona = new HistMovimentacaoAdiciona(object);
 
-        if ( ( conta.getSaldo() >= movimentacao.getValor() ) && (( movimentacao.getDescricao().equals("saque") ) || ( movimentacao.getDescricao().equals("transferencia") )) ){
-            resul = adiciona.execute().get();
-        }else {
-            resul = "O valor excede o saldo";
-        }
+        switch (movimentacao.getDescricao()){
+            case "saque":
+                if (conta.getSaldo() >= movimentacao.getValor()){
+                    resul = adiciona.execute().get();
+                }else {
+                    resul = "O valor do Saque excede o saldo";
+                }
+                break;
+            case "transferencia":
+                if (conta.getSaldo() >= movimentacao.getValor()){
+                    resul = adiciona.execute().get();
+                }else {
+                    resul = "O valor da Transferencia excede o saldo";
+                }
+                break;
+            case "deposito":
+                resul = adiciona.execute().get();
+                break;
 
+            default:
+                resul = "erro ao selecionar o descrição do movimento";
+        }
 
         return resul;
     }

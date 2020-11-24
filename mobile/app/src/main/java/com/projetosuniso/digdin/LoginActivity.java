@@ -67,9 +67,6 @@ public class LoginActivity extends Activity {
 
 
             Intent intent = new Intent(this, MenuActivity.class);
-
-            intent.putExtra("cpf", cpf);
-
             startActivity(intent);
         }
     }
