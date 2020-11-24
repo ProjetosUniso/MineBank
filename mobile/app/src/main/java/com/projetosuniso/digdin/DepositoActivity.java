@@ -69,7 +69,7 @@ public class DepositoActivity extends Activity {
         return dateFormat.format(date);
     }
 
-    //INCOMPLETO / NOT CHECKED
+    //INCOMPLETO / OK
     private void realizarDeposito(){
         HistMovimentacao movimentacao = new HistMovimentacao();
         TipoMovimentacao tpMoviment = new TipoMovimentacao();
@@ -78,12 +78,15 @@ public class DepositoActivity extends Activity {
         String valor = edtValor.getText().toString();
 
         //tpMoviment = serTpm.getID();
+        tpMoviment.setChave("DEPOSITO");
+        tpMoviment.setDescricao("Deposito");
+        tpMoviment.setId(2);
 
         movimentacao.setValor(Double.parseDouble(valor));
         movimentacao.setDescricao("deposito");
         movimentacao.setMovimentacao(tpMoviment);
         movimentacao.setConta(conta);
-        //movimentacao.setIdContaTransferencia();
+        movimentacao.setIdContaTransferencia(conta.getId());
         movimentacao.setDataInclusao(inserirData());
 
         String confirm = serHtm.adicionar(movimentacao);
@@ -91,6 +94,8 @@ public class DepositoActivity extends Activity {
         if (confirm.equals("exito")){
             Toast.makeText(this, "Deposito Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
             conta.setSaldo(conta.getSaldo() + Double.parseDouble(valor));
+
+            contaService.atualizar(conta, conta.getId());
 
             openTransferencia();
         }else {

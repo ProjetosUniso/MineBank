@@ -77,6 +77,9 @@ public class SaqueActivity extends Activity {
         String valor = edtValor.getText().toString();
 
         //tpMoviment = serTpm.getID();
+        tpMoviment.setChave("SAQUE");
+        tpMoviment.setDescricao("Saque");
+        tpMoviment.setId(1);
 
         movimentacao.setValor(Double.parseDouble(valor));
         movimentacao.setDescricao("saque");
@@ -90,6 +93,8 @@ public class SaqueActivity extends Activity {
         if (confirm.equals("exito")){
             Toast.makeText(this, "Saque Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
             conta.setSaldo( conta.getSaldo() - movimentacao.getValor() );
+
+            contaService.atualizar(conta, conta.getId());
 
             openTransferencia();
         }else {

@@ -53,7 +53,7 @@ public class LoginActivity extends Activity {
         cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
         String senha = String.valueOf(editTextSenha.getText());
 
-        cpf = "69617230042";
+        cpf = "69617230046";
         senha = "467245";
 
         boolean loginExiste = contaService.login(senha,cpf);
@@ -61,9 +61,6 @@ public class LoginActivity extends Activity {
        // if (loginExiste){
 
             Intent intent = new Intent(this, MenuActivity.class);
-
-            intent.putExtra("cpf", cpf);
-
             startActivity(intent);
     //    }
 

@@ -16,7 +16,6 @@ public class MenuActivity extends Activity {
     private int auxSaldo = 0;
     private final ContaService contaService = new ContaService();
     private Conta conta = new Conta();
-    private Cliente cliente = new Cliente();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class MenuActivity extends Activity {
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
         conta = contaService.getCPF(LoginActivity.cpf);
-        cliente = conta.getCliente();
+        Cliente cliente = conta.getCliente();
 
         TextView usuario = findViewById(R.id.usuario);
         TextView codAgencia = findViewById(R.id.codAgencia);

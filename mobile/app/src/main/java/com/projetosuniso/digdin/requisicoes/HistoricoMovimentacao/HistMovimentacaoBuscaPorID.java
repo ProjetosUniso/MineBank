@@ -1,6 +1,7 @@
 package com.projetosuniso.digdin.requisicoes.HistoricoMovimentacao;
 
 import android.os.AsyncTask;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,8 +13,8 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//ERRO return a JSONArray
-public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
+//OK
+public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONArray> {
 
     private final int id;
 
@@ -22,7 +23,7 @@ public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONObject
     }
 
     @Override
-    protected JSONObject doInBackground(Void... voids) {
+    protected JSONArray doInBackground(Void... voids) {
 
         String result = null;
 
@@ -56,7 +57,7 @@ public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONObject
             }
 
             connection.disconnect();
-            return new JSONObject(result);
+            return new JSONArray(result);
 
         } catch (ProtocolException e) {
             e.printStackTrace();
