@@ -241,4 +241,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextESTADO" />
 
+    <TextView
+        android:id="@+id/textCEPInvalido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/cepinvalido"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/voltarButton" />
+
+    <TextView
+        android:id="@+id/textNumeroInvalido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/numeroinvalido"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/continuarButton"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton"
+        app:layout_constraintTop_toBottomOf="@+id/textCEPInvalido" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
