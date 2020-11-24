@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.service.ContaService;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class LoginActivity extends Activity {
+
+    public static String cpf;
 
     private final ContaService contaService = new ContaService();
 
@@ -49,20 +50,22 @@ public class LoginActivity extends Activity {
         EditText editTextCPF = findViewById(R.id.editTextCPF);
         EditText editTextSenha = findViewById(R.id.editTextSENHA);
 
-        String cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
+        cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
         String senha = String.valueOf(editTextSenha.getText());
+
+        cpf = "69617230042";
+        senha = "467245";
 
         boolean loginExiste = contaService.login(senha,cpf);
 
-        if (loginExiste){
-            Conta conta = contaService.getCPF(cpf);
+       // if (loginExiste){
 
             Intent intent = new Intent(this, MenuActivity.class);
 
-            intent.putExtra("conta", conta);
+            intent.putExtra("cpf", cpf);
 
             startActivity(intent);
-        }
+    //    }
 
 
     }

@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.projetosuniso.digdin.model.Cliente;
 import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.service.ContaService;
 
 public class MenuActivity extends Activity {
 
     private int auxSaldo = 0;
-    private final Conta EXTRA_CONTA = new Conta();
-    private Conta conta;
+    private final ContaService contaService = new ContaService();
+    private Conta conta = new Conta();
+    private Cliente cliente = new Cliente();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,17 @@ public class MenuActivity extends Activity {
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
-        conta = (Conta) getIntent().getSerializableExtra("conta");
+        conta = contaService.getCPF(LoginActivity.cpf);
+        cliente = conta.getCliente();
+
+        TextView usuario = findViewById(R.id.usuario);
+        TextView codAgencia = findViewById(R.id.codAgencia);
+        TextView codConta = findViewById(R.id.codConta);
+
+        usuario.setText(String.valueOf( cliente.getNome() ));
+        codAgencia.setText(String.valueOf( conta.getAgencia() ));
+        codConta.setText(String.valueOf( conta.getNumero() ));
+
 
         TextView saldoText = findViewById(R.id.saldo);
         saldoText.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +72,7 @@ public class MenuActivity extends Activity {
             }
         });
     }
+
 
     public void showSaldo() {
         TextView saldoText = findViewById(R.id.saldo);
