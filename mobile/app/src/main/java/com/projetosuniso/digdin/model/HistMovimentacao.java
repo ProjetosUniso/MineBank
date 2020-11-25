@@ -5,14 +5,14 @@ public class HistMovimentacao {
     private String dataInclusao;
     private String descricao;
     private int id;
-    private int idContaTransferencia;
+    private Long idContaTransferencia;
     private TipoMovimentacao movimentacao;
     private double valor;
 
     public HistMovimentacao() {
     }
 
-    public HistMovimentacao(Conta conta, String dataInclusao, String descricao, int id, int idContaTransferencia, TipoMovimentacao movimentacao, double valor) {
+    public HistMovimentacao(Conta conta, String dataInclusao, String descricao, int id, Long idContaTransferencia, TipoMovimentacao movimentacao, double valor) {
         this.conta = conta;
         this.dataInclusao = dataInclusao;
         this.descricao = descricao;
@@ -54,11 +54,11 @@ public class HistMovimentacao {
         this.id = id;
     }
 
-    public int getIdContaTransferencia() {
+    public Long getIdContaTransferencia() {
         return idContaTransferencia;
     }
 
-    public void setIdContaTransferencia(int idContaTransferencia) {
+    public void setIdContaTransferencia(Long idContaTransferencia) {
         this.idContaTransferencia = idContaTransferencia;
     }
 

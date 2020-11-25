@@ -22,6 +22,7 @@ public class CadastroEnderecoActivity extends Activity {
 
     private final Cliente EXTRA_CLIENTE = new Cliente();
     private Cliente cliente;
+    private Endereco endereco;
 
     private EnderecoService enderecoService = new EnderecoService();
 
@@ -75,7 +76,7 @@ public class CadastroEnderecoActivity extends Activity {
                     CEP = MaskEditUtil.unmask(CEP);
                     // passar edittext cep
                     if (!CEP.matches("")) {
-                        Endereco endereco = enderecoService.getCEP(CEP);
+                        endereco = enderecoService.getCEP(CEP);
 
                         if(endereco != null) {
                             editTextEndereco.setText(endereco.getRua());
@@ -150,7 +151,14 @@ public class CadastroEnderecoActivity extends Activity {
         Numero = editTextNumero.getText().toString();
 
         if(!Numero.matches("")) {
+
+            int saveNumero = Integer.parseInt(Numero);
+            endereco.setNumero(saveNumero);
+            cliente.setEndereco(endereco);
+
             Intent intent = new Intent(this, CadastroSenhaActivity.class);
+            intent.putExtra("cliente", cliente);
+
             startActivity((intent));
         }
         else {

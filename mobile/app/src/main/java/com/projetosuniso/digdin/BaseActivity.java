@@ -35,7 +35,7 @@ public class BaseActivity extends Activity {
 
         teste.setConta(serco.getID(4));
         teste.setMovimentacao(tpm);
-        teste.setIdContaTransferencia(4);
+        //teste.setIdContaTransferencia(4);
         teste.setDataInclusao("2020-11-12T00:00:00.000+00:00");
         teste.setDescricao("resgate");
 

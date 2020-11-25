@@ -105,7 +105,7 @@ public class HistMovimentacaoResource {
         historico.setId(obj.getInt("id"));
         historico.setDataInclusao(obj.getString("dataInclusao"));
         historico.setDescricao(obj.getString("descricao"));
-        historico.setIdContaTransferencia(obj.getInt("idContaTransferencia"));
+        historico.setIdContaTransferencia(obj.getLong("idContaTransferencia"));
 
         cnt = obj.getJSONObject("conta");
         mvt = obj.getJSONObject("movimentacao");

@@ -48,7 +48,7 @@ public class ContaService {
             return null;
         }
     }
-    public String atualizar(Conta c, int id){
+    public String atualizar(Conta c, Long id){
         try {
             return conta.atualiza(c, id);
         } catch (Exception e){

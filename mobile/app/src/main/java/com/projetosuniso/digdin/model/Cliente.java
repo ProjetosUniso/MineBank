@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 //Criando um Objeto Java parar representar cliente, o que vai auxiliar na manipulação de dados durante a aplicação
 public class Cliente implements Serializable {
-    private int id;
+    private Long id;
     private String nome;
     private String sobrenome;
     private String cpf;
@@ -17,7 +17,7 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int id, String nome, String sobrenome, String cpf, String rg, String email, String dataNascimento, Endereco endereco) {
+    public Cliente(Long id, String nome, String sobrenome, String cpf, String rg, String email, String dataNascimento, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -28,11 +28,11 @@ public class Cliente implements Serializable {
         this.endereco = endereco;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
