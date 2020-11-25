@@ -72,14 +72,14 @@ public class HistMovimentacaoResource {
 
         switch (movimentacao.getDescricao()){
             case "saque":
-                if (conta.getSaldo() >= movimentacao.getValor()){
+                if (0 <= movimentacao.getValor()){
                     resul = adiciona.execute().get();
                 }else {
                     resul = "O valor do Saque excede o saldo";
                 }
                 break;
             case "transferencia":
-                if (conta.getSaldo() >= movimentacao.getValor()){
+                if (0 <= movimentacao.getValor()){
                     resul = adiciona.execute().get();
                 }else {
                     resul = "O valor da Transferencia excede o saldo";

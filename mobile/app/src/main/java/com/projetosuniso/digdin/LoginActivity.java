@@ -57,19 +57,15 @@ public class LoginActivity extends Activity {
         cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
         String senha = String.valueOf(editTextSenha.getText());
 
-        cpf = "69617230046";
-        senha = "467245";
+        cpf = "48960393860";
+        senha = "123456";
 
         boolean loginExiste = contaService.login(senha,cpf);
 
         if (loginExiste){
-
-
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
         }
-
-
     }
 
     public void openCadastroEmail() {
