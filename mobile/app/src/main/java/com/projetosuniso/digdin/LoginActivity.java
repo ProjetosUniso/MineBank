@@ -57,9 +57,6 @@ public class LoginActivity extends Activity {
         cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
         String senha = String.valueOf(editTextSenha.getText());
 
-        cpf = "69617230046";
-        senha = "467245";
-
 
         boolean loginExiste = contaService.login(senha,cpf);
 

@@ -40,7 +40,6 @@ public class ContaService {
             return Boolean.parseBoolean(null);
         }
     }
-    //NOT CHECKED
     public String adicionar(Conta c){
         try {
             return conta.adicionar(c);
