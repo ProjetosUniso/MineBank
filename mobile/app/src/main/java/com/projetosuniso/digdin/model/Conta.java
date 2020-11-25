@@ -6,18 +6,20 @@ public class Conta implements Serializable {
     private int agencia;
     private Cliente cliente;
     private int numero;
-    private int id;
+    private Long id;
     private double saldo;
+    private double poupanca;
     private int senha;
 
     public Conta() {
     }
 
-    public Conta(int agencia, int numero, Cliente cliente, int id, float saldo, int senha) {
+    public Conta(int agencia, int numero, Cliente cliente, Long id, float saldo, float poupanca, int senha) {
         this.id = id;
         this.numero = numero;
         this.agencia = agencia;
         this.saldo = saldo;
+        this.poupanca = poupanca;
         this.senha = senha;
         this.cliente = cliente;
     }
@@ -38,11 +40,11 @@ public class Conta implements Serializable {
         this.cliente = cliente;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -68,5 +70,13 @@ public class Conta implements Serializable {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public double getPoupanca() {
+        return poupanca;
+    }
+
+    public void setPoupanca(double poupanca) {
+        this.poupanca = poupanca;
     }
 }

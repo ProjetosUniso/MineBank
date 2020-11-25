@@ -314,9 +314,9 @@ public class CadastroInfoPessoalActivity extends Activity {
 
                 String nome = editTextNome.getText().toString();
                 String sobrenome = editTextSobrenome.getText().toString();
-                String cpf = editTextCPF.getText().toString();
-                String rg = editTextRG.getText().toString();
-                String data = editTextDATA.getText().toString();
+                String cpf = MaskEditUtil.unmask(editTextCPF.getText().toString());
+                String rg = MaskEditUtil.unmask(editTextRG.getText().toString());
+                String data = editFormatData(editTextDATA.getText().toString());
 
                 cliente.setNome(nome);
                 cliente.setSobrenome(sobrenome);
@@ -333,6 +333,18 @@ public class CadastroInfoPessoalActivity extends Activity {
                 textPreencher.setVisibility(View.VISIBLE);
             }
         }
-
     }
+
+    private String editFormatData(String data) {
+
+        String[] dt = data.split("/");
+
+        int dia = Integer.parseInt(dt[0]);
+        int mes = Integer.parseInt(dt[1]);
+        int ano = Integer.parseInt(dt[2]);
+
+        String dataString = ano + "-" + mes + "-" + dia + "T00:00:00.000+00:00";
+        return dataString;
+    }
+
 }

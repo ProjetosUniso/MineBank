@@ -35,7 +35,7 @@
     <string name="numeroendereco">NUMERO</string>
     <string name="endereco">ENDEREÇO</string>
     <string name="senhaconfirm">CONFIRMAR SENHA</string>
-    <string name="apenasnum">(4 DIGITOS, APENAS NUMEROS)</string>
+    <string name="apenasnum">(6 DIGITOS, APENAS NUMEROS)</string>
     <string name="cadastroconcluido">CADASTRO CONCLUIDO COM SUCESSO, RETORNE PARA A TELA INICIAL E FAÇA LOGIN COM SEUS DADOS.</string>
     <string name="cep">CEP</string>
     <string name="depositobutton">DEPOSITO</string>
@@ -76,4 +76,6 @@
     <string name="transferenciaconcluida">Transferencia concluida com sucesso!</string>
     <string name="valorrecebidotext">+ R$ 100,00</string>
     <string name="comprovanteemailbutton">Enviar comprovante no Email</string>
+    <string name="cepinvalido">CEP INVALIDO!</string>
+    <string name="numeroinvalido">O NUMERO PRECISA SER PREENCHIDO!</string>
 </resources>

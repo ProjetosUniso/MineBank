@@ -55,6 +55,7 @@ public class EnderecoCEP extends AsyncTask<String, Void, JSONObject> {
                 }
                 result = sb.toString();
 
+
             }
 
             JSONObject teste = new JSONObject(result);

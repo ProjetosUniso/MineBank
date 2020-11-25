@@ -52,7 +52,7 @@ public class ClienteResource {
         JSONObject end;
         Endereco endereco;
 
-        cliente.setId(object.getInt("id"));
+        cliente.setId(object.getLong("id"));
         cliente.setNome(object.getString("nome"));
         cliente.setCpf(object.getString("cpf"));
         cliente.setRg(object.getString("rg"));

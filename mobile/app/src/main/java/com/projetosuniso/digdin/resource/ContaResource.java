@@ -80,7 +80,7 @@ public class ContaResource {
         return resul;
     }
 
-    public String atualiza (Conta conta, int id) throws JSONException, ExecutionException, InterruptedException {
+    public String atualiza (Conta conta, Long id) throws JSONException, ExecutionException, InterruptedException {
         ContaAtualiza atualiza;
         String resul ;
 
@@ -98,7 +98,7 @@ public class ContaResource {
         JSONObject cli;
         Cliente cliente;
 
-        conta.setId(obj.getInt("id"));
+        conta.setId(obj.getLong("id"));
         conta.setNumero(obj.getInt("numero"));
         conta.setAgencia(obj.getInt("agencia"));
         conta.setSenha(obj.getInt("senha"));

@@ -16,9 +16,9 @@ import java.net.URL;
 public class ContaAtualiza extends AsyncTask<Void, Void, String> {
 
     private final String conta;
-    private final int id;
+    private final Long id;
 
-    public ContaAtualiza(String conta, int id) {
+    public ContaAtualiza(String conta, Long id) {
         this.conta = conta;
         this.id = id;
     }
