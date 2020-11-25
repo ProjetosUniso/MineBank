@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.projetosuniso.digdin.model.Cliente;
 import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.service.ClienteService;
 import com.projetosuniso.digdin.utils.EmailValidatorUtil;
 
 public class CadastroEmailActivity extends Activity {
@@ -63,7 +64,7 @@ public class CadastroEmailActivity extends Activity {
                 String EMAIL = editTextEMAIL.getText().toString();
 
                 if(!hasFocus) {
-                    if(EmailValidatorUtil.isValidEmailAddressRegex(EMAIL) == false) {
+                    if(!EmailValidatorUtil.isValidEmailAddressRegex(EMAIL)) {
                         editTextEMAIL.setBackgroundResource(R.drawable.edittext_border);
                         textEmailInvalido.setVisibility(View.VISIBLE);
                         checkEMAIL.setVisibility(View.INVISIBLE);
@@ -76,7 +77,7 @@ public class CadastroEmailActivity extends Activity {
                         EMAILvalid = true;
                     }
                 }
-                else if (hasFocus) {
+                else {
                     editTextEMAIL.setBackgroundResource(R.drawable.edittext_default);
                     textEmailInvalido.setVisibility(View.INVISIBLE);
                     wrongEMAIL.setVisibility(View.INVISIBLE);

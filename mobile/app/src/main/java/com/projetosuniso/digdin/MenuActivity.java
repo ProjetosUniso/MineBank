@@ -1,6 +1,8 @@
 package com.projetosuniso.digdin;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -49,7 +51,7 @@ public class MenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 clickButton.start();
-                openLogin();
+                openExit();
             }
         });
 
@@ -84,6 +86,23 @@ public class MenuActivity extends Activity {
             saldoText.setText(R.string.saldo);
             auxSaldo = 0;
         }
+
+    }
+
+    public void openExit() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Encerrar sessão")
+                .setMessage("Você tem certeza de que deseja sair da sua conta?")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        openLogin();
+                    }
+                })
+                .setNegativeButton("Não", null)
+                .show();
 
     }
 

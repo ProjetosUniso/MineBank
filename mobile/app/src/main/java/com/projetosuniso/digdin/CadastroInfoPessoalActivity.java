@@ -15,12 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projetosuniso.digdin.model.Cliente;
+import com.projetosuniso.digdin.service.ClienteService;
 import com.projetosuniso.digdin.utils.CpfValidatorUtil;
 import com.projetosuniso.digdin.utils.DataValidatorUtil;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class CadastroInfoPessoalActivity extends Activity {
 
+    private ClienteService clienteService = new ClienteService();
     private final Cliente EXTRA_CLIENTE = new Cliente();
     private Cliente cliente;
 
@@ -30,6 +32,7 @@ public class CadastroInfoPessoalActivity extends Activity {
     boolean SOBRENOMEvalid = false;
     boolean RGvalid = false;
     boolean DATAvalid = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class CadastroInfoPessoalActivity extends Activity {
 
         final TextView textPreencher = findViewById(R.id.textPreencherCampos);
         final TextView CPFInvalido = findViewById(R.id.textCPFInvalido);
+        final TextView CPFCadastrado = findViewById(R.id.textCPFcadastrado);
         final TextView DATAInvalida = findViewById(R.id.textDATAInvalida);
 
         Button voltarButton = findViewById(R.id.voltarButton);
@@ -81,14 +85,7 @@ public class CadastroInfoPessoalActivity extends Activity {
                 String NOME = editTextNome.getText().toString();
 
                 if(!hasFocus) {
-                    if(NOME.matches("")) {
-                        NOMEvalid = false;
-                    }
-                    else {
-                        NOMEvalid = true;
-                    }
-                }
-                else if(hasFocus) {
+                    NOMEvalid = !NOME.matches("");
                 }
             }
         });
@@ -99,14 +96,7 @@ public class CadastroInfoPessoalActivity extends Activity {
                 String SOBRENOME = editTextSobrenome.getText().toString();
 
                 if(!hasFocus) {
-                    if(SOBRENOME.matches("")) {
-                        SOBRENOMEvalid = false;
-                    }
-                    else {
-                        SOBRENOMEvalid = true;
-                    }
-                }
-                else if(hasFocus) {
+                    SOBRENOMEvalid = !SOBRENOME.matches("");
                 }
             }
         });
@@ -131,7 +121,7 @@ public class CadastroInfoPessoalActivity extends Activity {
                     }
                     else {
 
-                        if(CpfValidatorUtil.isCPF(unmaskedCPF) == false) {
+                        if(!CpfValidatorUtil.isCPF(unmaskedCPF)) {
                             editTextCPF.setBackgroundResource(R.drawable.edittext_default);
                             textPreencher.setVisibility(View.INVISIBLE);
                             editTextCPF.setBackgroundResource(R.drawable.edittext_border);
@@ -141,17 +131,29 @@ public class CadastroInfoPessoalActivity extends Activity {
                             CPFvalid = false;
                         }
                         else {
-                            CPFvalid = true;
-                            CPFpreenchido = true;
-                            checkCPF.setVisibility(View.VISIBLE);
+                            if(clienteService.verificarCPF(MaskEditUtil.unmask(CPF))) {
+                                editTextCPF.setBackgroundResource(R.drawable.edittext_default);
+                                textPreencher.setVisibility(View.INVISIBLE);
+                                editTextCPF.setBackgroundResource(R.drawable.edittext_border);
+                                checkCPF.setVisibility(View.INVISIBLE);
+                                wrongCPF.setVisibility(View.VISIBLE);
+                                CPFCadastrado.setVisibility(View.VISIBLE);
+                                CPFvalid = false;
+                            }
+                            else {
+                                CPFvalid = true;
+                                CPFpreenchido = true;
+                                checkCPF.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
 
                 }
-                else if(hasFocus) {
+                else {
                     CPFvalid = true;
                     editTextCPF.setBackgroundResource(R.drawable.edittext_default);
                     CPFInvalido.setVisibility(View.INVISIBLE);
+                    CPFCadastrado.setVisibility(View.INVISIBLE);
                     wrongCPF.setVisibility(View.INVISIBLE);
                 }
 
@@ -201,7 +203,7 @@ public class CadastroInfoPessoalActivity extends Activity {
                         RGvalid = true;
                     }
                 }
-                else if(hasFocus) {
+                else {
                     wrongRG.setVisibility(View.INVISIBLE);
                     editTextRG.setBackgroundResource(R.drawable.edittext_default);
                 }
@@ -261,7 +263,7 @@ public class CadastroInfoPessoalActivity extends Activity {
 
                     }
                 }
-                else if(hasFocus) {
+                else {
                     wrongDATA.setVisibility(View.INVISIBLE);
                     editTextDATA.setBackgroundResource(R.drawable.edittext_default);
                     DATAInvalida.setVisibility(View.INVISIBLE);
@@ -339,11 +341,7 @@ public class CadastroInfoPessoalActivity extends Activity {
 
         String[] dt = data.split("/");
 
-        int dia = Integer.parseInt(dt[0]);
-        int mes = Integer.parseInt(dt[1]);
-        int ano = Integer.parseInt(dt[2]);
-
-        String dataString = ano + "-" + mes + "-" + dia + "T00:00:00.000+00:00";
+        String dataString = dt[2] + "-" + dt[1] + "-" + dt[0] + "T00:00:00.000+00:00";
         return dataString;
     }
 

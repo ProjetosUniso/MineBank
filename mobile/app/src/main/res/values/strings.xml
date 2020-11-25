@@ -78,4 +78,6 @@
     <string name="comprovanteemailbutton">Enviar comprovante no Email</string>
     <string name="cepinvalido">CEP INVALIDO!</string>
     <string name="numeroinvalido">O NUMERO PRECISA SER PREENCHIDO!</string>
+    <string name="CPFcadastrado">CPF JA CADASTRADO NO SISTEMA!</string>
+    <string name="emailcadastrado">EMAIL JA CADASTRADO NO SISTEMA!</string>
 </resources>
