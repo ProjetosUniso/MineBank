@@ -2,6 +2,7 @@ package com.projetosuniso.digdin.resource;
 
 import com.projetosuniso.digdin.model.TipoMovimentacao;
 import com.projetosuniso.digdin.requisicoes.TipoMovimentacao.ListarTipoMovimentacao;
+import com.projetosuniso.digdin.requisicoes.TipoMovimentacao.TipoMovimentacaoPorChave;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 public class TipoMovimentacaoResource {
 
-    private ListarTipoMovimentacao listar;
+    private final ListarTipoMovimentacao listar;
 
     public TipoMovimentacaoResource() {
         listar = new ListarTipoMovimentacao();
@@ -21,9 +22,7 @@ public class TipoMovimentacaoResource {
 
     public List<TipoMovimentacao> listarTipoMovimentacao() throws JSONException, ExecutionException, InterruptedException {
 
-        ArrayList<TipoMovimentacao> listaTipo = new ArrayList<TipoMovimentacao>();
-
-        //String aux = teste.execute().get();
+        ArrayList<TipoMovimentacao> listaTipo = new ArrayList<>();
 
         JSONArray objs = listar.execute().get();
 
@@ -38,6 +37,18 @@ public class TipoMovimentacaoResource {
 
         return listaTipo;
     }
+
+    public TipoMovimentacao getChave(String chave) throws ExecutionException, InterruptedException, JSONException {
+        TipoMovimentacaoPorChave movimentChave = new TipoMovimentacaoPorChave(chave);
+        TipoMovimentacao tipoMovimentacao;
+
+        JSONObject obj = movimentChave.execute().get();
+
+        tipoMovimentacao = convertJsonObjectToTipoMovimentacao(obj);
+
+        return tipoMovimentacao;
+    }
+
 
     public TipoMovimentacao convertJsonObjectToTipoMovimentacao(JSONObject obj) throws JSONException {
 

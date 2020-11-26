@@ -22,6 +22,7 @@ import java.util.Date;
 public class SaqueActivity extends Activity {
 
     private Conta conta;
+    private String valor;
     private final ContaService contaService = new ContaService();
     private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
     private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
@@ -52,7 +53,15 @@ public class SaqueActivity extends Activity {
             @Override
             public void onClick(View v) {
                 clickButton.start();
-                realizarDeposito();
+
+                EditText edtValor = findViewById(R.id.editTextVALORSAQUE);
+                valor = edtValor.getText().toString();
+                if (valor.equals("") || valor.equals("0")){
+                    Toast.makeText(SaqueActivity.this, "Insira uma quantidade valida", Toast.LENGTH_SHORT).show();
+                } else {
+                    realizarSaque();
+                }
+
 
             }
         });
@@ -68,33 +77,24 @@ public class SaqueActivity extends Activity {
         return dateFormat.format(date);
     }
 
-    //INCOMPLETO / NOT CHECKED
-    private void realizarDeposito(){
+    private void realizarSaque(){
         HistMovimentacao movimentacao = new HistMovimentacao();
-        TipoMovimentacao tpMoviment = new TipoMovimentacao();
-
-        EditText edtValor = findViewById(R.id.editTextVALORSAQUE);
-        String valor = edtValor.getText().toString();
-
-        //tpMoviment = serTpm.getID();
-        tpMoviment.setChave("SAQUE");
-        tpMoviment.setDescricao("Saque");
-        tpMoviment.setId(1);
+        TipoMovimentacao tpMoviment = serTpm.getChave("SAQUE");
 
         movimentacao.setValor(Double.parseDouble(valor));
         movimentacao.setDescricao("saque");
         movimentacao.setMovimentacao(tpMoviment);
         movimentacao.setConta(conta);
-        //movimentacao.setIdContaTransferencia();
+        movimentacao.setIdContaTransferencia(conta.getId());
         movimentacao.setDataInclusao(inserirData());
 
         String confirm = serHtm.adicionar(movimentacao);
 
         if (confirm.equals("exito")){
             Toast.makeText(this, "Saque Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
-            conta.setSaldo( conta.getSaldo() - movimentacao.getValor() );
+            int novoSaldo = (int) ( conta.getSaldo() - movimentacao.getValor() );
 
-            contaService.atualizar(conta, conta.getId());
+            contaService.atualizarSaldo(conta.getId(), novoSaldo);
 
             openTransferencia();
         }else {

@@ -1,53 +1,51 @@
 package com.projetosuniso.digdin.requisicoes.conta;
 
 import android.os.AsyncTask;
-import org.json.JSONObject;
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
 //OK
-public class ContaAdiciona extends AsyncTask<Void, Void, String> {
+public class ContaAtualizaSaldo extends AsyncTask<Void, Void, String> {
 
-    private final JSONObject conta;
+    private final String novoSaldo;
 
-    public ContaAdiciona(JSONObject conta) {
-        this.conta = conta;
+    public ContaAtualizaSaldo(String novoSaldo) {
+        this.novoSaldo = novoSaldo;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected String doInBackground(Void... voids) {
 
-        String result = null;
+        String result;
 
         try {
-            URL url = new URL("http://minebank-api-service.herokuapp.com/contas");
+            URL url = new URL("http://minebank-api-service.herokuapp.com/contas/saldo/"+ novoSaldo);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setReadTimeout(5000);
             connection.setConnectTimeout(5000);
             connection.setRequestProperty("Content-type", "application/json");
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("PUT");
             connection.setDoOutput(true);
-            connection.setDoInput(true);
 
             connection.connect();
 
-            OutputStream os = connection.getOutputStream();
-            os.write(conta.toString().getBytes());
-            os.flush();
+            int responseCod = connection.getResponseCode();
 
-            int responseCode = connection.getResponseCode();
-
-            if (responseCode == HttpURLConnection.HTTP_OK) {
+            if (responseCod == HttpURLConnection.HTTP_OK){
                 result = "exito";
-            } else {
-                result = "falha";
+            }else {
+                result = "falha ao conectar com o banco" + responseCod;
             }
+
+            connection.disconnect();
             return result;
 
         } catch (ProtocolException e) {

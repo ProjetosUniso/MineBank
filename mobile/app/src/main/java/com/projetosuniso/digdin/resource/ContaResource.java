@@ -67,7 +67,6 @@ public class ContaResource {
         return verificar.execute().get();
     }
 
-    //NOT CHEKED
     public String adicionar (Conta conta) throws JSONException, ExecutionException, InterruptedException {
         ContaAdiciona adiciona;
         String resul;
@@ -92,6 +91,11 @@ public class ContaResource {
         return resul;
     }
 
+    public String atualizarSaldo (Long id, int saldo) throws ExecutionException, InterruptedException {
+        String idSaldo = id + "&" + saldo;
+        ContaAtualizaSaldo atualiza = new ContaAtualizaSaldo(idSaldo);
+        return atualiza.execute().get();
+    }
 
     public Conta convertJsonObjectToConta(JSONObject obj) throws JSONException {
         Conta conta = new Conta();

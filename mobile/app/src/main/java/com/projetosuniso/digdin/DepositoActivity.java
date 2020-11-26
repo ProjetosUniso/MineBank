@@ -22,6 +22,7 @@ import java.util.Date;
 public class DepositoActivity extends Activity {
 
     private Conta conta;
+    private String valor;
     private final ContaService contaService = new ContaService();
     private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
     private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
@@ -43,7 +44,14 @@ public class DepositoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 clickButton.start();
-                realizarDeposito();
+
+                EditText edtValor = findViewById(R.id.editTextVALORDEPOSITO);
+                valor = edtValor.getText().toString();
+                if (valor.equals("") || valor.equals("0")){
+                    Toast.makeText(DepositoActivity.this, "Insira uma quantidade valida", Toast.LENGTH_SHORT).show();
+                } else {
+                    realizarDeposito();
+                }
 
             }
         });
@@ -69,18 +77,9 @@ public class DepositoActivity extends Activity {
         return dateFormat.format(date);
     }
 
-    //INCOMPLETO / OK
     private void realizarDeposito(){
         HistMovimentacao movimentacao = new HistMovimentacao();
-        TipoMovimentacao tpMoviment = new TipoMovimentacao();
-
-        EditText edtValor = findViewById(R.id.editTextVALORDEPOSITO);
-        String valor = edtValor.getText().toString();
-
-        //tpMoviment = serTpm.getID();
-        tpMoviment.setChave("DEPOSITO");
-        tpMoviment.setDescricao("Deposito");
-        tpMoviment.setId(2);
+        TipoMovimentacao tpMoviment = serTpm.getChave("DEPOSITO");
 
         movimentacao.setValor(Double.parseDouble(valor));
         movimentacao.setDescricao("deposito");
@@ -93,9 +92,9 @@ public class DepositoActivity extends Activity {
 
         if (confirm.equals("exito")){
             Toast.makeText(this, "Deposito Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
-            conta.setSaldo(conta.getSaldo() + Double.parseDouble(valor));
+            int novoSaldo = (int) (conta.getSaldo() + Double.parseDouble(valor));
 
-            contaService.atualizar(conta, conta.getId());
+            contaService.atualizarSaldo(conta.getId(), novoSaldo);
 
             openTransferencia();
         }else {
