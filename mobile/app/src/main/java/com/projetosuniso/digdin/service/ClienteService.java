@@ -25,6 +25,13 @@ public class ClienteService {
             return Boolean.parseBoolean(null);
         }
     }
+    public boolean verificarEmail (String email){
+        try {
+            return cliente.verificarEmail(email);
+        } catch (Exception e) {
+            return Boolean.parseBoolean(null);
+        }
+    }
     public boolean atualizar (Cliente clienteAtt, int id){
         try {
             return cliente.atualiza(clienteAtt, id);
