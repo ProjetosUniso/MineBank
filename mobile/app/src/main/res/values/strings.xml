@@ -81,4 +81,11 @@
     <string name="CPFcadastrado">CPF JA CADASTRADO NO SISTEMA!</string>
     <string name="emailcadastrado">EMAIL JA CADASTRADO NO SISTEMA!</string>
     <string name="poupanca">Poupanca</string>
+    <string name="pagamentostext">Pagamentos</string>
+    <string name="numpagamentotext">Insira o número do pagamento a ser feito:</string>
+    <string name="numeronaoencontrado">Numero de pagamento não encontrado!</string>
+    <string name="descricaotext">Descricao</string>
+    <string name="pagamentoencontradotext">Pagamento encontrado:</string>
+    <string name="valorpagamentotext">000</string>
+    <string name="pagarbutton">Realizar pagamento</string>
 </resources>

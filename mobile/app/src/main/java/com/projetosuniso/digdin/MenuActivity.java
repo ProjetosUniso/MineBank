@@ -73,6 +73,15 @@ public class MenuActivity extends Activity {
             }
         });
 
+        Button pagamentosButton = findViewById(R.id.pagamentosButton);
+        pagamentosButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickButton.start();
+                openPagamentos();
+            }
+        });
+
         Button poupancaButton = findViewById(R.id.poupancaButton);
         poupancaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +136,11 @@ public class MenuActivity extends Activity {
 
     public void openTransferencia() {
         Intent intent = new Intent(this, TransferenciaActivity.class);
+        startActivity(intent);
+    }
+
+    public void openPagamentos() {
+        Intent intent = new Intent(this, PagamentosActivity.class);
         startActivity(intent);
     }
 

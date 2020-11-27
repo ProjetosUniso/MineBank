@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PagamentosActivity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dirtbg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="55dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/minibutton"
+        android:fontFamily="@font/minecraft"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="500dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        app:layout_constraintVertical_bias="0.034" />
+
+    <TextView
+        android:id="@+id/pagamentosText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/pagamentostext"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <ImageView
+        android:id="@+id/stonepanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/stonebg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pagamentosText" />
+
+    <TextView
+        android:id="@+id/numPagamentoText"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/numpagamentotext"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel"
+        app:layout_constraintTop_toTopOf="@+id/stonepanel"
+        app:layout_constraintVertical_bias="0.082" />
+
+
+    <EditText
+        android:id="@+id/editTextNUMPAGAMENTO"
+        android:layout_width="217dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:background="#000000"
+        android:ems="10"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:maxLength="6"
+        app:layout_constraintEnd_toEndOf="@+id/numPagamentoText"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/numPagamentoText"
+        app:layout_constraintTop_toBottomOf="@+id/numPagamentoText" />
+
+    <TextView
+        android:id="@+id/textNumeroNaoEncontrado"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/numeronaoencontrado"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNUMPAGAMENTO"
+        app:layout_constraintStart_toStartOf="@+id/editTextNUMPAGAMENTO"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNUMPAGAMENTO" />
+
+    <LinearLayout
+        android:id="@+id/pagamentoInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+        app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+        app:layout_constraintStart_toStartOf="@+id/stonepanel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNUMPAGAMENTO">
+
+        <TextView
+            android:id="@+id/pagamentoEncontradoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="@string/pagamentoencontradotext"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/valorPagamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/emerald"
+                android:layout_width="38dp"
+                android:layout_height="37dp"
+                android:src="@drawable/emerald"
+                app:layout_constraintBottom_toBottomOf="@+id/saldo"
+                app:layout_constraintEnd_toStartOf="@+id/saldo"
+                app:layout_constraintTop_toTopOf="@+id/saldo" />
+
+            <TextView
+                android:id="@+id/valorPagamentoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/minecraft"
+                android:gravity="center"
+                android:text="@string/valorpagamentotext"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/emerald2"
+                android:layout_width="38dp"
+                android:layout_height="37dp"
+                android:src="@drawable/emerald"
+                app:layout_constraintBottom_toBottomOf="@+id/saldo"
+                app:layout_constraintEnd_toStartOf="@+id/saldo"
+                app:layout_constraintTop_toTopOf="@+id/saldo" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/descricaoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="@string/descricaotext"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/pagarButton"
+            android:layout_width="246dp"
+            android:layout_height="59dp"
+            android:layout_margin="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/minecraft"
+            android:padding="5dp"
+            android:text="@string/pagarbutton"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
+            app:layout_constraintEnd_toEndOf="@+id/stonepanel"
+            app:layout_constraintStart_toStartOf="@+id/stonepanel" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PoupancaActivity"/>
+        <activity android:name=".PagamentosActivity"></activity>
+        <activity android:name=".PoupancaActivity" />
         <activity android:name=".ComprovanteTransferenciaActivity" />
         <activity android:name=".EntreContasValorActivity" />
         <activity android:name=".EntreContasCPFActivity" />
