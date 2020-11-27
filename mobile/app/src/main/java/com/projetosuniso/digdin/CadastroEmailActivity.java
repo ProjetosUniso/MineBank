@@ -17,6 +17,8 @@ import com.projetosuniso.digdin.utils.EmailValidatorUtil;
 
 public class CadastroEmailActivity extends Activity {
 
+    private final ClienteService clienteService = new ClienteService();
+
     boolean EMAILvalid = false;
     boolean CONFIRMEMAILvalid = false;
 
@@ -38,6 +40,7 @@ public class CadastroEmailActivity extends Activity {
 
         final TextView textEmailInvalido = findViewById(R.id.textEmailInvalido);
         final TextView textEmailsDiferentes = findViewById(R.id.textEmailsDiferentes);
+        final TextView textEmailCadastrado = findViewById(R.id.textEmailCadastrado);
 
         Button voltarButton = findViewById(R.id.voltarButton);
         voltarButton.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +67,9 @@ public class CadastroEmailActivity extends Activity {
                 String EMAIL = editTextEMAIL.getText().toString();
 
                 if(!hasFocus) {
+
+                    boolean emailExiste = clienteService.verificarEmail(EMAIL);
+
                     if(!EmailValidatorUtil.isValidEmailAddressRegex(EMAIL)) {
                         editTextEMAIL.setBackgroundResource(R.drawable.edittext_border);
                         textEmailInvalido.setVisibility(View.VISIBLE);
@@ -72,9 +78,15 @@ public class CadastroEmailActivity extends Activity {
                         EMAILvalid = false;
                     }
                     else {
-                        editTextEMAIL.setBackgroundResource(R.drawable.edittext_default);
-                        checkEMAIL.setVisibility(View.VISIBLE);
-                        EMAILvalid = true;
+                        if (!emailExiste) {
+                            editTextEMAIL.setBackgroundResource(R.drawable.edittext_default);
+                            checkEMAIL.setVisibility(View.VISIBLE);
+                            EMAILvalid = true;
+                        }
+                        else {
+                            textEmailCadastrado.setVisibility(View.VISIBLE);
+                            EMAILvalid = false;
+                        }
                     }
                 }
                 else {
@@ -93,7 +105,7 @@ public class CadastroEmailActivity extends Activity {
                 String CONFIRMEMAIL = editTextCONFIRMEMAIL.getText().toString();
 
                 if(!hasFocus) {
-                    if(EMAILvalid == true) {
+                    if(EMAILvalid) {
                         if(!EMAIL.equals(CONFIRMEMAIL)) {
                             editTextCONFIRMEMAIL.setBackgroundResource(R.drawable.edittext_border);
                             textEmailsDiferentes.setVisibility(View.VISIBLE);
@@ -140,7 +152,6 @@ public class CadastroEmailActivity extends Activity {
             String email = editTextEMAIL.getText().toString();
 
             Cliente cliente = new Cliente();
-
             cliente.setEmail(email);
 
             Intent intent = new Intent(this, CadastroInfoPessoalActivity.class);

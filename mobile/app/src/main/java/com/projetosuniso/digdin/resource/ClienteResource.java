@@ -5,6 +5,7 @@ import com.projetosuniso.digdin.model.Cliente;
 import com.projetosuniso.digdin.model.Endereco;
 import com.projetosuniso.digdin.requisicoes.cliente.ClienteAtualiza;
 import com.projetosuniso.digdin.requisicoes.cliente.ClienteBuscaPorID;
+import com.projetosuniso.digdin.requisicoes.cliente.ClienteVerificaEmail;
 import com.projetosuniso.digdin.requisicoes.cliente.ClienteVerificarCPF;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +33,11 @@ public class ClienteResource {
     public boolean verificarCPF (String cpf) throws ExecutionException, InterruptedException {
         ClienteVerificarCPF verificarCPF = new ClienteVerificarCPF(cpf);
         return verificarCPF.execute().get();
+    }
+
+    public boolean verificarEmail (String email) throws ExecutionException, InterruptedException {
+        ClienteVerificaEmail verificarEmail = new ClienteVerificaEmail(email);
+        return verificarEmail.execute().get();
     }
 
     public boolean atualiza (Cliente cliente, int id) throws JSONException, ExecutionException, InterruptedException {
