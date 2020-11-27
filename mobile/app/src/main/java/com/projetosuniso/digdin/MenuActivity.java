@@ -72,6 +72,15 @@ public class MenuActivity extends Activity {
                 openTransferencia();
             }
         });
+
+        Button poupancaButton = findViewById(R.id.poupancaButton);
+        poupancaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickButton.start();
+                openPoupanca();
+            }
+        });
     }
 
 
@@ -118,6 +127,11 @@ public class MenuActivity extends Activity {
 
     public void openTransferencia() {
         Intent intent = new Intent(this, TransferenciaActivity.class);
+        startActivity(intent);
+    }
+
+    public void openPoupanca() {
+        Intent intent = new Intent(this, PoupancaActivity.class);
         startActivity(intent);
     }
 

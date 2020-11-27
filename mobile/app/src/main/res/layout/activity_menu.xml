@@ -20,41 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-            android:id="@+id/codConta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/minecraft"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/sign"
-            app:layout_constraintStart_toStartOf="@+id/sign"
-            app:layout_constraintTop_toBottomOf="@+id/codAgencia" android:layout_marginTop="4dp"
-            app:layout_constraintHorizontal_bias="0.7" android:text="@string/codconta"/>
-    <TextView
-            android:id="@+id/codAgencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/minecraft"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/sign"
-            app:layout_constraintTop_toBottomOf="@+id/usuario" android:layout_marginTop="14dp"
-            app:layout_constraintStart_toStartOf="@+id/sign"
-            app:layout_constraintHorizontal_bias="0.75" android:text="@string/codagencia"/>
-    <TextView
-            android:id="@+id/usuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/minecraft"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/sign"
-            app:layout_constraintTop_toTopOf="@+id/sign"
-            android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="@+id/sign"
-            app:layout_constraintHorizontal_bias="0.89"
-            android:text="@string/codusuario"/>
     <Button
         android:id="@+id/backButton"
         android:layout_width="55dp"
@@ -84,42 +49,88 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background" />
 
-    <TextView
-            android:id="@+id/bvusuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/minecraft"
-            android:text="@string/bvusuario"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="@+id/sign"
-            app:layout_constraintEnd_toStartOf="@+id/usuario"
-            android:layout_marginRight="4dp"
-            android:layout_marginEnd="4dp"/>
-    <TextView
-            android:id="@+id/agencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/minecraft"
-            android:text="@string/agencia"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/bvusuario" app:layout_constraintEnd_toStartOf="@+id/codAgencia"
-            android:layout_marginRight="4dp" android:layout_marginEnd="4dp"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/sign"
+        app:layout_constraintEnd_toEndOf="@+id/sign"
+        app:layout_constraintStart_toStartOf="@+id/sign"
+        app:layout_constraintTop_toTopOf="@+id/sign">
 
-    <TextView
-            android:id="@+id/conta"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/minecraft"
-            android:text="@string/conta"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/agencia" app:layout_constraintEnd_toStartOf="@+id/codConta"
-            android:layout_marginRight="4dp" android:layout_marginEnd="4dp"/>
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/bvusuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minecraft"
+                android:text="@string/bvusuario"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/conta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minecraft"
+                android:text="@string/conta"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/agencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minecraft"
+                android:text="@string/agencia"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minecraft"
+                android:text="@string/codusuario"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/codConta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minecraft"
+                android:text="@string/codconta"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/codAgencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/minecraft"
+                android:text="@string/codagencia"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/moeda"
         android:layout_width="wrap_content"

@@ -23,6 +23,8 @@ public class SaqueActivity extends Activity {
 
     private Conta conta;
     private String valor;
+    private String aux;
+    private int tipo;
     private final ContaService contaService = new ContaService();
     private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
     private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
@@ -34,17 +36,31 @@ public class SaqueActivity extends Activity {
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
+        aux = getIntent().getStringExtra("tipo");
+        tipo = Integer.parseInt(aux);
+
         conta = contaService.getCPF(LoginActivity.cpf);
 
         TextView saldo = findViewById(R.id.saldo);
-        saldo.setText( String.valueOf(conta.getSaldo()) );
+        if (tipo == 1) {
+            saldo.setText( String.valueOf(conta.getSaldo()) );
+        }
+        else if (tipo == 2) {
+            saldo.setText( String.valueOf(conta.getPoupanca()) );
+        }
 
         Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clickButton.start();
-                openTransferencia();
+                if (tipo == 1) {
+                    openTransferencia();
+                }
+                else if (tipo == 2) {
+                    openPoupanca();
+                }
+
             }
         });
 
@@ -71,6 +87,12 @@ public class SaqueActivity extends Activity {
         Intent intent = new Intent(this, TransferenciaActivity.class);
         startActivity(intent);
     }
+
+    public void openPoupanca() {
+        Intent intent = new Intent(this, PoupancaActivity.class);
+        startActivity(intent);
+    }
+
     private String inserirData(){
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
@@ -92,9 +114,15 @@ public class SaqueActivity extends Activity {
 
         if (confirm.equals("exito")){
             Toast.makeText(this, "Saque Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
-            int novoSaldo = (int) ( conta.getSaldo() - movimentacao.getValor() );
 
-            contaService.atualizarSaldo(conta.getId(), novoSaldo);
+            if (tipo == 1) {
+                int novoSaldo = (int) ( conta.getSaldo() - movimentacao.getValor() );
+                contaService.atualizarSaldo(conta.getId(), novoSaldo);
+            }
+            else if (tipo == 2) {
+                int novoSaldo = (int) ( conta.getPoupanca() - movimentacao.getValor() );
+                contaService.atualizarSaldo(conta.getId(), novoSaldo);
+            }
 
             openTransferencia();
         }else {

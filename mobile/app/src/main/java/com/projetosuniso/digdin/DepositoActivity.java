@@ -23,6 +23,8 @@ public class DepositoActivity extends Activity {
 
     private Conta conta;
     private String valor;
+    private String aux;
+    private int tipo;
     private final ContaService contaService = new ContaService();
     private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
     private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
@@ -34,10 +36,18 @@ public class DepositoActivity extends Activity {
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
+        aux = getIntent().getStringExtra("tipo");
+        tipo = Integer.parseInt(aux);
+
         conta = contaService.getCPF(LoginActivity.cpf);
 
         TextView saldo = findViewById(R.id.saldo);
-        saldo.setText( String.valueOf(conta.getSaldo()) );
+        if (tipo == 1) {
+            saldo.setText( String.valueOf(conta.getSaldo()) );
+        }
+        else if (tipo == 2) {
+            saldo.setText( String.valueOf(conta.getPoupanca()) );
+        }
 
         Button depositarButton = findViewById(R.id.depositarButton);
         depositarButton.setOnClickListener(new View.OnClickListener() {
@@ -61,13 +71,24 @@ public class DepositoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 clickButton.start();
-                openTransferencia();
+                if (tipo == 1) {
+                    openTransferencia();
+                }
+                else if (tipo == 2) {
+                    openPoupanca();
+                }
+
             }
         });
     }
 
     public void openTransferencia() {
         Intent intent = new Intent(this, TransferenciaActivity.class);
+        startActivity(intent);
+    }
+
+    public void openPoupanca() {
+        Intent intent = new Intent(this, PoupancaActivity.class);
         startActivity(intent);
     }
 
@@ -92,10 +113,15 @@ public class DepositoActivity extends Activity {
 
         if (confirm.equals("exito")){
             Toast.makeText(this, "Deposito Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
-            int novoSaldo = (int) (conta.getSaldo() + Double.parseDouble(valor));
 
-            contaService.atualizarSaldo(conta.getId(), novoSaldo);
-
+            if (tipo == 1) {
+                int novoSaldo = (int) (conta.getSaldo() + Double.parseDouble(valor));
+                contaService.atualizarSaldo(conta.getId(), novoSaldo);
+            }
+            else if (tipo == 2) {
+                int novoSaldo = (int) (conta.getPoupanca() + Double.parseDouble(valor));
+                contaService.atualizarSaldo(conta.getId(), novoSaldo);
+            }
             openTransferencia();
         }else {
             Toast.makeText(this, "Houve erro ao realizar o deposito: " + confirm, Toast.LENGTH_SHORT).show();

@@ -80,4 +80,5 @@
     <string name="numeroinvalido">O NUMERO PRECISA SER PREENCHIDO!</string>
     <string name="CPFcadastrado">CPF JA CADASTRADO NO SISTEMA!</string>
     <string name="emailcadastrado">EMAIL JA CADASTRADO NO SISTEMA!</string>
+    <string name="poupanca">Poupanca</string>
 </resources>
