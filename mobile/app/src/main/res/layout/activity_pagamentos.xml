@@ -79,6 +79,32 @@
         app:layout_constraintTop_toBottomOf="@+id/pagamentosText" />
 
     <TextView
+        android:id="@+id/saldoatual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/saldoatual"
+        android:textColor="#191919"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/saldo"
+        app:layout_constraintEnd_toEndOf="@+id/saldo"
+        app:layout_constraintStart_toStartOf="@+id/saldo" />
+
+    <TextView
+        android:id="@+id/saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/saldo"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/numPagamentoText"
+        app:layout_constraintEnd_toEndOf="@+id/numPagamentoText"
+        app:layout_constraintStart_toStartOf="@+id/numPagamentoText" />
+
+    <TextView
         android:id="@+id/numPagamentoText"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
@@ -89,11 +115,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/stonepanel"
         app:layout_constraintEnd_toEndOf="@+id/stonepanel"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="@+id/stonepanel"
         app:layout_constraintTop_toTopOf="@+id/stonepanel"
-        app:layout_constraintVertical_bias="0.082" />
-
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/editTextNUMPAGAMENTO"
