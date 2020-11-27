@@ -56,12 +56,12 @@ public class ComprovanteTransferenciaActivity extends Activity {
         TextView nomeClienteDev = findViewById(R.id.nomeDevedorText);
         nomeClienteDev.setText(clienteDev.getNome());
         TextView contaClienteDev = findViewById(R.id.contaDevedorText);
-        contaClienteDev.setText("Conta: " + contaDev.getAgencia() + " | "+ "Agencia: " + contaDev.getAgencia());
+        contaClienteDev.setText("Numero: " + contaDev.getNumero() + " | "+ "Agencia: " + contaDev.getAgencia());
 
         TextView nomeClienteCre = findViewById(R.id.nomeCredorText);
         nomeClienteCre.setText(clienteCre.getNome());
         TextView contaClienteCre = findViewById(R.id.contaCredorText);
-        contaClienteCre.setText("Conta: " + contaCre.getAgencia() + " | "+ "Agencia: " + contaCre.getAgencia());
+        contaClienteCre.setText("Numero: " + contaCre.getNumero() + " | "+ "Agencia: " + contaCre.getAgencia());
 
         TextView valorTrs = findViewById(R.id.valorRecebidoText);
         valorTrs.setText(valor);

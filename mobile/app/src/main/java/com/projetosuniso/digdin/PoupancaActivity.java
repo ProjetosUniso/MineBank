@@ -1,7 +1,5 @@
 package com.projetosuniso.digdin;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -16,9 +14,7 @@ import com.projetosuniso.digdin.service.ContaService;
 public class PoupancaActivity extends Activity {
 
     private final ContaService contaService = new ContaService();
-    private Conta conta = new Conta();
-
-    private String tipo = "2";
+    private final String tipo = "2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +23,9 @@ public class PoupancaActivity extends Activity {
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
-        final TextView saldoText = findViewById(R.id.saldo);
+        Conta conta = contaService.getCPF(LoginActivity.cpf);
 
+        TextView saldoText = findViewById(R.id.saldo);
         saldoText.setText(String.valueOf( conta.getPoupanca() ));
 
         Button backButton = findViewById(R.id.backButton);

@@ -3,7 +3,6 @@ package com.projetosuniso.digdin.requisicoes.HistoricoMovimentacao;
 import android.os.AsyncTask;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -16,9 +15,9 @@ import java.net.URL;
 //OK
 public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONArray> {
 
-    private final int id;
+    private final Long id;
 
-    public HistMovimentacaoBuscaPorID(int id) {
+    public HistMovimentacaoBuscaPorID(Long id) {
         this.id = id;
     }
 
@@ -44,7 +43,7 @@ public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONArray>
             if (responseCode == HttpURLConnection.HTTP_OK) {
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),
-                        "UTF-8"), 8);
+                        "UTF-8"));
                 StringBuilder sb = new StringBuilder();
                 String line;
 

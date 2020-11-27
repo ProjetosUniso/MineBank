@@ -74,7 +74,7 @@ public class DepositoActivity extends Activity {
                 if (tipo == 1) {
                     openTransferencia();
                 }
-                else if (tipo == 2) {
+                else {
                     openPoupanca();
                 }
 
@@ -103,11 +103,16 @@ public class DepositoActivity extends Activity {
         TipoMovimentacao tpMoviment = serTpm.getChave("DEPOSITO");
 
         movimentacao.setValor(Double.parseDouble(valor));
-        movimentacao.setDescricao("deposito");
         movimentacao.setMovimentacao(tpMoviment);
         movimentacao.setConta(conta);
         movimentacao.setIdContaTransferencia(conta.getId());
         movimentacao.setDataInclusao(inserirData());
+
+        if (tipo == 1){
+            movimentacao.setDescricao("deposito - conta corrente");
+        } else if (tipo == 2){
+            movimentacao.setDescricao("deposito - poupanca");
+        }
 
         String confirm = serHtm.adicionar(movimentacao);
 
@@ -120,7 +125,7 @@ public class DepositoActivity extends Activity {
             }
             else if (tipo == 2) {
                 int novoSaldo = (int) (conta.getPoupanca() + Double.parseDouble(valor));
-                contaService.atualizarSaldo(conta.getId(), novoSaldo);
+                contaService.atualizaPoupanca( conta.getId(), novoSaldo);
             }
             openTransferencia();
         }else {

@@ -49,7 +49,7 @@ public class EntreContasValorActivity extends Activity {
         TextView nomeCliente = findViewById(R.id.nomeClienteText);
         nomeCliente.setText(cliente.getNome());
         TextView contaCliente = findViewById(R.id.contaClienteText);
-        contaCliente.setText("Conta: " + conta.getAgencia() + " | "+ "Agencia: " + conta.getAgencia());
+        contaCliente.setText("Numero: " + conta.getNumero() + " | "+ "Agencia: " + conta.getAgencia());
 
 
         Button backButton = findViewById(R.id.backButton);

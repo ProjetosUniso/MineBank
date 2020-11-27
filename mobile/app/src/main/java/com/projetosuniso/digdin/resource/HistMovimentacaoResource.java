@@ -25,7 +25,7 @@ public class HistMovimentacaoResource {
     public HistMovimentacaoResource() {
     }
 
-    public List<HistMovimentacao> historicoPorID(int id) throws JSONException, ExecutionException, InterruptedException {
+    public List<HistMovimentacao> historicoPorID(Long id) throws JSONException, ExecutionException, InterruptedException {
         HistMovimentacaoBuscaPorID buscaPorID = new HistMovimentacaoBuscaPorID(id);
         List<HistMovimentacao> historico = new ArrayList<>();
 
@@ -43,7 +43,6 @@ public class HistMovimentacaoResource {
         return historico;
     }
 
-    //ERRO - idContaTransferencia is null
     public List<HistMovimentacao> historicoListar() throws JSONException, ExecutionException, InterruptedException {
         HistMovimentacaoListar listar = new HistMovimentacaoListar();
         ArrayList<HistMovimentacao> listHistorico = new ArrayList<>();
@@ -85,7 +84,18 @@ public class HistMovimentacaoResource {
                     resul = "O valor da Transferencia excede o saldo";
                 }
                 break;
-            case "deposito":
+            case "resgate - poupanca":
+                if (conta.getPoupanca() >= movimentacao.getValor()){
+                    resul = adiciona.execute().get();
+                }else {
+                    resul = "O valor do resgate excede a poupanca";
+                }
+                break;
+
+            case "deposito - conta corrente":
+                resul = adiciona.execute().get();
+                break;
+            case "deposito - poupanca":
                 resul = adiciona.execute().get();
                 break;
 
@@ -106,6 +116,7 @@ public class HistMovimentacaoResource {
         historico.setDataInclusao(obj.getString("dataInclusao"));
         historico.setDescricao(obj.getString("descricao"));
         historico.setIdContaTransferencia(obj.getLong("idContaTransferencia"));
+        historico.setValor(obj.getDouble("valor"));
 
         cnt = obj.getJSONObject("conta");
         mvt = obj.getJSONObject("movimentacao");

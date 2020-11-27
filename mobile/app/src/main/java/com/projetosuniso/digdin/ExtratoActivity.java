@@ -11,8 +11,18 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.model.HistMovimentacao;
+import com.projetosuniso.digdin.service.ContaService;
+import com.projetosuniso.digdin.service.HistMovimentacaoService;
+
+import java.util.List;
 
 public class ExtratoActivity extends Activity {
+
+    private final HistMovimentacaoService histMovimentacaoService = new HistMovimentacaoService();
+    private final ContaService contaService = new ContaService() ;
+    private List<HistMovimentacao> listHistorico;
 
 
     @Override
@@ -21,6 +31,11 @@ public class ExtratoActivity extends Activity {
         setContentView(R.layout.activity_extrato);
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+
+
+        Conta conta = contaService.getCPF(LoginActivity.cpf);
+
+        listHistorico = histMovimentacaoService.getID(conta.getId());
 
         Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -40,17 +55,20 @@ public class ExtratoActivity extends Activity {
 
         for(int i=0; i<=50; i++) {
 
+            HistMovimentacao histMovimentacao = listHistorico.get(i);
+
             TableRow tr = new TableRow(this);
 
             for(int j=0; j<3; j++) {
                 TextView tv = new TextView(this);
 
+
                 tv.setGravity(Gravity.CENTER);
                 tv.setPadding(5, 5,5,5);
 
-                if(j==0) { tv.setText("Data" + i); }
-                else if (j==1) { tv.setText("Descricao" + i); }
-                else if (j==2) { tv.setText("Valor" + i); }
+                if(j==0) { tv.setText(String.valueOf( histMovimentacao.getDataInclusao() )); }
+                else if (j==1) { tv.setText(String.valueOf( histMovimentacao.getDescricao() )); }
+                else if (j==2) { tv.setText(String.valueOf( histMovimentacao.getValor() )); }
 
                 tr.addView(tv);
             }

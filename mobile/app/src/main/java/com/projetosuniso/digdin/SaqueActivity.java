@@ -104,11 +104,16 @@ public class SaqueActivity extends Activity {
         TipoMovimentacao tpMoviment = serTpm.getChave("SAQUE");
 
         movimentacao.setValor(Double.parseDouble(valor));
-        movimentacao.setDescricao("saque");
         movimentacao.setMovimentacao(tpMoviment);
         movimentacao.setConta(conta);
         movimentacao.setIdContaTransferencia(conta.getId());
         movimentacao.setDataInclusao(inserirData());
+
+        if (tipo == 1){
+            movimentacao.setDescricao("saque");
+        }else if ( tipo == 2 ){
+            movimentacao.setDescricao("resgate - poupanca");
+        }
 
         String confirm = serHtm.adicionar(movimentacao);
 
@@ -121,7 +126,7 @@ public class SaqueActivity extends Activity {
             }
             else if (tipo == 2) {
                 int novoSaldo = (int) ( conta.getPoupanca() - movimentacao.getValor() );
-                contaService.atualizarSaldo(conta.getId(), novoSaldo);
+                contaService.atualizaPoupanca(conta.getId(), novoSaldo);
             }
 
             openTransferencia();

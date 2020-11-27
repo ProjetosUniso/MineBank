@@ -6,13 +6,13 @@ import com.projetosuniso.digdin.resource.HistMovimentacaoResource;
 import java.util.List;
 
 public class HistMovimentacaoService {
-    private HistMovimentacaoResource historico;
+    private final HistMovimentacaoResource historico;
 
     public HistMovimentacaoService() {
         historico = new HistMovimentacaoResource();
     }
 
-    public List<HistMovimentacao> getID(int id) {
+    public List<HistMovimentacao> getID(Long id) {
         try {
             return historico.historicoPorID(id);
         } catch (Exception e) {

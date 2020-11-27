@@ -62,5 +62,12 @@ public class ContaService {
             return e.getMessage();
         }
     }
+    public String atualizaPoupanca(Long id, int poupanca){
+        try {
+            return conta.atualizarPoupanca(id, poupanca);
+        } catch (Exception e){
+            return e.getMessage();
+        }
+    }
 
 }

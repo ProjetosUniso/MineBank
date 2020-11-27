@@ -97,6 +97,12 @@ public class ContaResource {
         return atualiza.execute().get();
     }
 
+    public String atualizarPoupanca (Long id, int poupanca) throws ExecutionException, InterruptedException {
+        String idPoupanca = id + "&" + poupanca;
+        ContaAtualizaPoupanca atualizaPoupanca = new ContaAtualizaPoupanca(idPoupanca);
+        return atualizaPoupanca.execute().get();
+    }
+
     public Conta convertJsonObjectToConta(JSONObject obj) throws JSONException {
         Conta conta = new Conta();
         JSONObject cli;
@@ -107,6 +113,7 @@ public class ContaResource {
         conta.setAgencia(obj.getInt("agencia"));
         conta.setSenha(obj.getInt("senha"));
         conta.setSaldo(obj.getDouble("saldo"));
+        conta.setPoupanca(obj.getDouble("poupanca"));
 
         cli = obj.getJSONObject("cliente");
 
