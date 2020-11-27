@@ -52,16 +52,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.149" />
 
-    <TextView
-        android:id="@+id/moeda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/moeda"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+    <ImageView
+        android:id="@+id/emerald"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/emerald"
         app:layout_constraintBottom_toBottomOf="@+id/saldo"
         app:layout_constraintEnd_toStartOf="@+id/saldo"
         app:layout_constraintTop_toTopOf="@+id/saldo" />
@@ -80,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textPoupanca" />
 
     <ImageView
-        android:id="@+id/emerald"
+        android:id="@+id/emerald2"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/emerald"
@@ -118,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@+id/saldo" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/chest"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"

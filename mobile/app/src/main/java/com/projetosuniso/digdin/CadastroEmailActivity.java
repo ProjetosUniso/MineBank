@@ -84,6 +84,9 @@ public class CadastroEmailActivity extends Activity {
                             EMAILvalid = true;
                         }
                         else {
+                            editTextEMAIL.setBackgroundResource(R.drawable.edittext_border);
+                            checkEMAIL.setVisibility(View.INVISIBLE);
+                            wrongEMAIL.setVisibility(View.VISIBLE);
                             textEmailCadastrado.setVisibility(View.VISIBLE);
                             EMAILvalid = false;
                         }
@@ -91,6 +94,7 @@ public class CadastroEmailActivity extends Activity {
                 }
                 else {
                     editTextEMAIL.setBackgroundResource(R.drawable.edittext_default);
+                    textEmailCadastrado.setVisibility(View.INVISIBLE);
                     textEmailInvalido.setVisibility(View.INVISIBLE);
                     wrongEMAIL.setVisibility(View.INVISIBLE);
                 }
