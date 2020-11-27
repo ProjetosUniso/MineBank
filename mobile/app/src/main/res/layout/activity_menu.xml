@@ -131,19 +131,14 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/moeda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/minecraft"
-        android:text="@string/moeda"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
+    <ImageView
+        android:id="@+id/emerald"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/emerald"
+        app:layout_constraintBottom_toBottomOf="@+id/saldo"
         app:layout_constraintEnd_toStartOf="@+id/saldo"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign" />
+        app:layout_constraintTop_toTopOf="@+id/saldo" />
 
     <TextView
         android:id="@+id/saldo"
@@ -161,17 +156,16 @@
         app:layout_constraintTop_toBottomOf="@+id/sign"
         app:layout_constraintVertical_bias="0.003" />
 
+
     <ImageView
-        android:id="@+id/emerald"
+        android:id="@+id/emerald2"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/emerald"
-        app:layout_constraintBottom_toTopOf="@+id/extratoButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintBottom_toBottomOf="@+id/saldo"
         app:layout_constraintStart_toEndOf="@+id/saldo"
-        app:layout_constraintTop_toBottomOf="@+id/sign" />
-
+        app:layout_constraintTop_toTopOf="@+id/saldo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/extratoButton"
