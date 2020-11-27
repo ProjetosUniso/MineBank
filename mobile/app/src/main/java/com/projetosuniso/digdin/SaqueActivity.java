@@ -55,7 +55,7 @@ public class SaqueActivity extends Activity {
             public void onClick(View v) {
                 clickButton.start();
                 if (tipo == 1) {
-                    openTransferencia();
+                    openMenu();
                 }
                 else if (tipo == 2) {
                     openPoupanca();
@@ -83,8 +83,8 @@ public class SaqueActivity extends Activity {
         });
     }
 
-    public void openTransferencia() {
-        Intent intent = new Intent(this, TransferenciaActivity.class);
+    public void openMenu() {
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
@@ -123,13 +123,16 @@ public class SaqueActivity extends Activity {
             if (tipo == 1) {
                 int novoSaldo = (int) ( conta.getSaldo() - movimentacao.getValor() );
                 contaService.atualizarSaldo(conta.getId(), novoSaldo);
+
+                openMenu();
             }
             else if (tipo == 2) {
                 int novoSaldo = (int) ( conta.getPoupanca() - movimentacao.getValor() );
                 contaService.atualizaPoupanca(conta.getId(), novoSaldo);
+
+                openPoupanca();
             }
 
-            openTransferencia();
         }else {
             Toast.makeText(this, "Houve erro ao realizar o saque: " + confirm, Toast.LENGTH_SHORT).show();
         }
