@@ -7,14 +7,13 @@ public class Boleto {
     private Long valor;
 
     public static final Boleto[] boletos = {
-            new Boleto(100101, "Rodizio de Traveco anão", (long) 100),
-            new Boleto(736001, " Boneco de ação do Naruto" , (long) 350),
-            new Boleto(400289, "Puta virtual" , (long) 800),
-            new Boleto(847566, "Peruca",  (long) 120),
+            new Boleto("Rodizio de Traveco anao", (long) 100),
+            new Boleto("Boneco de acao do Naruto" , (long) 350),
+            new Boleto("Puta virtual" , (long) 800),
+            new Boleto("Peruca",  (long) 120)
     };
 
-    public Boleto(int id, String descricao, Long valor) {
-        setId(id);
+    public Boleto(String descricao, Long valor) {
         setDescricao(descricao);
         setValor(valor);
     }

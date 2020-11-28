@@ -88,4 +88,5 @@
     <string name="pagamentoencontradotext">Pagamento encontrado:</string>
     <string name="valorpagamentotext">000</string>
     <string name="pagarbutton">Realizar pagamento</string>
+    <string name="boletonaoexiste">Boleto não identificado!</string>
 </resources>
