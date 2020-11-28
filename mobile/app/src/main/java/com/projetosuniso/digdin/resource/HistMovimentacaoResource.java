@@ -70,21 +70,21 @@ public class HistMovimentacaoResource {
         adiciona = new HistMovimentacaoAdiciona(object);
 
         switch (movimentacao.getDescricao()){
-            case "saque":
+            case "Saque":
                 if (conta.getSaldo() >= movimentacao.getValor()){
                     resul = adiciona.execute().get();
                 }else {
                     resul = "O valor do Saque excede o saldo";
                 }
                 break;
-            case "transferencia":
+            case "Transferencia":
                 if (conta.getSaldo() >= movimentacao.getValor()){
                     resul = adiciona.execute().get();
                 }else {
                     resul = "O valor da Transferencia excede o saldo";
                 }
                 break;
-            case "resgate - poupanca":
+            case "Resgate - Poupanca":
                 if (conta.getPoupanca() >= movimentacao.getValor()){
                     resul = adiciona.execute().get();
                 }else {
@@ -92,10 +92,10 @@ public class HistMovimentacaoResource {
                 }
                 break;
 
-            case "deposito - conta corrente":
+            case "Deposito - Conta Corrente":
                 resul = adiciona.execute().get();
                 break;
-            case "deposito - poupanca":
+            case "Deposito - Poupanca":
                 if (conta.getSaldo() >= movimentacao.getValor()){
                     resul = adiciona.execute().get();
                 }else {
