@@ -13,9 +13,6 @@ import com.projetosuniso.digdin.model.HistMovimentacao;
 import com.projetosuniso.digdin.service.ContaService;
 import com.projetosuniso.digdin.service.HistMovimentacaoService;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ExtratoActivity extends Activity {
@@ -90,7 +87,14 @@ public class ExtratoActivity extends Activity {
     }
 
     private String returnData(String data){
-        String[] novaData = data.split("T");
-        return novaData[0];
+        String[] strData = data.split("T");
+        String[] str = strData[0].split("-");
+        String n = str[2];
+
+        for (int i = 1; i >= 0; i--){
+            n = n + "-" + str[i];
+        }
+
+        return n;
     }
 }
