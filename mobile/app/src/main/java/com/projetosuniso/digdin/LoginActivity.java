@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
     }
 
     public void openCadastroEmail() {
-        Intent intent = new Intent(this, CadastroConcluidoActivity.class);
+        Intent intent = new Intent(this, CadastroEmailActivity.class);
         startActivity((intent));
     }
 }

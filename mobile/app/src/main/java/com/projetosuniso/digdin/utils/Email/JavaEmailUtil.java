@@ -1,4 +1,4 @@
-package com.projetosuniso.digdin.utils;
+package com.projetosuniso.digdin.utils.Email;
 
 public class JavaEmailUtil {
     public static final String EMAIL = "minebankoficial@gmail.com";
