@@ -20,6 +20,10 @@ import com.projetosuniso.digdin.utils.CpfValidatorUtil;
 import com.projetosuniso.digdin.utils.DataValidatorUtil;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class CadastroInfoPessoalActivity extends Activity {
 
     private ClienteService clienteService = new ClienteService();
