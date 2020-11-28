@@ -18,6 +18,7 @@ import com.projetosuniso.digdin.utils.EmailValidatorUtil;
 public class CadastroEmailActivity extends Activity {
 
     private final ClienteService clienteService = new ClienteService();
+    private MediaPlayer mediaPlayer = null;
 
     boolean EMAILvalid = false;
     boolean CONFIRMEMAILvalid = false;
@@ -27,7 +28,7 @@ public class CadastroEmailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastroemail);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         final ImageView checkEMAIL = findViewById(R.id.imageCheckEMAIL);
         final ImageView checkCONFIRMEMAIL =findViewById(R.id.imageCheckCONFIRMEMAIL);
@@ -41,24 +42,6 @@ public class CadastroEmailActivity extends Activity {
         final TextView textEmailInvalido = findViewById(R.id.textEmailInvalido);
         final TextView textEmailsDiferentes = findViewById(R.id.textEmailsDiferentes);
         final TextView textEmailCadastrado = findViewById(R.id.textEmailCadastrado);
-
-        Button voltarButton = findViewById(R.id.voltarButton);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openLogin();
-            }
-        });
-
-        Button continuarButton = findViewById(R.id.continuarButton);
-        continuarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openCadastroInfoPessoal();
-            }
-        });
 
         editTextEMAIL.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -130,7 +113,7 @@ public class CadastroEmailActivity extends Activity {
                         wrongCONFIRMEMAIL.setVisibility(View.VISIBLE);
                     }
                 }
-                else if (hasFocus) {
+                else {
                     editTextCONFIRMEMAIL.setBackgroundResource(R.drawable.edittext_default);
                     textEmailsDiferentes.setVisibility(View.INVISIBLE);
                     wrongCONFIRMEMAIL.setVisibility(View.INVISIBLE);
@@ -139,12 +122,14 @@ public class CadastroEmailActivity extends Activity {
         });
     }
 
-    public void openLogin() {
+    public void openLogin(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
-    public void openCadastroInfoPessoal() {
+    public void openCadastroInfoPessoal(View view) {
+        mediaPlayer.start();
         EditText editTextEMAIL = findViewById(R.id.editTextEMAIL);
         EditText editTextCONFIRMEMAIL = findViewById(R.id.editTextCONFIRMEMAIL);
 

@@ -23,11 +23,6 @@
         <activity android:name=".ExtratoActivity" />
         <activity android:name=".TransferenciaActivity" />
         <activity android:name=".CadastroConcluidoActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/plain"/>
-            </intent-filter>
         </activity>
         <activity android:name=".CadastroSenhaActivity" />
         <activity android:name=".CadastroEnderecoActivity" />

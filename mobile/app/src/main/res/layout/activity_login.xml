@@ -20,7 +20,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="@string/bgLoginDescricao" />
 
 
     <ImageView
@@ -34,7 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.034"
+        android:contentDescription="@string/logoDescricao" />
 
 
     <TextView
@@ -79,6 +81,7 @@
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/cpfHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCPF" />
@@ -112,6 +115,7 @@
         android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/senhaHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSENHA" />
@@ -126,6 +130,7 @@
         android:text="@string/entrarbutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:onClick="openMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSENHA" />
@@ -140,6 +145,7 @@
         android:text="@string/cadastrarbutton"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        android:onClick="openCadastroEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

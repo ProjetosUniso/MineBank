@@ -30,6 +30,8 @@ public class CadastroInfoPessoalActivity extends Activity {
     private final Cliente EXTRA_CLIENTE = new Cliente();
     private Cliente cliente;
 
+    private MediaPlayer mediaPlayer = null;
+
     boolean CPFvalid = true;
     boolean CPFpreenchido = false;
     boolean NOMEvalid = false;
@@ -45,7 +47,7 @@ public class CadastroInfoPessoalActivity extends Activity {
 
         cliente = (Cliente) getIntent().getSerializableExtra("cliente");
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         final ImageView checkCPF = findViewById(R.id.imageCheckCPF);
         final ImageView checkRG = findViewById(R.id.imageCheckRG);
@@ -64,24 +66,6 @@ public class CadastroInfoPessoalActivity extends Activity {
         final TextView CPFInvalido = findViewById(R.id.textCPFInvalido);
         final TextView CPFCadastrado = findViewById(R.id.textCPFcadastrado);
         final TextView DATAInvalida = findViewById(R.id.textDATAInvalida);
-
-        Button voltarButton = findViewById(R.id.voltarButton);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openCadastroEmail();
-            }
-        });
-
-        Button continuarButton = findViewById(R.id.continuarButton);
-        continuarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openCadastroEndereco();
-            }
-        });
 
         editTextNome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -110,8 +94,6 @@ public class CadastroInfoPessoalActivity extends Activity {
         editTextCPF.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-
-
 
                 if(!hasFocus) {
                     String CPF = editTextCPF.getText().toString();
@@ -151,7 +133,6 @@ public class CadastroInfoPessoalActivity extends Activity {
                             }
                         }
                     }
-
                 }
                 else {
                     CPFvalid = true;
@@ -160,8 +141,6 @@ public class CadastroInfoPessoalActivity extends Activity {
                     CPFCadastrado.setVisibility(View.INVISIBLE);
                     wrongCPF.setVisibility(View.INVISIBLE);
                 }
-
-
             }
         });
         editTextCPF.addTextChangedListener(new TextWatcher() {
@@ -275,13 +254,14 @@ public class CadastroInfoPessoalActivity extends Activity {
             }
         });
         editTextDATA.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
 
@@ -301,16 +281,18 @@ public class CadastroInfoPessoalActivity extends Activity {
     }
 
 
-    public void openCadastroEmail() {
+    public void openCadastroEmail(View view) {
+        mediaPlayer.start();
+
         Intent intent = new Intent(this, CadastroEmailActivity.class);
         startActivity(intent);
     }
 
-    public void openCadastroEndereco() {
+    public void openCadastroEndereco(View view) {
+        mediaPlayer.start();
 
         if(CPFvalid) {
             if (NOMEvalid && SOBRENOMEvalid && CPFpreenchido && RGvalid && DATAvalid ) {
-
 
                 EditText editTextNome = findViewById(R.id.editTextNOME);
                 EditText editTextSobrenome = findViewById(R.id.editTextSOBRENOME);
@@ -342,11 +324,8 @@ public class CadastroInfoPessoalActivity extends Activity {
     }
 
     private String editFormatData(String data) {
-
         String[] dt = data.split("/");
-
-        String dataString = dt[2] + "-" + dt[1] + "-" + dt[0] + "T00:00:00.000+00:00";
-        return dataString;
+        return String.format("%s-%s-%sT00:00:00.000+00:00", dt[2], dt[1], dt[0]);
     }
 
 }

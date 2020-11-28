@@ -66,7 +66,7 @@
     <string name="CPFnaoencontrado">CPF nao encontrado\nou invalido!</string>
     <string name="clienteencontradotext">Cliente encontrado:</string>
     <string name="nomedevedortext">Leo</string>
-    <string name="contadevedortext">Conta: 765432-1 | Agencia: 5432-1</string>
+    <string name="contadevedortext">Conta: 765432–1 | Agencia: 5432-1</string>
     <string name="nomecredortext">Kayanzinho</string>
     <string name="contacredortext">Conta: 123456-7 | Agencia: 1234-5</string>
     <string name="transferirparabutton">Transferir para esta conta</string>
@@ -89,4 +89,16 @@
     <string name="valorpagamentotext">000</string>
     <string name="pagarbutton">Realizar pagamento</string>
     <string name="boletonaoexiste">Boleto não identificado!</string>
+    <string name="senhaHint">Coloque sua senha</string>
+    <string name="cpfHint">Coloque seu cpf</string>
+    <string name="rgHint">Coloque seu rg</string>
+    <string name="dtNascimentoHint">Coloque sua data de nascimento</string>
+    <string name="nomeHint">Coloque seu nome</string>
+    <string name="sobrenomeHint">Coloque seu sobrenome</string>
+    <string name="logoDescricao">Logo do MineBank</string>
+    <string name="bgLoginDescricao">Background da Tela de Login</string>
+    <string name="checkDescricao">Simbolo de input valido</string>
+    <string name="wrongDescricao">Simbolo de input invalido</string>
+    <string name="emailHint">Coloque seu email</string>
+    <string name="bgCadastroDescricao">Background das telas de cadastro</string>
 </resources>
