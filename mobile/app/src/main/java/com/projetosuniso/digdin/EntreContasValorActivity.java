@@ -133,7 +133,7 @@ public class EntreContasValorActivity extends Activity {
         TipoMovimentacao tpMoviment = serTpm.getChave("RECETRANSFE");
 
         movimentacao.setValor(Double.parseDouble(valor));
-        movimentacao.setDescricao("transferencia");
+        movimentacao.setDescricao("Transferencia");
         movimentacao.setMovimentacao(tpMoviment);
         movimentacao.setConta(contaDev);
         movimentacao.setIdContaTransferencia(contaCre.getId());

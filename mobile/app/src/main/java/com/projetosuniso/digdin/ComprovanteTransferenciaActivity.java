@@ -1,5 +1,6 @@
 package com.projetosuniso.digdin;
 
+import android.net.Uri;
 import android.widget.TextView;
 
 import android.app.Activity;
@@ -18,6 +19,9 @@ public class ComprovanteTransferenciaActivity extends Activity {
     private String valor;
     private final ContaService contaService = new ContaService();
 
+    private Conta contaDev = null;
+    private Conta contaCre = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,9 @@ public class ComprovanteTransferenciaActivity extends Activity {
 
         cpfCre = getIntent().getStringExtra("cpfTransferencia");
         valor = getIntent().getStringExtra("valorTransferencia");
+
+        contaDev = contaService.getCPF(LoginActivity.cpf);
+        contaCre = contaService.getCPF(cpfCre);
 
         atualizarPlaca();
 
@@ -47,10 +54,7 @@ public class ComprovanteTransferenciaActivity extends Activity {
 
     private void atualizarPlaca(){
 
-        Conta contaDev = contaService.getCPF(LoginActivity.cpf);
         Cliente clienteDev = contaDev.getCliente();
-
-        Conta contaCre = contaService.getCPF(cpfCre);
         Cliente clienteCre = contaCre.getCliente();
 
         TextView nomeClienteDev = findViewById(R.id.nomeDevedorText);
@@ -65,5 +69,36 @@ public class ComprovanteTransferenciaActivity extends Activity {
 
         TextView valorTrs = findViewById(R.id.valorRecebidoText);
         valorTrs.setText(valor);
+    }
+
+    public void enviarComprovante(View view) {
+
+        Cliente clienteDev = contaDev.getCliente();
+        Cliente clienteCre = contaCre.getCliente();
+
+        String nomeDev = clienteDev.getNome();
+        String numeroaDev = String.valueOf(contaDev.getNumero());
+        String agenciaDev = String.valueOf(contaDev.getAgencia());
+
+        String nomeCre = clienteCre.getNome();
+        String numeroCre = String.valueOf(contaCre.getNumero());
+        String agenciaCre = String.valueOf(contaCre.getAgencia());
+
+        TextView valorTrs = findViewById(R.id.valorRecebidoText);
+        String valor = String.valueOf(valorTrs.getText());
+
+        String mensagem = String.format("COMPROVANTE DE PAGAMENTO\n" +
+                                        "Pagamento realizado por: %s" +
+                                        "Conta: %s Agência: %s\nValor: %s" +
+                                        "Tranferência para: %s\n" +
+                                        "Conta: %s Agência: %s\n" +
+                                        "Comprovado pela equipe MineBank",
+                                        nomeDev, numeroaDev, agenciaDev, valor, nomeCre, numeroCre, agenciaCre);
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, mensagem);
+
+        startActivity(intent);
     }
 }

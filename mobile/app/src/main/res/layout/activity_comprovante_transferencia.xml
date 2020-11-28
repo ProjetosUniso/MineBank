@@ -175,6 +175,7 @@
         android:text="@string/comprovantewhatsbutton"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:onClick="enviarComprovante"
         app:layout_constraintBottom_toTopOf="@+id/voltarButton"
         app:layout_constraintEnd_toEndOf="@+id/voltarButton"
         app:layout_constraintHorizontal_bias="0.507"

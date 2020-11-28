@@ -15,15 +15,20 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".PagamentosActivity" />
         <activity android:name=".PoupancaActivity" />
-        <activity android:name=".ComprovanteTransferenciaActivity" />
+        <activity android:name=".ComprovanteTransferenciaActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".EntreContasValorActivity" />
         <activity android:name=".EntreContasCPFActivity" />
         <activity android:name=".SaqueActivity" />
         <activity android:name=".DepositoActivity" />
         <activity android:name=".ExtratoActivity" />
         <activity android:name=".TransferenciaActivity" />
-        <activity android:name=".CadastroConcluidoActivity" >
-        </activity>
+        <activity android:name=".CadastroConcluidoActivity" />
         <activity android:name=".CadastroSenhaActivity" />
         <activity android:name=".CadastroEnderecoActivity" />
         <activity android:name=".CadastroInfoPessoalActivity" />

@@ -61,13 +61,10 @@ public class EntreContasCPFActivity extends Activity {
         });
 
 
-
         editTextCPF.addTextChangedListener(MaskEditUtil.mask(editTextCPF, MaskEditUtil.FORMAT_CPF));
         editTextCPF.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-
-
 
                 if(!hasFocus) {
                     String CPF = editTextCPF.getText().toString();
@@ -78,7 +75,7 @@ public class EntreContasCPFActivity extends Activity {
                     }
                     else {
 
-                        if(CpfValidatorUtil.isCPF(unmaskedCPF) == false) {
+                        if(!CpfValidatorUtil.isCPF(unmaskedCPF)) {
                             CPFvalid = false;
                             editTextCPF.setBackgroundResource(R.drawable.edittext_default);
                             editTextCPF.setBackgroundResource(R.drawable.edittext_border);
@@ -91,13 +88,11 @@ public class EntreContasCPFActivity extends Activity {
                     }
 
                 }
-                else if(hasFocus) {
+                else {
                     CPFvalid = false;
                     editTextCPF.setBackgroundResource(R.drawable.edittext_default);
                     CPFInvalido.setVisibility(View.INVISIBLE);
                 }
-
-
             }
         });
         editTextCPF.addTextChangedListener(new TextWatcher() {
@@ -129,7 +124,10 @@ public class EntreContasCPFActivity extends Activity {
                     TextView nomeCliente = findViewById(R.id.nomeClienteText);
                     nomeCliente.setText(cliente.getNome());
                     TextView contaCliente = findViewById(R.id.contaClienteText);
-                    contaCliente.setText("Conta: " + conta.getAgencia() + " | "+ "Agencia: " + conta.getAgencia());
+
+                    String descricao = String.format("Agência: %s | Numero: %s",  conta.getAgencia(), conta.getNumero());
+
+                    contaCliente.setText(descricao);
 
                     clienteInfo.setVisibility(View.VISIBLE);
                 }
