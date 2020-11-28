@@ -97,6 +97,7 @@
     <string name="sobrenomeHint">Coloque seu sobrenome</string>
     <string name="logoDescricao">Logo do MineBank</string>
     <string name="bgLoginDescricao">Background da Tela de Login</string>
+    <string name="bgTelasDescricao">Background usado nas telas padrões</string>
     <string name="checkDescricao">Simbolo de input valido</string>
     <string name="wrongDescricao">Simbolo de input invalido</string>
     <string name="emailHint">Coloque seu email</string>
@@ -107,4 +108,5 @@
     <string name="esmeraldadescricao">Esmeralda</string>
     <string name="placa">Placa com informações da usuário.</string>
     <string name="baudescricao">Imagem de um baú aberto</string>
+    <string name="stoneDescricao">Imagem de pedra usado ao fundo</string>
 </resources>

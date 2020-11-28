@@ -19,12 +19,14 @@ public class MenuActivity extends Activity {
     private final ContaService contaService = new ContaService();
     private Conta conta = new Conta();
 
+    private MediaPlayer mediaPlayer = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         conta = contaService.getCPF(LoginActivity.cpf);
         Cliente cliente = conta.getCliente();
@@ -45,51 +47,6 @@ public class MenuActivity extends Activity {
                 showSaldo();
             }
         });
-
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openExit();
-            }
-        });
-
-        Button extratoButton = findViewById(R.id.extratoButton);
-        extratoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openExtrato();
-            }
-        });
-
-        Button transferenciaButton = findViewById(R.id.transferenciaButton);
-        transferenciaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openTransferencia();
-            }
-        });
-
-        Button pagamentosButton = findViewById(R.id.pagamentosButton);
-        pagamentosButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickButton.start();
-                openPagamentos();
-            }
-        });
-
-        Button poupancaButton = findViewById(R.id.poupancaButton);
-        poupancaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickButton.start();
-                openPoupanca();
-            }
-        });
     }
 
 
@@ -104,7 +61,6 @@ public class MenuActivity extends Activity {
             saldoText.setText(R.string.saldo);
             auxSaldo = 0;
         }
-
     }
 
     public void openExit() {
@@ -125,26 +81,31 @@ public class MenuActivity extends Activity {
     }
 
     public void openLogin() {
+        mediaPlayer.start();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
-    public void openExtrato() {
+    public void openExtrato(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, ExtratoActivity.class);
         startActivity(intent);
     }
 
-    public void openTransferencia() {
+    public void openTransferencia(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, TransferenciaActivity.class);
         startActivity(intent);
     }
 
-    public void openPagamentos() {
+    public void openPagamentos(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, PagamentosActivity.class);
         startActivity(intent);
     }
 
-    public void openPoupanca() {
+    public void openPoupanca(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, PoupancaActivity.class);
         startActivity(intent);
     }

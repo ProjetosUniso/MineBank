@@ -20,7 +20,6 @@ import com.projetosuniso.digdin.utils.MaskEditUtil;
 
 public class CadastroEnderecoActivity extends Activity {
 
-    private final Cliente EXTRA_CLIENTE = new Cliente();
     private Cliente cliente;
     private Endereco endereco;
 
@@ -47,24 +46,6 @@ public class CadastroEnderecoActivity extends Activity {
         final TextView textViewInvalido = findViewById(R.id.textCEPInvalido);
         final TextView textViewNumeroInvalido = findViewById(R.id.textNumeroInvalido);
 
-        Button voltarButton = findViewById(R.id.voltarButton);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openCadastroInfoPessoal();
-            }
-        });
-
-        Button continuarButton = findViewById(R.id.continuarButton);
-        continuarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openCadastroSenha();
-            }
-        });
-
         editTextCEP.addTextChangedListener(MaskEditUtil.mask(editTextCEP, MaskEditUtil.FORMAT_CEP));
         editTextCEP.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -74,7 +55,7 @@ public class CadastroEnderecoActivity extends Activity {
 
                 if(!hasFocus) {
                     CEP = MaskEditUtil.unmask(CEP);
-                    // passar edittext cep
+
                     if (!CEP.matches("")) {
                         endereco = enderecoService.getCEP(CEP);
 
@@ -139,12 +120,12 @@ public class CadastroEnderecoActivity extends Activity {
         });
     }
 
-    public void openCadastroInfoPessoal() {
+    public void openCadastroInfoPessoal(View view) {
         Intent intent = new Intent(this, CadastroInfoPessoalActivity.class);
         startActivity((intent));
     }
 
-    public void openCadastroSenha() {
+    public void openCadastroSenha(View view) {
         EditText editTextNumero = findViewById(R.id.editTextNUMERO);
         TextView textViewNumeroInvalido = findViewById(R.id.textNumeroInvalido);
 

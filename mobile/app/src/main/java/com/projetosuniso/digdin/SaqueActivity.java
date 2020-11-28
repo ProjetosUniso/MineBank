@@ -18,26 +18,30 @@ import com.projetosuniso.digdin.service.TipoMovimentacaoService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class SaqueActivity extends Activity {
 
     private Conta conta;
     private String valor;
-    private String aux;
     private int tipo;
     private final ContaService contaService = new ContaService();
     private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
     private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
+
+    private MediaPlayer mediaPlayer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saque);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
-        aux = getIntent().getStringExtra("tipo");
-        tipo = Integer.parseInt(aux);
+        String tipoExtra = getIntent().getStringExtra("tipo");
+        if (tipoExtra != null) {
+            tipo = Integer.parseInt(tipoExtra);
+        }
 
         conta = contaService.getCPF(LoginActivity.cpf);
 
@@ -53,14 +57,13 @@ public class SaqueActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickButton.start();
+
                 if (tipo == 1) {
                     openMenu();
                 }
                 else if (tipo == 2) {
                     openPoupanca();
                 }
-
             }
         });
 
@@ -68,7 +71,6 @@ public class SaqueActivity extends Activity {
         saqueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickButton.start();
 
                 EditText edtValor = findViewById(R.id.editTextVALORSAQUE);
                 valor = edtValor.getText().toString();
@@ -77,25 +79,25 @@ public class SaqueActivity extends Activity {
                 } else {
                     realizarSaque();
                 }
-
-
             }
         });
     }
 
     public void openMenu() {
+        mediaPlayer.start();
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
     public void openPoupanca() {
+        mediaPlayer.start();
         Intent intent = new Intent(this, PoupancaActivity.class);
         startActivity(intent);
     }
 
     private String inserirData(){
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.ENGLISH);
         return dateFormat.format(date);
     }
 

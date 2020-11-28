@@ -15,9 +15,10 @@ import com.projetosuniso.digdin.service.ContaService;
 
 public class ComprovanteTransferenciaActivity extends Activity {
 
-    private String cpfCre;
     private String valor;
     private final ContaService contaService = new ContaService();
+
+    private MediaPlayer mediaPlayer = null;
 
     private Conta contaDev = null;
     private Conta contaCre = null;
@@ -27,32 +28,25 @@ public class ComprovanteTransferenciaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comprovante_transferencia);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
-        cpfCre = getIntent().getStringExtra("cpfTransferencia");
+        String cpfCre = getIntent().getStringExtra("cpfTransferencia");
         valor = getIntent().getStringExtra("valorTransferencia");
 
         contaDev = contaService.getCPF(LoginActivity.cpf);
         contaCre = contaService.getCPF(cpfCre);
 
         atualizarPlaca();
-
-        Button voltarButton = findViewById(R.id.voltarButton);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openMenu();
-            }
-        });
     }
 
-    public void openMenu() {
+    public void openMenuActivity(View view) {
+        mediaPlayer.start();
+
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
-    private void atualizarPlaca(){
+    private void atualizarPlaca() {
 
         Cliente clienteDev = contaDev.getCliente();
         Cliente clienteCre = contaCre.getCliente();
@@ -60,12 +54,14 @@ public class ComprovanteTransferenciaActivity extends Activity {
         TextView nomeClienteDev = findViewById(R.id.nomeDevedorText);
         nomeClienteDev.setText(clienteDev.getNome());
         TextView contaClienteDev = findViewById(R.id.contaDevedorText);
-        contaClienteDev.setText("Numero: " + contaDev.getNumero() + " | "+ "Agencia: " + contaDev.getAgencia());
+        String placaDev = String.format("Numero: %s | Agencia: %s ", contaDev.getNumero(), contaDev.getAgencia());
+        contaClienteDev.setText(placaDev);
 
         TextView nomeClienteCre = findViewById(R.id.nomeCredorText);
         nomeClienteCre.setText(clienteCre.getNome());
         TextView contaClienteCre = findViewById(R.id.contaCredorText);
-        contaClienteCre.setText("Numero: " + contaCre.getNumero() + " | "+ "Agencia: " + contaCre.getAgencia());
+        String placaCre = String.format("Numero: %s | Agencia: %s ", contaCre.getNumero(), contaCre.getAgencia());
+        contaClienteCre.setText(placaCre);
 
         TextView valorTrs = findViewById(R.id.valorRecebidoText);
         valorTrs.setText(valor);

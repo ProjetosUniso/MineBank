@@ -180,6 +180,7 @@
         android:text="@string/extratobutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:onClick="openExtrato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saldo" />
@@ -194,6 +195,7 @@
         android:text="@string/transferenciabutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:onClick="openTransferencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/extratoButton" />
@@ -208,6 +210,7 @@
         android:text="@string/pagamentosbutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:onClick="openPagamentos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transferenciaButton" />
@@ -222,6 +225,7 @@
         android:text="@string/poupancabutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:onClick="openPoupanca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pagamentosButton" />

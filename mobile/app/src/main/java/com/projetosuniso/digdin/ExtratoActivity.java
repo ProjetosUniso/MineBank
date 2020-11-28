@@ -21,26 +21,18 @@ public class ExtratoActivity extends Activity {
     private final ContaService contaService = new ContaService() ;
     private List<HistMovimentacao> listHistorico;
 
+    private MediaPlayer mediaPlayer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_extrato);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         Conta conta = contaService.getCPF(LoginActivity.cpf);
 
         listHistorico = histMovimentacaoService.getID( conta.getId() );
-
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openMenu();
-            }
-        });
 
         if ( listHistorico != null ){
             loadExtrato();
@@ -68,7 +60,7 @@ public class ExtratoActivity extends Activity {
 
                 if(j==0) { tv.setText( returnData(historico.getDataInclusao()) ); }
                 else if (j==1) { tv.setText( historico.getDescricao() ); }
-                else if (j==2) { tv.setText( (String.valueOf( historico.getValor() )) ); }
+                else { tv.setText( (String.valueOf( historico.getValor() )) ); }
 
                 tr.addView(tv);
             }
@@ -81,7 +73,9 @@ public class ExtratoActivity extends Activity {
 
     }
 
-    public void openMenu() {
+    public void openMenuActivity(View view) {
+        mediaPlayer.start();
+
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
@@ -89,12 +83,12 @@ public class ExtratoActivity extends Activity {
     private String returnData(String data){
         String[] strData = data.split("T");
         String[] str = strData[0].split("-");
-        String n = str[2];
+        StringBuilder n = new StringBuilder(str[2]);
 
         for (int i = 1; i >= 0; i--){
-            n = n + "-" + str[i];
+            n.append("-").append(str[i]);
         }
 
-        return n;
+        return n.toString();
     }
 }

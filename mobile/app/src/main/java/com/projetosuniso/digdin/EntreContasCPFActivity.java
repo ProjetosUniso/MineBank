@@ -1,7 +1,6 @@
 package com.projetosuniso.digdin;
 
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +19,6 @@ import com.projetosuniso.digdin.service.ContaService;
 import com.projetosuniso.digdin.utils.CpfValidatorUtil;
 import com.projetosuniso.digdin.utils.MaskEditUtil;
 
-import org.w3c.dom.Text;
 
 public class EntreContasCPFActivity extends Activity {
 
@@ -29,6 +27,8 @@ public class EntreContasCPFActivity extends Activity {
     private ClienteService clienteService = new ClienteService();
     private ContaService contaService = new ContaService();
     private String unmaskedCPF;
+
+    private MediaPlayer mediaPlayer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,26 +40,7 @@ public class EntreContasCPFActivity extends Activity {
 
         editTextCPF = findViewById(R.id.editTextCPFTRANSFERENCIA);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
-
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openTransferencia();
-            }
-        });
-
-        Button transferirParaButton = findViewById(R.id.transferirParaButton);
-        transferirParaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openEntreContasValor();
-            }
-        });
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         editTextCPF.addTextChangedListener(MaskEditUtil.mask(editTextCPF, MaskEditUtil.FORMAT_CPF));
         editTextCPF.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -125,7 +106,7 @@ public class EntreContasCPFActivity extends Activity {
                     nomeCliente.setText(cliente.getNome());
                     TextView contaCliente = findViewById(R.id.contaClienteText);
 
-                    String descricao = String.format("Agência: %s | Numero: %s",  conta.getAgencia(), conta.getNumero());
+                    String descricao = String.format("Agencia: %s | Numero: %s",  conta.getAgencia(), conta.getNumero());
 
                     contaCliente.setText(descricao);
 
@@ -139,12 +120,14 @@ public class EntreContasCPFActivity extends Activity {
         });
     }
 
-    public void openTransferencia() {
+    public void openTransferencia(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, TransferenciaActivity.class);
         startActivity(intent);
     }
 
-    public void openEntreContasValor() {
+    public void openEntreContasValor(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, EntreContasValorActivity.class);
         intent.putExtra("cpfTransferencia", unmaskedCPF);
         startActivity(intent);

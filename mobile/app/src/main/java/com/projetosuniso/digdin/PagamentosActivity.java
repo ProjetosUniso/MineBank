@@ -1,7 +1,6 @@
 package com.projetosuniso.digdin;
 
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,6 +22,7 @@ import com.projetosuniso.digdin.service.TipoMovimentacaoService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class PagamentosActivity extends Activity {
 
@@ -32,6 +32,8 @@ public class PagamentosActivity extends Activity {
     private Conta conta = new Conta();
     private String valor;
 
+    private MediaPlayer mediaPlayer = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,7 @@ public class PagamentosActivity extends Activity {
 
         conta = contaService.getCPF(LoginActivity.cpf);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         final EditText editTextNumPagamento = findViewById(R.id.editTextNUMPAGAMENTO);
 
@@ -54,7 +56,6 @@ public class PagamentosActivity extends Activity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickButton.start();
                 openMenu();
             }
         });
@@ -67,8 +68,6 @@ public class PagamentosActivity extends Activity {
                 if (!hasFocus) {
                     int pagamento = Integer.parseInt(editTextNumPagamento.getText().toString());
                     int id = retornaBoleto(pagamento);
-
-
 
                     if (id == 9) {
                         pagamentoInfo.setVisibility(View.INVISIBLE);
@@ -117,7 +116,7 @@ public class PagamentosActivity extends Activity {
         pagarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickButton.start();
+
                 movimentacao();
                 openMenu();
             }
@@ -125,6 +124,7 @@ public class PagamentosActivity extends Activity {
     }
 
     public void openMenu() {
+        mediaPlayer.start();
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
@@ -141,7 +141,7 @@ public class PagamentosActivity extends Activity {
 
     private String inserirData(){
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.ENGLISH);
         return dateFormat.format(date);
     }
 
@@ -159,12 +159,12 @@ public class PagamentosActivity extends Activity {
         String confirm = serHtm.adicionar(movimentacao);
 
         if (confirm.equals("exito")){
-            Toast.makeText(this, "Pagamento realizado com sucesso", Toast.LENGTH_LONG);
             int saldo = (int) ( conta.getSaldo() - Integer.parseInt(valor) );
-
             contaService.atualizarSaldo(conta.getId(), saldo);
+            Toast.makeText(this, "Pagamento realizado com sucesso", Toast.LENGTH_LONG).show();
+
         }else {
-            Toast.makeText(this, "Houve erro ao Realizar o pagamento: " + confirm, Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Houve erro ao Realizar o pagamento: " + confirm, Toast.LENGTH_SHORT).show();
         }
     }
 }

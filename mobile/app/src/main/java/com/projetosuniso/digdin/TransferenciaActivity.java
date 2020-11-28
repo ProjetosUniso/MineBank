@@ -11,69 +11,38 @@ public class TransferenciaActivity extends Activity {
 
     private String tipo = "1";
 
+    private MediaPlayer mediaPlayer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transferencia);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
-
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openMenu();
-            }
-        });
-
-        Button depositoButton = findViewById(R.id.depositoButton);
-        depositoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickButton.start();
-                openDeposito();
-            }
-        });
-
-        Button saqueButton = findViewById(R.id.saqueButton);
-        saqueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickButton.start();
-                openSaque();
-            }
-        });
-
-        Button transferenciaContasButton = findViewById(R.id.transferenciaContasButton);
-        transferenciaContasButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clickButton.start();
-                openTransferenciaContas();
-            }
-        });
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
     }
 
-    public void openMenu() {
+    public void openMenuActivity(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
-    public void openDeposito() {
+    public void openDeposito(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, DepositoActivity.class);
         intent.putExtra("tipo", tipo);
         startActivity(intent);
     }
 
-    public void openSaque() {
+    public void openSaque(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, SaqueActivity.class);
         intent.putExtra("tipo", tipo);
         startActivity(intent);
     }
 
-    public void openTransferenciaContas() {
+    public void openTransferenciaContas(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, EntreContasCPFActivity.class);
         startActivity(intent);
     }

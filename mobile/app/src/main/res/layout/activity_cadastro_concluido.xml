@@ -60,6 +60,7 @@
         android:text="@string/voltarbutton"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:onClick="openLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCADASTROCONCLUIDO" />

@@ -20,6 +20,7 @@ import com.projetosuniso.digdin.service.TipoMovimentacaoService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class EntreContasValorActivity extends Activity {
 
@@ -31,12 +32,14 @@ public class EntreContasValorActivity extends Activity {
     private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
     private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
 
+    private MediaPlayer mediaPlayer = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entre_contas_valor);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
 
         cpfCre = getIntent().getStringExtra("cpfTransferencia");
 
@@ -49,23 +52,14 @@ public class EntreContasValorActivity extends Activity {
         TextView nomeCliente = findViewById(R.id.nomeClienteText);
         nomeCliente.setText(cliente.getNome());
         TextView contaCliente = findViewById(R.id.contaClienteText);
-        contaCliente.setText("Numero: " + conta.getNumero() + " | "+ "Agencia: " + conta.getAgencia());
-
-
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openTransferenciaContas();
-            }
-        });
+        String info = String.format("Numero: %s | Agencia: %s", conta.getNumero(), conta.getAgencia());
+        contaCliente.setText(info);
 
         Button transferirValorButton = findViewById(R.id.transferirValorButton);
         transferirValorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickButton.start();
+                mediaPlayer.start();
 
                 EditText edtValor = findViewById(R.id.editTextVALORTRANSFERENCIA);
                 valor = edtValor.getText().toString();
@@ -78,7 +72,8 @@ public class EntreContasValorActivity extends Activity {
         });
     }
 
-    public void openTransferenciaContas() {
+    public void openTransferenciaContas(View view) {
+        mediaPlayer.start();
         Intent intent = new Intent(this, EntreContasCPFActivity.class);
         startActivity(intent);
     }
@@ -90,20 +85,19 @@ public class EntreContasValorActivity extends Activity {
         startActivity(intent);
     }
 
-    private String inserirData(){
+    private String inserirData() {
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.ENGLISH);
         return dateFormat.format(date);
     }
 
-    private void realizarTransferencia(){
+    private void realizarTransferencia() {
 
-        HistMovimentacao hisCredor = movimentacaoCre();
-        HistMovimentacao hisDevedor = movimentacaoDev();
+        HistMovimentacao hisCredor = retornaMovimentacao("RECETRANSFE","Recebeu Transferencia", contaCre, contaDev);
+        HistMovimentacao hisDevedor = retornaMovimentacao("REALTRANSFE", "Transferencia", contaDev, contaCre);
 
         String confirm = serHtm.adicionar(hisCredor);
         String confirm2 = serHtm.adicionar(hisDevedor);
-
 
         if (confirm.equals("exito") && confirm2.equals("exito")){
             Toast.makeText(this, "Transferencia Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
@@ -119,29 +113,15 @@ public class EntreContasValorActivity extends Activity {
         }
     }
 
-    private HistMovimentacao movimentacaoCre (){
+    private HistMovimentacao retornaMovimentacao(String chave, String descricao, Conta conta, Conta contaTranferencia) {
         HistMovimentacao movimentacao = new HistMovimentacao();
-        TipoMovimentacao tpMoviment = serTpm.getChave("RECETRANSFE");
+        TipoMovimentacao tpMoviment = serTpm.getChave(chave);
 
         movimentacao.setValor(Double.parseDouble(valor));
-        movimentacao.setDescricao("Recebeu Transferencia");
+        movimentacao.setDescricao(descricao);
         movimentacao.setMovimentacao(tpMoviment);
-        movimentacao.setConta(contaCre);
-        movimentacao.setIdContaTransferencia(contaDev.getId());
-        movimentacao.setDataInclusao(inserirData());
-
-        return movimentacao;
-    }
-
-    private HistMovimentacao movimentacaoDev(){
-        HistMovimentacao movimentacao = new HistMovimentacao();
-        TipoMovimentacao tpMoviment = serTpm.getChave("REALTRANSFE");
-
-        movimentacao.setValor(Double.parseDouble(valor));
-        movimentacao.setDescricao("Transferencia");
-        movimentacao.setMovimentacao(tpMoviment);
-        movimentacao.setConta(contaDev);
-        movimentacao.setIdContaTransferencia(contaCre.getId());
+        movimentacao.setConta(conta);
+        movimentacao.setIdContaTransferencia(contaTranferencia.getId());
         movimentacao.setDataInclusao(inserirData());
 
         return movimentacao;

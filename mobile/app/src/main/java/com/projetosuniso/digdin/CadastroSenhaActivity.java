@@ -17,7 +17,6 @@ import java.util.Random;
 
 public class CadastroSenhaActivity extends  Activity {
 
-    private final Cliente EXTRA_CLIENTE = new Cliente();
     private Cliente cliente;
 
     private final ContaService contaService = new ContaService();
@@ -35,15 +34,6 @@ public class CadastroSenhaActivity extends  Activity {
         final EditText editTextCONFIRMSENHA = findViewById(R.id.editTextCONFIRMSENHA);
 
         final TextView textSENHASDIFERENTES = findViewById(R.id.textSenhasDiferentes);
-
-        Button voltarButton = findViewById(R.id.voltarButton);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openCadastroEndereco();
-            }
-        });
 
         Button continuarButton = findViewById(R.id.continuarButton);
         continuarButton.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +55,7 @@ public class CadastroSenhaActivity extends  Activity {
         });
     }
 
-    public void openCadastroEndereco() {
+    public void openCadastroEndereco(View view) {
         Intent intent = new Intent(this, CadastroEnderecoActivity.class);
         startActivity((intent));
     }

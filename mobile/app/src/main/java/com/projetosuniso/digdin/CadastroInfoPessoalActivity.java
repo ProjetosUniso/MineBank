@@ -27,7 +27,6 @@ import java.util.Date;
 public class CadastroInfoPessoalActivity extends Activity {
 
     private ClienteService clienteService = new ClienteService();
-    private final Cliente EXTRA_CLIENTE = new Cliente();
     private Cliente cliente;
 
     private MediaPlayer mediaPlayer = null;
@@ -160,7 +159,6 @@ public class CadastroInfoPessoalActivity extends Activity {
                 String CPF = editTextCPF.getText().toString();
 
                 if(CPF.length() == 14) {
-                    //EditText editTextRG = findViewById(R.id.editTextRG);
                     editTextCPF.clearFocus();
                     editTextRG.requestFocus();
                 }

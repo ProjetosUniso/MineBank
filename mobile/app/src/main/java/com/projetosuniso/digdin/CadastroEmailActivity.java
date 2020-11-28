@@ -5,13 +5,11 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projetosuniso.digdin.model.Cliente;
-import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.service.ClienteService;
 import com.projetosuniso.digdin.utils.EmailValidatorUtil;
 

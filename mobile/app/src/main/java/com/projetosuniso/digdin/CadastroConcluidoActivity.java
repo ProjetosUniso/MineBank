@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import com.projetosuniso.digdin.model.Cliente;
 import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.utils.Email.JavaEmailService;
-import com.projetosuniso.digdin.utils.Email.JavaMailAPI;
 
 public class CadastroConcluidoActivity extends Activity {
 
     private final Conta conta = new Conta();
+
+    private MediaPlayer mediaPlayer = null;
 
     JavaEmailService javaEmail = new JavaEmailService();
 
@@ -23,18 +22,8 @@ public class CadastroConcluidoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_concluido);
 
-        final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
         Conta conta = (Conta) getIntent().getSerializableExtra("conta");
-
-        Button voltarButton = findViewById(R.id.voltarButton);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickButton.start();
-                openLogin();
-            }
-        });
 
         if (conta != null) {
             String email = conta.getCliente().getEmail();
@@ -50,7 +39,9 @@ public class CadastroConcluidoActivity extends Activity {
         }
     }
 
-    public void openLogin() {
+    public void openLogin(View view) {
+        mediaPlayer.start();
+
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
