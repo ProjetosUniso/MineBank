@@ -16,6 +16,9 @@ import com.projetosuniso.digdin.model.HistMovimentacao;
 import com.projetosuniso.digdin.service.ContaService;
 import com.projetosuniso.digdin.service.HistMovimentacaoService;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ExtratoActivity extends Activity {
@@ -53,9 +56,9 @@ public class ExtratoActivity extends Activity {
 
         TableLayout tl = findViewById(R.id.extratoTable);
 
-        for(int i=0; i<=50; i++) {
+        for(int i=0; i < listHistorico.size(); i++) {
 
-            HistMovimentacao histMovimentacao = listHistorico.get(i);
+            HistMovimentacao historico = listHistorico.get(i);
 
             TableRow tr = new TableRow(this);
 
@@ -66,9 +69,9 @@ public class ExtratoActivity extends Activity {
                 tv.setGravity(Gravity.CENTER);
                 tv.setPadding(5, 5,5,5);
 
-                if(j==0) { tv.setText(String.valueOf( histMovimentacao.getDataInclusao() )); }
-                else if (j==1) { tv.setText(String.valueOf( histMovimentacao.getDescricao() )); }
-                else if (j==2) { tv.setText(String.valueOf( histMovimentacao.getValor() )); }
+                if(j==0) { tv.setText( returnData(historico.getDataInclusao()) ); }
+                else if (j==1) { tv.setText( historico.getDescricao() ); }
+                else if (j==2) { tv.setText( (String.valueOf( historico.getValor() )) ); }
 
                 tr.addView(tv);
             }
@@ -84,5 +87,10 @@ public class ExtratoActivity extends Activity {
     public void openMenu() {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
+    }
+
+    private String returnData(String data){
+        String[] novaData = data.split("T");
+        return novaData[0];
     }
 }

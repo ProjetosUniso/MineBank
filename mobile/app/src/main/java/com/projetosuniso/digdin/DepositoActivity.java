@@ -126,8 +126,11 @@ public class DepositoActivity extends Activity {
                 openMenu();
             }
             else if (tipo == 2) {
-                int novoSaldo = (int) (conta.getPoupanca() + Double.parseDouble(valor));
-                contaService.atualizaPoupanca( conta.getId(), novoSaldo);
+                int novaPoupanca = (int) ( conta.getPoupanca() + Double.parseDouble(valor) );
+                int novoSaldo = (int) ( conta.getSaldo() - Double.parseDouble(valor) );
+
+                contaService.atualizaPoupanca( conta.getId(), novaPoupanca);
+                contaService.atualizarSaldo( conta.getId(), novoSaldo);
 
                 openPoupanca();
             }
