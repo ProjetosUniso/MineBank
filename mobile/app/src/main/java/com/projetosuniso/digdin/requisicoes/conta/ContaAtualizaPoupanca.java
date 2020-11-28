@@ -9,7 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ContaAtualizaPoupanca extends AsyncTask<Void, Void, String> {
 
     private final String novoSaldo;
@@ -18,7 +17,6 @@ public class ContaAtualizaPoupanca extends AsyncTask<Void, Void, String> {
         this.novoSaldo = novoSaldo;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected String doInBackground(Void... voids) {
 

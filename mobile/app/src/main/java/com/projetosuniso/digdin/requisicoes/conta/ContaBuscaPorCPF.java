@@ -11,7 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ContaBuscaPorCPF extends AsyncTask<Void, Void, JSONObject> {
 
     private final String cpf;

@@ -8,7 +8,6 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Scanner;
 
-//OK
 public class ContaVerificarLogin extends AsyncTask<Void, Void, Boolean> {
 
     private final String login;

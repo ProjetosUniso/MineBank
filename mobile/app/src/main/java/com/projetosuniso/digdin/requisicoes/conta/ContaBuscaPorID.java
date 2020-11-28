@@ -12,7 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ContaBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
 
     private final int id;

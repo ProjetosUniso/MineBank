@@ -11,7 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ClienteBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
 
     private final int id;
@@ -42,7 +41,7 @@ public class ClienteBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"), 8);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
                 StringBuilder sb = new StringBuilder();
                 String line;
 
@@ -54,7 +53,7 @@ public class ClienteBuscaPorID extends AsyncTask<Void, Void, JSONObject> {
 
             }
 
-            return new JSONObject(result);
+            return new JSONObject( result );
 
 
         } catch (ProtocolException e) {

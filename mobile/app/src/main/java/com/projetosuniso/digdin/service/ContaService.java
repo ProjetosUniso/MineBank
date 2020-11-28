@@ -4,7 +4,6 @@ import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.resource.ContaResource;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class ContaService {
     private final ContaResource conta;
@@ -55,18 +54,18 @@ public class ContaService {
             return e.getMessage();
         }
     }
-    public String atualizarSaldo(Long id, int saldo){
+    public void atualizarSaldo(Long id, int saldo){
         try {
-            return conta.atualizarSaldo(id,saldo);
+            conta.atualizarSaldo(id,saldo);
         } catch (Exception e) {
-            return e.getMessage();
+            e.printStackTrace();
         }
     }
-    public String atualizaPoupanca(Long id, int poupanca){
+    public void atualizaPoupanca(Long id, int poupanca){
         try {
-            return conta.atualizarPoupanca(id, poupanca);
+            conta.atualizarPoupanca(id, poupanca);
         } catch (Exception e){
-            return e.getMessage();
+            e.printStackTrace();
         }
     }
 

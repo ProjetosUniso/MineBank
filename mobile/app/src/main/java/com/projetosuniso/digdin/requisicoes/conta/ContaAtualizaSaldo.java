@@ -1,15 +1,12 @@
 package com.projetosuniso.digdin.requisicoes.conta;
 
 import android.os.AsyncTask;
-import android.os.Build;
-import androidx.annotation.RequiresApi;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ContaAtualizaSaldo extends AsyncTask<Void, Void, String> {
 
     private final String novoSaldo;
@@ -18,7 +15,6 @@ public class ContaAtualizaSaldo extends AsyncTask<Void, Void, String> {
         this.novoSaldo = novoSaldo;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected String doInBackground(Void... voids) {
 

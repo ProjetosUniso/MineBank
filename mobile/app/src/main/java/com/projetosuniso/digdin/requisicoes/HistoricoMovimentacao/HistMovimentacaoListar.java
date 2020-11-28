@@ -12,10 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class HistMovimentacaoListar extends AsyncTask<Void, Void, JSONArray> {
-
-    private int id;
 
     public HistMovimentacaoListar() {
     }

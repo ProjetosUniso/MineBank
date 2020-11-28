@@ -21,9 +21,10 @@ public class ContaResource {
     public ContaResource() {
     }
 
+
     public List<Conta> listarConta() throws JSONException, ExecutionException, InterruptedException {
         ListarConta listar = new ListarConta();
-        ArrayList<Conta> listaCont = new ArrayList<Conta>();
+        ArrayList<Conta> listaCont = new ArrayList<>();
 
         JSONArray objs = listar.execute().get();
 
@@ -91,10 +92,10 @@ public class ContaResource {
         return resul;
     }
 
-    public String atualizarSaldo (Long id, int saldo) throws ExecutionException, InterruptedException {
+    public void atualizarSaldo (Long id, int saldo) throws ExecutionException, InterruptedException {
         String idSaldo = id + "&" + saldo;
         ContaAtualizaSaldo atualiza = new ContaAtualizaSaldo(idSaldo);
-        return atualiza.execute().get();
+        atualiza.execute().get();
     }
 
     public String atualizarPoupanca (Long id, int poupanca) throws ExecutionException, InterruptedException {
@@ -102,6 +103,7 @@ public class ContaResource {
         ContaAtualizaPoupanca atualizaPoupanca = new ContaAtualizaPoupanca(idPoupanca);
         return atualizaPoupanca.execute().get();
     }
+
 
     public Conta convertJsonObjectToConta(JSONObject obj) throws JSONException {
         Conta conta = new Conta();

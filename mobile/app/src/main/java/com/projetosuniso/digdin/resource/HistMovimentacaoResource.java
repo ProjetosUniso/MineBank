@@ -17,7 +17,6 @@ import java.util.concurrent.ExecutionException;
 
 public class HistMovimentacaoResource {
 
-
     private Conta conta;
     private final ContaResource contaResource = new ContaResource();
     private final TipoMovimentacaoResource tipoMovimentacaoResource = new TipoMovimentacaoResource();

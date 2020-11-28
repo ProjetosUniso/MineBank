@@ -1,9 +1,7 @@
 package com.projetosuniso.digdin.model;
 
-
 import java.io.Serializable;
 
-//Criando um Objeto Java parar representar cliente, o que vai auxiliar na manipulação de dados durante a aplicação
 public class Cliente implements Serializable {
     private Long id;
     private String nome;

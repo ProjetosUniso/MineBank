@@ -12,7 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONArray> {
 
     private final Long id;
@@ -24,7 +23,7 @@ public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONArray>
     @Override
     protected JSONArray doInBackground(Void... voids) {
 
-        String result = null;
+        String result;
 
         try {
             URL url = new URL("https://minebank-api-service.herokuapp.com/movimentacao/"+ id);

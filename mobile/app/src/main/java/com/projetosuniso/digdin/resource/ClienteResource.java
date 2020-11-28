@@ -60,6 +60,7 @@ public class ClienteResource {
 
         cliente.setId(object.getLong("id"));
         cliente.setNome(object.getString("nome"));
+        cliente.setSobrenome(object.getString("sobrenome"));
         cliente.setCpf(object.getString("cpf"));
         cliente.setRg(object.getString("rg"));
         cliente.setEmail(object.getString("email"));

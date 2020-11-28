@@ -9,7 +9,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ContaAdiciona extends AsyncTask<Void, Void, String> {
 
     private final JSONObject conta;
@@ -21,7 +20,7 @@ public class ContaAdiciona extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... voids) {
 
-        String result = null;
+        String result;
 
         try {
             URL url = new URL("http://minebank-api-service.herokuapp.com/contas");

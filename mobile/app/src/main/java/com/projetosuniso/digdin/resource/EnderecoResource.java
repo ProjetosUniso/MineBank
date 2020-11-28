@@ -33,9 +33,7 @@ public class EnderecoResource {
         JSONObject end = convertEnderecoToJsonObj(endereco);
         atualizar = new EnderecoAtualizar(id, end.toString());
 
-        String obj = atualizar.execute().get();
-
-        return obj;
+        return atualizar.execute().get();
     }
 
     public Endereco enderecoCEP(String cep) throws ExecutionException, InterruptedException, JSONException {

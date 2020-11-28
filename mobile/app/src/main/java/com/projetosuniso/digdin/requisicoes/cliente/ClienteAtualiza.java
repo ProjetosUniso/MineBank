@@ -12,7 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ClienteAtualiza extends AsyncTask<Void, Void, Boolean> {
 
     private final String cliente;
@@ -26,8 +25,6 @@ public class ClienteAtualiza extends AsyncTask<Void, Void, Boolean> {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected Boolean doInBackground(Void... voids) {
-
-        String result;
 
         try {
             URL url = new URL("http://minebank-api-service.herokuapp.com/cliente/"+ id);

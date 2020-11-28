@@ -12,7 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 
-//OK
 public class ContaAtualiza extends AsyncTask<Void, Void, String> {
 
     private final String conta;
