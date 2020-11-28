@@ -88,11 +88,11 @@ public class ComprovanteTransferenciaActivity extends Activity {
         String valor = String.valueOf(valorTrs.getText());
 
         String mensagem = String.format("COMPROVANTE DE PAGAMENTO\n" +
-                                        "Pagamento realizado por: %s" +
-                                        "Conta: %s Agência: %s\nValor: %s" +
+                                        "Pagamento realizado por: %s\n" +
+                                        "Conta: %s\nAgência: %s\nValor: %s esmeraldas.\n" +
                                         "Tranferência para: %s\n" +
-                                        "Conta: %s Agência: %s\n" +
-                                        "Comprovado pela equipe MineBank",
+                                        "Conta: %s\nAgência: %s\n" +
+                                        "Comprovado pela equipe MineBank.",
                                         nomeDev, numeroaDev, agenciaDev, valor, nomeCre, numeroCre, agenciaCre);
 
         Intent intent = new Intent(Intent.ACTION_SEND);
