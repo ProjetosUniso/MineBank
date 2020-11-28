@@ -75,7 +75,7 @@
     <string name="transferirvalorbutton">Finalizar transferencia</string>
     <string name="transferenciaconcluida">Transferencia concluida com sucesso!</string>
     <string name="valorrecebidotext">+ R$ 100,00</string>
-    <string name="comprovanteemailbutton">Enviar comprovante no Email</string>
+    <string name="comprovantewhatsbutton">Enviar comprovante via Whatsapp</string>
     <string name="cepinvalido">CEP INVALIDO!</string>
     <string name="numeroinvalido">O NUMERO PRECISA SER PREENCHIDO!</string>
     <string name="CPFcadastrado">CPF JA CADASTRADO NO SISTEMA!</string>

@@ -78,7 +78,7 @@ public class CadastroSenhaActivity extends  Activity {
         contaService.adicionar(conta);
 
         Intent intent = new Intent(this, CadastroConcluidoActivity.class);
-        intent.putExtra("cliente", cliente);
+        intent.putExtra("conta", conta);
         startActivity((intent));
     }
 

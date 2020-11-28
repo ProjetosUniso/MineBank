@@ -61,7 +61,7 @@
         android:layout_marginBottom="24dp"
         android:scaleType="centerCrop"
         android:src="@drawable/stonebg"
-        app:layout_constraintBottom_toTopOf="@+id/voltarButton"
+        app:layout_constraintBottom_toTopOf="@+id/comprovanteButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTRANSFERENCIACONCLUIDA" />
@@ -163,6 +163,21 @@
 
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/comprovanteButton"
+        android:layout_width="328dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/minecraft"
+        android:text="@string/comprovantewhatsbutton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/voltarButton"
+        app:layout_constraintEnd_toEndOf="@+id/voltarButton"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/voltarButton" />
 
     <Button
         android:id="@+id/voltarButton"

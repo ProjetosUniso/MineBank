@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.projetosuniso.digdin.model.Cliente;
+import com.projetosuniso.digdin.model.Conta;
 import com.projetosuniso.digdin.utils.Email.JavaEmailService;
 import com.projetosuniso.digdin.utils.Email.JavaMailAPI;
 
 public class CadastroConcluidoActivity extends Activity {
 
-    private final Cliente EXTRA_CLIENTE = new Cliente();
+    private final Conta conta = new Conta();
 
     JavaEmailService javaEmail = new JavaEmailService();
 
@@ -24,7 +25,7 @@ public class CadastroConcluidoActivity extends Activity {
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
-        Cliente cliente = (Cliente) getIntent().getSerializableExtra("cliente");
+        Conta conta = (Conta) getIntent().getSerializableExtra("conta");
 
         Button voltarButton = findViewById(R.id.voltarButton);
         voltarButton.setOnClickListener(new View.OnClickListener() {
@@ -35,11 +36,15 @@ public class CadastroConcluidoActivity extends Activity {
             }
         });
 
-        if (cliente != null) {
-            String email = cliente.getEmail();
+        if (conta != null) {
+            String email = conta.getCliente().getEmail();
             String subject = "Bem vindo, ao MineBank!";
             // Criar uma menssagem para enviar no email
-            String mensagem = "Leonardo \nAgencia: 1651 \nConta: 123123312";
+            String mensagem = "Olá" + conta.getCliente().getNome() + "! Você acaba de concluir seu cadastro no Minebank, o maior banco de esmeraldas do MUNDO!\nConfira os dados da sua conta abaixo:" +
+                    "\n\n=-=-=-=-=-=-=-=-=-=-=-=\n" +
+                    "Nome:" + conta.getCliente().getNome() + " " + conta.getCliente().getSobrenome() + "\nAgencia:" + conta.getAgencia() + "\nConta:" + conta.getNumero() +
+                    "\n=-=-=-=-=-=-=-=-=-=-=-=" +
+                    "\n\n Agradecemos a preferência!\n\nAssinado: Equipe Minebank.";
 
             javaEmail.EnviarEmailCadastro(this, email, subject, mensagem);
         }
