@@ -12,8 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.service.ContaService;
 
 public class PagamentosActivity extends Activity {
+
+    private final ContaService contaService = new ContaService();
+    private Conta conta = new Conta();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,8 @@ public class PagamentosActivity extends Activity {
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
         final EditText editTextNumPagamento = findViewById(R.id.editTextNUMPAGAMENTO);
+
+        final TextView textViewSaldo = findViewById(R.id.saldo);
 
         final LinearLayout pagamentoInfo = findViewById(R.id.pagamentoInfo);
 
@@ -34,6 +43,8 @@ public class PagamentosActivity extends Activity {
                 openMenu();
             }
         });
+
+        textViewSaldo.setText(String.valueOf( conta.getSaldo() ));
 
         editTextNumPagamento.addTextChangedListener(new TextWatcher() {
             @Override
