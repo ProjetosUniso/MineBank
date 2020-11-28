@@ -110,9 +110,9 @@ public class SaqueActivity extends Activity {
         movimentacao.setDataInclusao(inserirData());
 
         if (tipo == 1){
-            movimentacao.setDescricao("saque");
+            movimentacao.setDescricao("Saque");
         }else if ( tipo == 2 ){
-            movimentacao.setDescricao("resgate - poupanca");
+            movimentacao.setDescricao("Resgate - Poupanca");
         }
 
         String confirm = serHtm.adicionar(movimentacao);
@@ -130,8 +130,8 @@ public class SaqueActivity extends Activity {
                 int novaPoupanca = (int) ( conta.getPoupanca() - movimentacao.getValor() );
                 int novoSaldo = (int) ( conta.getPoupanca() + movimentacao.getValor() );
 
-                contaService.atualizarSaldo(conta.getId(), novaPoupanca);
-                contaService.atualizaPoupanca(conta.getId(), novoSaldo);
+                contaService.atualizaPoupanca(conta.getId(), novaPoupanca);
+                contaService.atualizarSaldo(conta.getId(), novoSaldo);
 
                 openPoupanca();
             }

@@ -109,9 +109,9 @@ public class DepositoActivity extends Activity {
         movimentacao.setDataInclusao(inserirData());
 
         if (tipo == 1){
-            movimentacao.setDescricao("deposito - conta corrente");
+            movimentacao.setDescricao("Deposito - Conta Corrente");
         } else if (tipo == 2){
-            movimentacao.setDescricao("deposito - poupanca");
+            movimentacao.setDescricao("Deposito - Poupanca");
         }
 
         String confirm = serHtm.adicionar(movimentacao);

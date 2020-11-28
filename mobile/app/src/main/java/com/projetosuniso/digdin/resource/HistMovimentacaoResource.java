@@ -96,9 +96,12 @@ public class HistMovimentacaoResource {
                 resul = adiciona.execute().get();
                 break;
             case "deposito - poupanca":
-                resul = adiciona.execute().get();
+                if (conta.getSaldo() >= movimentacao.getValor()){
+                    resul = adiciona.execute().get();
+                }else {
+                    resul = "Valor de deposito exede o saldo";
+                }
                 break;
-
             default:
                 resul = "erro ao selecionar o descrição do movimento";
         }
