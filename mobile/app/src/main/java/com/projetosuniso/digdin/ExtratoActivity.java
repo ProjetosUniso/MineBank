@@ -31,7 +31,7 @@ public class ExtratoActivity extends Activity {
 
         Conta conta = contaService.getCPF(LoginActivity.cpf);
 
-        listHistorico = histMovimentacaoService.getID(conta.getId());
+        listHistorico = histMovimentacaoService.getID( conta.getId() );
 
         Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -42,10 +42,10 @@ public class ExtratoActivity extends Activity {
             }
         });
 
-        if (listHistorico != null){
+        if ( listHistorico != null ){
             loadExtrato();
         }else{
-            Toast.makeText(this, "Você ainda não efetuou nenhuma trasnferencia", Toast.LENGTH_LONG).show();
+            Toast.makeText(ExtratoActivity.this, "Você ainda não efetuou nenhuma trasnferencia", Toast.LENGTH_LONG).show();
         }
     }
 

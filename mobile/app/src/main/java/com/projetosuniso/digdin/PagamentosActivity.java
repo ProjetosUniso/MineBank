@@ -1,5 +1,6 @@
 package com.projetosuniso.digdin;
 
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -11,24 +12,32 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.projetosuniso.digdin.model.Boleto;
 import com.projetosuniso.digdin.model.Conta;
+import com.projetosuniso.digdin.model.HistMovimentacao;
+import com.projetosuniso.digdin.model.TipoMovimentacao;
 import com.projetosuniso.digdin.service.ContaService;
+import com.projetosuniso.digdin.service.HistMovimentacaoService;
+import com.projetosuniso.digdin.service.TipoMovimentacaoService;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class PagamentosActivity extends Activity {
 
     private final ContaService contaService = new ContaService();
+    private final HistMovimentacaoService serHtm = new HistMovimentacaoService();
+    private final TipoMovimentacaoService serTpm = new TipoMovimentacaoService();
     private Conta conta = new Conta();
+    private String valor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagamentos);
+
+        conta = contaService.getCPF(LoginActivity.cpf);
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
@@ -68,7 +77,7 @@ public class PagamentosActivity extends Activity {
                     else {
                         Boleto boleto = Boleto.boletos[id];
 
-                        String valor = boleto.getValor().toString();
+                        valor = boleto.getValor().toString();
                         textViewValor.setText(valor);
                         textViewDescricao.setText(boleto.getDescricao());
                         pagamentoInfo.setVisibility(View.VISIBLE);
@@ -104,6 +113,15 @@ public class PagamentosActivity extends Activity {
 
             }
         });
+        Button pagarButton = findViewById(R.id.pagarButton);
+        pagarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickButton.start();
+                movimentacao();
+                openMenu();
+            }
+        });
     }
 
     public void openMenu() {
@@ -118,6 +136,35 @@ public class PagamentosActivity extends Activity {
             case 400289: return 2;
             case 847566: return 3;
             default: return 9;
+        }
+    }
+
+    private String inserirData(){
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+        return dateFormat.format(date);
+    }
+
+    private void movimentacao (){
+        HistMovimentacao movimentacao = new HistMovimentacao();
+        TipoMovimentacao tpMoviment = serTpm.getChave("PAGBOLETO");
+
+        movimentacao.setValor(Double.parseDouble(valor));
+        movimentacao.setDescricao("Pagamento - Boleto");
+        movimentacao.setMovimentacao(tpMoviment);
+        movimentacao.setConta(conta);
+        movimentacao.setIdContaTransferencia(conta.getId());
+        movimentacao.setDataInclusao(inserirData());
+
+        String confirm = serHtm.adicionar(movimentacao);
+
+        if (confirm.equals("exito")){
+            Toast.makeText(this, "Pagamento realizado com sucesso", Toast.LENGTH_LONG);
+            int saldo = (int) ( conta.getSaldo() - Integer.parseInt(valor) );
+
+            contaService.atualizarSaldo(conta.getId(), saldo);
+        }else {
+            Toast.makeText(this, "Houve erro ao Realizar o pagamento: " + confirm, Toast.LENGTH_SHORT);
         }
     }
 }

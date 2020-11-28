@@ -101,6 +101,13 @@ public class HistMovimentacaoResource {
                     resul = "Valor de deposito exede o saldo";
                 }
                 break;
+            case "Pagamento - Boleto":
+                if (conta.getSaldo() >= movimentacao.getValor()){
+                    resul = adiciona.execute().get();
+                }else {
+                    resul = "Valor do Pagamento exede o saldo";
+                }
+                break;
             case "Recebeu Transferencia":
                 resul = adiciona.execute().get();
                 break;
