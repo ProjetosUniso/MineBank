@@ -26,6 +26,7 @@
         android:layout_marginBottom="500dp"
         android:adjustViewBounds="true"
         android:src="@drawable/logo"
+        android:contentDescription="@string/logoDescricao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +89,7 @@
         android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textApenasNum" />
@@ -121,6 +123,7 @@
         android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCONFIRMSENHA" />

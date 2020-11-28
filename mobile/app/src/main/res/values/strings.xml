@@ -101,4 +101,10 @@
     <string name="wrongDescricao">Simbolo de input invalido</string>
     <string name="emailHint">Coloque seu email</string>
     <string name="bgCadastroDescricao">Background das telas de cadastro</string>
+    <string name="logininvalido">Login ou senha invalidos!</string>
+    <string name="hintVazio"> </string>
+    <string name="simbolotransacao">Simbolo de transação</string>
+    <string name="esmeraldadescricao">Esmeralda</string>
+    <string name="placa">Placa com informações da usuário.</string>
+    <string name="baudescricao">Imagem de um baú aberto</string>
 </resources>

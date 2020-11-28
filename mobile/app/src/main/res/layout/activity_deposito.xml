@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="@drawable/dirtbg"
+        android:contentDescription="@string/bgCadastroDescricao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/logo"
+        android:contentDescription="@string/logoDescricao"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background" />
@@ -72,6 +74,7 @@
         android:layout_marginBottom="32dp"
         android:scaleType="centerCrop"
         android:src="@drawable/stonebg"
+        android:contentDescription="@string/bgCadastroDescricao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,6 +126,7 @@
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/emerald"
+        android:contentDescription="@string/esmeraldadescricao"
         app:layout_constraintBottom_toBottomOf="@+id/editTextVALORDEPOSITO"
         app:layout_constraintEnd_toStartOf="@+id/editTextVALORDEPOSITO"
         app:layout_constraintTop_toTopOf="@+id/editTextVALORDEPOSITO" />
@@ -143,6 +147,7 @@
         android:paddingRight="10dp"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
+        android:hint="@string/hintVazio"
         app:layout_constraintBottom_toTopOf="@+id/depositarButton"
         app:layout_constraintEnd_toEndOf="@+id/valordepositado"
         app:layout_constraintStart_toStartOf="@+id/valordepositado"
@@ -153,6 +158,7 @@
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/emerald"
+        android:contentDescription="@string/esmeraldadescricao"
         app:layout_constraintBottom_toBottomOf="@+id/editTextVALORDEPOSITO"
         app:layout_constraintStart_toEndOf="@+id/editTextVALORDEPOSITO"
         app:layout_constraintTop_toTopOf="@+id/editTextVALORDEPOSITO" />

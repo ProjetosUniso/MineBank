@@ -81,7 +81,7 @@
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:hint="@string/cpfHint"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCPF" />
@@ -115,7 +115,7 @@
         android:maxLength="6"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:hint="@string/senhaHint"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSENHA" />
@@ -150,5 +150,20 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entrarButton" />
+
+    <TextView
+        android:id="@+id/textLoginInvalido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="@string/logininvalido"
+        android:textColor="#f41717"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/cadastrarButton"
+        app:layout_constraintStart_toStartOf="@id/cadastrarButton"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrarButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

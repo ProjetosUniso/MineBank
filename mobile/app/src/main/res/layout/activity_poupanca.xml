@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="@drawable/dirtbg"
-
+        android:contentDescription="@string/bgCadastroDescricao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,6 +57,7 @@
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/emerald"
+        android:contentDescription="@string/esmeraldadescricao"
         app:layout_constraintBottom_toBottomOf="@+id/saldo"
         app:layout_constraintEnd_toStartOf="@+id/saldo"
         app:layout_constraintTop_toTopOf="@+id/saldo" />
@@ -79,6 +80,7 @@
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/emerald"
+        android:contentDescription="@string/esmeraldadescricao"
         app:layout_constraintBottom_toBottomOf="@+id/saldo"
         app:layout_constraintStart_toEndOf="@+id/saldo"
         app:layout_constraintTop_toTopOf="@+id/saldo" />
@@ -119,6 +121,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/chest"
+        android:contentDescription="@string/baudescricao"
         app:layout_constraintBottom_toTopOf="@+id/depositoButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

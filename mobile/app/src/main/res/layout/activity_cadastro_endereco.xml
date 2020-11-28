@@ -74,6 +74,7 @@
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCEP" />
@@ -107,9 +108,11 @@
         android:longClickable="false"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textENDERECO" />
+        app:layout_constraintTop_toBottomOf="@+id/textENDERECO"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/textNUMERO"
@@ -139,6 +142,7 @@
         android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNUMERO" />
@@ -173,6 +177,7 @@
         android:longClickable="false"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/editTextNUMERO"
@@ -207,6 +212,7 @@
         android:longClickable="false"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:hint="@string/hintVazio"
         app:layout_constraintEnd_toEndOf="@id/editTextNUMERO"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/editTextCIDADE"
