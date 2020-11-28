@@ -53,10 +53,9 @@ public class HistMovimentacaoBuscaPorID extends AsyncTask<Void, Void, JSONArray>
                 }
                 result = sb.toString();
 
+                connection.disconnect();
+                return new JSONArray(result);
             }
-
-            connection.disconnect();
-            return new JSONArray(result);
 
         } catch (ProtocolException e) {
             e.printStackTrace();

@@ -101,6 +101,9 @@ public class HistMovimentacaoResource {
                     resul = "Valor de deposito exede o saldo";
                 }
                 break;
+            case "Recebeu Transferencia":
+                resul = adiciona.execute().get();
+                break;
             default:
                 resul = "erro de Descrição";
         }

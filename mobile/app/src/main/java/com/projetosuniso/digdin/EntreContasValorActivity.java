@@ -97,8 +97,13 @@ public class EntreContasValorActivity extends Activity {
     }
 
     private void realizarTransferencia(){
-        String confirm = serHtm.adicionar(movimentacaoCre());
-        String confirm2 = serHtm.adicionar(movimentacaoDev());
+
+        HistMovimentacao hisCredor = movimentacaoCre();
+        HistMovimentacao hisDevedor = movimentacaoDev();
+
+        String confirm = serHtm.adicionar(hisCredor);
+        String confirm2 = serHtm.adicionar(hisDevedor);
+
 
         if (confirm.equals("exito") && confirm2.equals("exito")){
             Toast.makeText(this, "Transferencia Realizado com sucesso: " + confirm, Toast.LENGTH_LONG).show();
@@ -116,10 +121,10 @@ public class EntreContasValorActivity extends Activity {
 
     private HistMovimentacao movimentacaoCre (){
         HistMovimentacao movimentacao = new HistMovimentacao();
-        TipoMovimentacao tpMoviment = serTpm.getChave("REALTRANSFE");
+        TipoMovimentacao tpMoviment = serTpm.getChave("RECETRANSFE");
 
         movimentacao.setValor(Double.parseDouble(valor));
-        movimentacao.setDescricao("Transferencia");
+        movimentacao.setDescricao("Recebeu Transferencia");
         movimentacao.setMovimentacao(tpMoviment);
         movimentacao.setConta(contaCre);
         movimentacao.setIdContaTransferencia(contaDev.getId());
@@ -130,7 +135,7 @@ public class EntreContasValorActivity extends Activity {
 
     private HistMovimentacao movimentacaoDev(){
         HistMovimentacao movimentacao = new HistMovimentacao();
-        TipoMovimentacao tpMoviment = serTpm.getChave("RECETRANSFE");
+        TipoMovimentacao tpMoviment = serTpm.getChave("REALTRANSFE");
 
         movimentacao.setValor(Double.parseDouble(valor));
         movimentacao.setDescricao("Transferencia");

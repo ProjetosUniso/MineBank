@@ -40,7 +40,7 @@ public class CadastroConcluidoActivity extends Activity {
             String email = conta.getCliente().getEmail();
             String subject = "Bem vindo, ao MineBank!";
             // Criar uma menssagem para enviar no email
-            String mensagem = "Olá" + conta.getCliente().getNome() + "! Você acaba de concluir seu cadastro no Minebank, o maior banco de esmeraldas do MUNDO!\nConfira os dados da sua conta abaixo:" +
+            String mensagem = "Olá " + conta.getCliente().getNome() + "! Você acaba de concluir seu cadastro no Minebank, o maior banco de esmeraldas do MUNDO!\nConfira os dados da sua conta abaixo:" +
                     "\n\n=-=-=-=-=-=-=-=-=-=-=-=\n" +
                     "Nome:" + conta.getCliente().getNome() + " " + conta.getCliente().getSobrenome() + "\nAgencia:" + conta.getAgencia() + "\nConta:" + conta.getNumero() +
                     "\n=-=-=-=-=-=-=-=-=-=-=-=" +
