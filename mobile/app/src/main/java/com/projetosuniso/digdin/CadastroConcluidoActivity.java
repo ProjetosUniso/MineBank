@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.projetosuniso.digdin.utils.JavaMailAPI;
+
 public class CadastroConcluidoActivity extends Activity {
 
     @Override
@@ -26,6 +28,10 @@ public class CadastroConcluidoActivity extends Activity {
                 openLogin();
             }
         });
+
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this, "leo.rbg26@gmail.com","Bem vindo, ao MineBank!", "");
+
+        javaMailAPI.execute();
     }
 
     public void openLogin() {
