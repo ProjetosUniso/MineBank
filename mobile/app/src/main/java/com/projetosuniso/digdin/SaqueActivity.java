@@ -128,7 +128,7 @@ public class SaqueActivity extends Activity {
             }
             else if (tipo == 2) {
                 int novaPoupanca = (int) ( conta.getPoupanca() - movimentacao.getValor() );
-                int novoSaldo = (int) ( conta.getPoupanca() + movimentacao.getValor() );
+                int novoSaldo = (int) ( conta.getSaldo() + movimentacao.getValor() );
 
                 contaService.atualizaPoupanca(conta.getId(), novaPoupanca);
                 contaService.atualizarSaldo(conta.getId(), novoSaldo);

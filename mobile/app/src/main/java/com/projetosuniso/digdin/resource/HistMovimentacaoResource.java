@@ -91,7 +91,6 @@ public class HistMovimentacaoResource {
                     resul = "O valor do resgate excede a poupanca";
                 }
                 break;
-
             case "Deposito - Conta Corrente":
                 resul = adiciona.execute().get();
                 break;
@@ -103,7 +102,7 @@ public class HistMovimentacaoResource {
                 }
                 break;
             default:
-                resul = "erro ao selecionar o descrição do movimento";
+                resul = "erro de Descrição";
         }
 
         return resul;

@@ -32,7 +32,6 @@ public class ExtratoActivity extends Activity {
 
         final MediaPlayer clickButton = MediaPlayer.create(this, R.raw.button_click);
 
-
         Conta conta = contaService.getCPF(LoginActivity.cpf);
 
         listHistorico = histMovimentacaoService.getID(conta.getId());
@@ -57,9 +56,9 @@ public class ExtratoActivity extends Activity {
 
         TableLayout tl = findViewById(R.id.extratoTable);
 
-        for(int i=0; i < listHistorico.size(); i++) {
+        for(int i=listHistorico.size(); i >= 1 ; i--) {
 
-            HistMovimentacao historico = listHistorico.get(i);
+            HistMovimentacao historico = listHistorico.get(i-1);
 
             TableRow tr = new TableRow(this);
 
