@@ -10,7 +10,7 @@ public class Boleto {
             new Boleto("Rodizio de Traveco anao", (long) 100),
             new Boleto("Boneco de acao do Naruto" , (long) 350),
             new Boleto("Puta virtual" , (long) 800),
-            new Boleto("Peruca",  (long) 120)
+            new Boleto("Picareta de Diamante",  (long) 1000)
     };
 
     public Boleto(String descricao, Long valor) {
